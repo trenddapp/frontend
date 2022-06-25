@@ -1,0 +1,21 @@
+name: Continues Delivery
+on:
+  push:
+    branches:
+    - main
+  workflow_dispatch:
+jobs:
+  nextjs:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Deploy
+      uses: akhileshns/heroku-deploy@v3.12.12
+      with:
+        branch: main
+        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+        heroku_app_name: trenddapp-main
+        heroku_email: ${{secrets.HEROKU_EMAIL}}
+        procfile: 'web: npm start'
+        region: eu
