@@ -1,6 +1,7 @@
+import { ThemeProvider } from 'styled-components'
+
 import { GlobalStyle, ResetCss } from '../styles'
 import { light } from '../themes'
-import { ThemeProvider } from 'styled-components'
 
 const App = ({ Component, pageProps }) => {
   return (
