@@ -47,7 +47,7 @@ const HomePage = () => {
       <Head>
         <title>TrendDapp</title>
         <meta name="description" content="Decentralized applications by TrendDapp." />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/main/favicon.ico" />
       </Head>
       <Nav />
       <Section>
@@ -77,20 +77,20 @@ const HomePage = () => {
 
             {/* Right side which includes one image. */}
             <Flex height="326px">
-              <Image src="/cosmic-ray-detector.png" />
+              <Image src="/main/cosmic-ray-detector.png" />
             </Flex>
           </Flex>
 
           {/* Second section which includes one rounding row. */}
           <Flex justifyContent="space-around" marginTop="100px">
-            <img title="Bitcoin" src="/bitcoin.png" height="50px" />
-            <img title="Ethereum" src="/ethereum.png" height="50px" />
-            <img title="Polygon" src="/polygon.png" height="50px" />
-            <img title="Solidity" src="/solidity.png" height="50px" />
-            <img title="Metamask" src="/metamask.png" height="50px" />
-            <img title="Filecoin" src="/filecoin.png" height="50px" />
-            <img title="Golang" src="/golang.png" height="50px" />
-            <img title="Nextjs" src="/nextjs.png" height="50px" />
+            <img title="Bitcoin" src="/main/bitcoin.png" height="50px" />
+            <img title="Ethereum" src="/main/ethereum.png" height="50px" />
+            <img title="Polygon" src="/main/polygon.png" height="50px" />
+            <img title="Solidity" src="/main/solidity.png" height="50px" />
+            <img title="Metamask" src="/main/metamask.png" height="50px" />
+            <img title="Filecoin" src="/main/filecoin.png" height="50px" />
+            <img title="Golang" src="/main/golang.png" height="50px" />
+            <img title="Nextjs" src="/main/nextjs.png" height="50px" />
           </Flex>
         </Container>
       </Section>
