@@ -3,7 +3,7 @@ const nextConfig = {
   assetPrefix: '/main',
   reactStrictMode: true,
   rewrites() {
-    return [{ source: '/v1/main/_next/:path*', destination: '/_next/:path*' }]
+    return [{ source: '/main/_next/:path*', destination: '/_next/:path*' }]
   },
 }
 
