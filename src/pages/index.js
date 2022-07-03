@@ -1,12 +1,26 @@
 import Head from 'next/head'
 
-import styled, { useTheme } from 'styled-components'
+import styled from 'styled-components'
 
 import { Flex, Text } from '../components/Toolkit'
+import { Nav } from '../components/Nav'
+
+const Button = styled.button`
+  background-color: ${({ theme }) => theme.colors.action};
+  border-radius: ${({ theme }) => theme.radii.small};
+  border: none;
+  color: ${({ theme }) => theme.colors.background};
+  font-family: Avenir;
+  margin-top: 40px;
+  padding: 12px;
+
+  &:hover {
+    cursor: pointer;
+  }
+`
 
 const Container = styled(Flex)`
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
   height: 100vh;
   margin: 0 auto;
   max-width: ${({ theme }) => `${theme.siteWidth}px`};
@@ -18,26 +32,66 @@ const Container = styled(Flex)`
   }
 `
 
+const Image = styled.img`
+  box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.2);
+`
+
 const Section = styled.section`
   background-color: ${({ theme }) => theme.colors.background};
   padding: 0 16px;
 `
 
 const HomePage = () => {
-  const theme = useTheme()
-
   return (
     <>
       <Head>
-        <title>Coming Soon!</title>
-        <meta name="description" content="Decentralized applications by TrendDAPP." />
+        <title>TrendDapp</title>
+        <meta name="description" content="Decentralized applications by TrendDapp." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Nav />
       <Section>
         <Container>
-          <Text color={theme.colors.text} fontSize="52px" fontWeight="500">
-            Coming Soon!
-          </Text>
+          {/* First section which includes two sides in a row. */}
+          <Flex justifyContent="space-evenly" marginTop="100px" width="100%">
+            {/* Left side which includes three sides in a column.  */}
+            <Flex flexDirection="column">
+              <Flex flexDirection="column">
+                <Text fontFamily="Avenir" fontSize="65px" fontWeight="700" lineHeight="65px">
+                  We Know
+                </Text>
+                <Text fontFamily="Avenir" fontSize="65px" fontWeight="700" lineHeight="65px">
+                  Blockchain.
+                </Text>
+              </Flex>
+              <Flex flexDirection="column" marginTop="40px">
+                <Text fontFamily="Avenir" fontSize="20px">
+                  Turn your idea for a decentralized application, smart contract,
+                </Text>
+                <Text fontFamily="Avenir" fontSize="20px">
+                  crypto wallet, or non-fungible token into a real business.
+                </Text>
+              </Flex>
+              <Button>Let's discuss your project</Button>
+            </Flex>
+
+            {/* Right side which includes one image. */}
+            <Flex height="326px">
+              <Image src="/cosmic-ray-detector.png" />
+            </Flex>
+          </Flex>
+
+          {/* Second section which includes one rounding row. */}
+          <Flex justifyContent="space-around" marginTop="100px">
+            <img title="Bitcoin" src="/bitcoin.png" height="50px" />
+            <img title="Ethereum" src="/ethereum.png" height="50px" />
+            <img title="Polygon" src="/polygon.png" height="50px" />
+            <img title="Solidity" src="/solidity.png" height="50px" />
+            <img title="Metamask" src="/metamask.png" height="50px" />
+            <img title="Filecoin" src="/filecoin.png" height="50px" />
+            <img title="Golang" src="/golang.png" height="50px" />
+            <img title="Nextjs" src="/nextjs.png" height="50px" />
+          </Flex>
         </Container>
       </Section>
     </>
