@@ -1,5 +1,5 @@
 .github
 .next
-.out
 node_modules
+out
 README.md
