@@ -2,18 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@api": ["./src/api"],
-      "@api/*": ["./src/api/*"],
-      "@components": ["./src/components"],
-      "@components/*": ["./src/components/*"],
-      "@hooks": ["./src/hooks"],
-      "@hooks/*": ["./src/hooks/*"],
-      "@pages": ["./src/pages"],
-      "@pages/*": ["./src/pages/*"],
-      "@styles": ["./src/styles"],
-      "@styles/*": ["./src/styles/*"],
-      "@themes": ["./src/themes"],
-      "@themes/*": ["./src/themes/*"]
+      "@/*": ["src/*"]
     }
   }
 }
