@@ -1,11 +1,10 @@
-const SolidChevronDown = (props) => {
+const SolidChevronDown = () => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" {...props}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="9" height="6" viewBox="0 0 9 6" fill="none">
       <path
-        fillRule="evenodd"
-        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-        clipRule="evenodd"
-      />
+        d="M1.24875 0.651848L4.5 3.89601L7.75125 0.651848L8.75 1.6506L4.5 5.9006L0.25 1.6506L1.24875 0.651848Z"
+        fill="black"
+      ></path>
     </svg>
   )
 }
