@@ -2,8 +2,8 @@ import Link from 'next/link'
 
 import styled from 'styled-components'
 
-import { Box, Flex } from '@components/Toolkit'
-import { SvgSolidChevronDown } from '@components/Svg'
+import { Box, Flex } from '@/components/toolkit'
+import { SvgSolidChevronDown } from '@/components/svg'
 
 const Border = styled(Box)`
   background-color: rgba(0, 0, 0, 0.1);
