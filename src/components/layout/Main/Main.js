@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { Flex } from '@/components/toolkit'
+import { Flex } from '@/components/Toolkit'
 
 const HeroButton = styled.a`
   background-color: #4e5ee4;
