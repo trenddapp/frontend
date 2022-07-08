@@ -1,4 +1,5 @@
 import Advantages from './Advantages'
+import Blueprint from './Blueprint'
 import Hero from './Hero'
 import TrustedBy from './TrustedBy'
 
@@ -8,6 +9,7 @@ const Main = () => {
       <Hero />
       <Advantages />
       <TrustedBy />
+      <Blueprint />
     </main>
   )
 }
