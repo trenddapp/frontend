@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { Box, Flex } from '@/components/Toolkit'
-import Terminal from './Termianl'
+import Terminal from './Terminal'
 
 const HeroBackground = styled(Box)`
   background-image: url('/main/bg_main_full.svg');
