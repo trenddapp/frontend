@@ -5,6 +5,10 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.colors.background};
     font-family: sans-serif;
   }
+  main{
+    min-height: 90vh;
+  }
+
 `
 
 export default GlobalStyle
