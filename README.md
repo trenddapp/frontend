@@ -2,6 +2,7 @@ This repository holds our frontend code, which includes the home page, all of th
 
 ## Conventions
 Here is a list of conventions used:
+- [Airbnb React/JSX styled guide](https://github.com/airbnb/javascript/tree/master/react)
 - [Conventional commits](https://www.conventionalcommits.org/en/v1.0.0)
 
 ## Contributing
