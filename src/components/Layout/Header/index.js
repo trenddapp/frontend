@@ -39,7 +39,6 @@ const NavItem = styled.li`
   color: #282846;
   cursor: pointer;
   display: flex;
-  font-family: 'Helvetica Neue';
   font-size: 15px;
   font-weight: 500;
   justify-content: center;
@@ -56,7 +55,6 @@ const NavItem = styled.li`
 const NavItemLast = styled.li`
   color: #282846;
   cursor: pointer;
-  font-family: 'Helvetica Neue';
   font-size: 15px;
   font-weight: 500;
   line-height: 45px;

@@ -1,8 +1,8 @@
 import Head from 'next/head'
 
 import Footer from '@/components/Layout/Footer'
-import { Header } from '@/components/Layout/Header'
-import { Main } from '@/components/Layout/Main'
+import Header from '@/components/Layout/Header'
+import Main from '@/components/Layout/Main'
 
 const HomePage = () => {
   return (
