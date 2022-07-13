@@ -14,6 +14,22 @@ const FooterCopyright = styled.span`
   color: #9a9cac;
   font-size: 12px;
   font-weight: 330;
+  letter-spacing: 0.5px;
+`
+
+const FooterEmail = styled.a`
+  border-left: 1px solid rgb(141, 141, 157);
+  color: #9a9cac;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 330;
+  letter-spacing: 0.5px;
+  margin: 0 0 0 7px;
+  padding: 0 0 0 7px;
+
+  &:hover {
+    color: #c7c8d1;
+  }
 `
 
 const FooterLink = styled.li`
@@ -24,6 +40,7 @@ const FooterLink = styled.li`
   line-height: 1.7;
   list-style: none;
   opacity: 0.6;
+  letter-spacing: 0.5px;
   padding: 0 0 11px 0;
 
   &:hover {
@@ -58,7 +75,12 @@ const Footer = () => {
         <Flex justifyContent="space-between" height="282px" margin="0 auto" maxWidth="1240px">
           <Flex flexDirection="column" justifyContent="space-between">
             <Logo height="37px" isWhite={true} />
-            <FooterCopyright>© TrendDapp 2022</FooterCopyright>
+            <Flex>
+              <FooterCopyright>© TrendDapp 2022</FooterCopyright>
+              <FooterEmail href="mailto:support@trenddapp.com" target="_blank">
+                support@trenddapp.com
+              </FooterEmail>
+            </Flex>
           </Flex>
           <FooterLinkContainer>
             <FooterLinkBox>
