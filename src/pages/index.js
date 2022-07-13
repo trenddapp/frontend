@@ -2,7 +2,7 @@ import Head from 'next/head'
 
 import Footer from '@/components/Layout/Footer'
 import Header from '@/components/Layout/Header'
-import Main from '@/components/Layout/Main'
+import Main from '@/components/View/Home'
 
 const HomePage = () => {
   return (
