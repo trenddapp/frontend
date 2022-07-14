@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import styled from 'styled-components'
+import styled, { useTheme } from 'styled-components'
 
 import { Box, Flex } from '@/components/Toolkit'
 import { Logo } from '@/components/Core/Logo'
@@ -69,10 +69,12 @@ const FooterLinkContainer = styled(Flex)`
 `
 
 const Footer = () => {
+  const theme = useTheme()
+
   return (
     <footer>
       <FooterContainer>
-        <Flex justifyContent="space-between" height="282px" margin="0 auto" maxWidth="1240px">
+        <Flex justifyContent="space-between" height="282px" margin="0 auto" maxWidth={`${theme.siteWidth}px`}>
           <Flex flexDirection="column" justifyContent="space-between">
             <Logo height="37px" isWhite={true} />
             <Flex>

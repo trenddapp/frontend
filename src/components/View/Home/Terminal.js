@@ -54,6 +54,11 @@ const TerminalHeaderTitle = styled(Text)`
   top: 8px;
 `
 
+const TerminalLineNumber = styled(Text)`
+  color: rgb(205, 205, 205);
+  user-select: none;
+`
+
 const Terminal = () => {
   return (
     <TerminalContainer>
@@ -64,7 +69,135 @@ const Terminal = () => {
         <TerminalHeaderTitle>bash</TerminalHeaderTitle>
       </TerminalHeader>
       <TerminalBody>
-        <Text color="white">{'> '} echo "Hello world!"</Text>
+        <Text>
+          <TerminalLineNumber as="span" margin="0 15px 0 9px">
+            1
+          </TerminalLineNumber>
+          <Text as="span" color="rgb(230, 146, 145)">
+            package
+          </Text>{' '}
+          <Text as="span" color="rgb(244, 186, 104)">
+            main
+          </Text>
+        </Text>
+        <TerminalLineNumber as="span" margin="0 15px 0 9px">
+          2
+        </TerminalLineNumber>
+        <Text>
+          <TerminalLineNumber as="span" margin="0 15px 0 9px">
+            3
+          </TerminalLineNumber>
+          <Text as="span" color="rgb(230, 146, 145)">
+            import
+          </Text>{' '}
+          <Text as="span" color="rgb(244, 186, 104)">
+            "fmt"
+          </Text>
+        </Text>
+        <TerminalLineNumber as="span" margin="0 15px 0 9px">
+          4
+        </TerminalLineNumber>
+        <Text>
+          <TerminalLineNumber as="span" margin="0 15px 0 9px">
+            5
+          </TerminalLineNumber>
+          <Text as="span" color="rgb(230, 146, 145)">
+            func
+          </Text>{' '}
+          <Text as="span" color="rgb(213, 184, 250)">
+            DetectCosmicRay
+          </Text>
+          <Text as="span" color="rgb(205, 205, 205)">
+            ( )
+          </Text>
+          <Text as="span" color="rgb(205, 205, 205)">
+            {' {'}
+          </Text>
+        </Text>
+        <Text>
+          <TerminalLineNumber as="span" margin="0 15px 0 9px">
+            6
+          </TerminalLineNumber>
+          &emsp;
+          <Text as="span" color="rgb(230, 146, 145)">
+            for
+          </Text>{' '}
+          <Text as="span" color="rgb(205, 205, 205)">
+            {'{'}
+          </Text>
+        </Text>
+        <Text>
+          <TerminalLineNumber as="span" margin="0 15px 0 9px">
+            7
+          </TerminalLineNumber>
+          &emsp; &emsp;{' '}
+          <Text as="span" color="rgb(230, 146, 145)">
+            if
+          </Text>{' '}
+          <Text as="span" color="rgb(158, 201, 251)">
+            false
+          </Text>
+          <Text as="span" color="rgb(205, 205, 205)">
+            {' {'}
+          </Text>
+        </Text>
+        <Text>
+          <TerminalLineNumber as="span" margin="0 15px 0 9px">
+            8
+          </TerminalLineNumber>
+          &emsp; &emsp; &emsp;
+          <Text as="span" color="rgb(205, 205, 205)">
+            fmt.
+          </Text>
+          <Text as="span" color="rgb(158, 201, 251)">
+            Println
+          </Text>
+          <Text as="span" color="rgb(205, 205, 205)">
+            (
+          </Text>
+          <Text as="span" color="rgb(183, 218, 252)">
+            "Cosmic ray detected!"
+          </Text>
+          <Text as="span" color="rgb(205, 205, 205)">
+            )
+          </Text>
+        </Text>
+        <Text>
+          <TerminalLineNumber as="span" margin="0 15px 0 9px">
+            9
+          </TerminalLineNumber>
+          &emsp; &emsp;
+          <Text as="span" color="rgb(205, 205, 205)">
+            {'}'}
+          </Text>
+        </Text>
+        <Text>
+          <TerminalLineNumber as="span" margin="0 15px 0 0">
+            10
+          </TerminalLineNumber>
+          &emsp;
+          <Text as="span" color="rgb(205, 205, 205)">
+            {'}'}
+          </Text>
+        </Text>
+        <Text>
+          <TerminalLineNumber as="span" margin="0 15px 0 0">
+            11
+          </TerminalLineNumber>
+          <Text as="span" color="rgb(205, 205, 205)">
+            {'}'}
+          </Text>
+        </Text>
+        <Text>
+          <TerminalLineNumber as="span" margin="0 15px 0 0">
+            12
+          </TerminalLineNumber>
+        </Text>
+        <Text>
+          <TerminalLineNumber as="span" margin="0 15px 0 0">
+            13
+          </TerminalLineNumber>
+        </Text>
       </TerminalBody>
     </TerminalContainer>
   )

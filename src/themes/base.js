@@ -27,7 +27,7 @@ const shadows = {
   toast: 'rgba(0, 0, 0, 0.3) 0px 0px 20px 0px',
 }
 
-const siteWidth = 1200
+const siteWidth = 1240
 
 const spacing = [0, 4, 8, 16, 24, 32, 48, 64]
 
