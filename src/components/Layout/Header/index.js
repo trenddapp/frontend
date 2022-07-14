@@ -8,7 +8,7 @@ const Border = styled(Box)`
   background-color: rgba(0, 0, 0, 0.1);
   height: 1px;
   margin: 0 auto;
-  max-width: 1290px;
+  max-width: ${({ theme }) => theme.siteWidth + 50}px;
 `
 
 const HeaderContainer = styled(Flex)`

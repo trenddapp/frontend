@@ -91,12 +91,14 @@ const Hero = () => {
   return (
     <HeroSection>
       <Flex alignItems="center" flexDirection="column" margin="0 auto" maxWidth="730px" padding="164px 35px 0 35px">
-        <HeroHeading>Build Secure Smart Contracts in Solidity</HeroHeading>
+        <HeroHeading>
+          Build Secure Decentralized <br /> Applications with TrendDapp
+        </HeroHeading>
         <HeroDescription>
-          OpenZeppelin Contracts helps you minimize risk by using battle-tested libraries of smart contracts for
-          Ethereum and other blockchains. It includes the most used implementations of ERC standards.
+          TrendDapp helps you to turn your idea for a decentralized application, smart contract, crypto wallet, or
+          non-fungible token into a real business. It includes backend, blockchain, and frontend.
         </HeroDescription>
-        <HeroButton>GET STARTED</HeroButton>
+        <HeroButton>CONTACT US</HeroButton>
       </Flex>
       <Flex justifyContent="center" height="300px" padding="60px 35px">
         <Terminal />
