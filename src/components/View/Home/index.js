@@ -1,4 +1,4 @@
-import Advantages from './Advantages'
+import Services from './Services'
 import Blueprint from './Blueprint'
 import Community from './Community'
 import Hero from './Hero'
@@ -8,7 +8,7 @@ const Main = () => {
   return (
     <main>
       <Hero />
-      <Advantages />
+      <Services />
       <Technologies />
       <Blueprint />
       <Community />

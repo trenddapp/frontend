@@ -66,7 +66,7 @@ const Terminal = () => {
         <TerminalHeaderIcon as="span" background="#e15954" border="1px solid #e15954" />
         <TerminalHeaderIcon as="span" background="#fdbd2e" border="1px solid #e0a93d" />
         <TerminalHeaderIcon as="span" background="#28ca40" border="1px solid #3ab54b" />
-        <TerminalHeaderTitle>bash</TerminalHeaderTitle>
+        <TerminalHeaderTitle>vim cosmic_ray_detector.go</TerminalHeaderTitle>
       </TerminalHeader>
       <TerminalBody>
         <Text>
