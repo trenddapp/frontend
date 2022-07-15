@@ -1,7 +1,7 @@
-import Services from './Services'
-import Blueprint from './Blueprint'
-import Community from './Community'
+import Communication from './Communication'
+import Development from './Development'
 import Hero from './Hero'
+import Services from './Services'
 import Technologies from './Technologies'
 
 const Main = () => {
@@ -10,8 +10,8 @@ const Main = () => {
       <Hero />
       <Services />
       <Technologies />
-      <Blueprint />
-      <Community />
+      <Development />
+      <Communication />
     </main>
   )
 }
