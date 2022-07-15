@@ -2,14 +2,14 @@ import Advantages from './Advantages'
 import Blueprint from './Blueprint'
 import Community from './Community'
 import Hero from './Hero'
-import TrustedBy from './TrustedBy'
+import Technologies from './Technologies'
 
 const Main = () => {
   return (
     <main>
       <Hero />
       <Advantages />
-      <TrustedBy />
+      <Technologies />
       <Blueprint />
       <Community />
     </main>
