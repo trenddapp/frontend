@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
-import { Box, Flex } from '@/components/Toolkit'
-import Terminal from './Terminal'
+import { Box, Flex } from '@/components/Core/Toolkit'
+
+import { Terminal } from '@/components/Core/Terminal'
 
 const HeroBackground = styled(Box)`
   background-image: url('/main/bg_main_full.svg');
@@ -101,7 +102,7 @@ const Hero = () => {
         <HeroButton>CONTACT US</HeroButton>
       </Flex>
       <Flex justifyContent="center" height="300px" padding="60px 35px">
-        <Terminal />
+        <Terminal title="vim cosmic_ray_detector.go" />
       </Flex>
       <HeroBackground />
       <HeroFinal />

@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 import styled, { useTheme } from 'styled-components'
 
-import { Box, Flex } from '@/components/Toolkit'
+import { Box, Flex } from '@/components/Core/Toolkit'
 import { Logo } from '@/components/Core/Logo'
 
 const FooterContainer = styled(Box)`

@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 import styled from 'styled-components'
 
-import { Box } from '@/components/Toolkit'
+import { Box } from '@/components/Core/Toolkit'
 
 const StyledLogo = styled(Box)`
   cursor: pointer;
