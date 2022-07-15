@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { Box, Flex } from '@/components/Core/Toolkit'
 
-const BlueprintBody = styled(Box)`
+const DevelopmentBody = styled(Box)`
   background-color: rgb(255, 255, 255);
   border-radius: 8px;
   border: 1px solid #ededed;
@@ -12,7 +12,7 @@ const BlueprintBody = styled(Box)`
   padding: 60px;
 `
 
-const BlueprintBodyDescription = styled.p`
+const DevelopmentBodyDescription = styled.p`
   color: #282846;
   font-size: 15px;
   font-weight: 330;
@@ -22,7 +22,7 @@ const BlueprintBodyDescription = styled.p`
   padding: 0 117px 0 0;
 `
 
-const BlueprintBodyLink = styled.a`
+const DevelopmentBodyLink = styled.a`
   background-color: rgba(0, 0, 0, 0);
   border: solid 1px #4351c5;
   border-radius: 6px;
@@ -44,7 +44,7 @@ const BlueprintBodyLink = styled.a`
   }
 `
 
-const BlueprintBodyHeading = styled.h3`
+const DevelopmentBodyHeading = styled.h3`
   color: #282846;
   font-size: 28px;
   font-weight: 700;
@@ -53,7 +53,12 @@ const BlueprintBodyHeading = styled.h3`
   opacity: 0.9;
 `
 
-const BlueprintHeading = styled.h2`
+const DevelopmentContainer = styled.section`
+  background-color: rgb(242, 244, 247);
+  padding: 80px 95px;
+`
+
+const DevelopmentHeading = styled.h2`
   color: #3c3c57;
   font-size: 35px;
   font-weight: 700;
@@ -63,31 +68,27 @@ const BlueprintHeading = styled.h2`
   text-align: center;
 `
 
-const BlueprintSection = styled.section`
-  background-color: rgb(242, 244, 247);
-  padding: 80px 95px;
-`
-
-const Blueprint = () => {
+const Development = () => {
   return (
-    <BlueprintSection>
-      <BlueprintHeading>
-        Your blueprint for <br /> decentralized systems
-      </BlueprintHeading>
-      <BlueprintBody>
-        <Box>
-          <BlueprintBodyHeading>Automate your workflow</BlueprintBodyHeading>
-          <BlueprintBodyDescription>
-            Automate your Ethereum operations using OpenZeppelin Defender to deliver high-quality products faster with{' '}
-            <br />
-            lower risk to users.
-          </BlueprintBodyDescription>
-          <BlueprintBodyLink>LEARN MORE</BlueprintBodyLink>
-        </Box>
-        <Flex></Flex>
-      </BlueprintBody>
-    </BlueprintSection>
+    <section>
+      <DevelopmentContainer>
+        <DevelopmentHeading>
+          Our development <br /> approach and methodology
+        </DevelopmentHeading>
+        <DevelopmentBody>
+          <Box>
+            <DevelopmentBodyHeading>Automate your workflow</DevelopmentBodyHeading>
+            <DevelopmentBodyDescription>
+              Our specialists are more concerned about delivering a usable product, than focusing only on technical
+              aspects. We will take a more active approach in understanding of your business challenges and industry.
+            </DevelopmentBodyDescription>
+            <DevelopmentBodyLink>LEARN MORE</DevelopmentBodyLink>
+          </Box>
+          <Flex></Flex>
+        </DevelopmentBody>
+      </DevelopmentContainer>
+    </section>
   )
 }
 
-export default Blueprint
+export default Development
