@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { Box, Flex } from '@/components/Toolkit'
+import { Box, Flex } from '@/components/Core/Toolkit'
 import { Logo } from '@/components/Core/Logo'
 import { NavContainer, NavItem } from '@/components/Core/Nav'
 
