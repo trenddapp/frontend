@@ -1,6 +1,4 @@
 import { createGlobalStyle } from 'styled-components'
-import { zIndices } from '@/themes/base'
-import { lightColors } from '@/themes/color'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -14,8 +12,8 @@ const GlobalStyle = createGlobalStyle`
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: ${zIndices.header};
-    background-color: ${lightColors.background};
+    z-index: ${({ theme }) => theme.zIndices.header};
+    background-color: ${({ theme }) => theme.colors.background};
   }
 `
 

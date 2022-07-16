@@ -19,15 +19,40 @@ const TechnologiesHeading = styled.h3`
 const TechnologyLogo = styled(Flex)`
   align-items: center;
   justify-content: center;
-  margin: 0 0 15px 0;
-  width: calc(100% / 4);
+  margin: 0 0 30px 0;
+  width: 100%;
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    margin: 0 0 15px 0;
+    width: 25%;
+  }
 `
 
 const TechnologyLogoBox = styled(Flex)`
-  align-items: space-between;
+  align-items: center;
   flex-direction: column;
-  margin: 0 auto;
+  justify-content: center;
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+`
+
+const TechnologyLogoContainer = styled(Flex)`
+  align-items: space-between;
+  flex-direction: row;
+  justify-content: space-evenly;
   max-width: 1000px;
+  padding: 0 35px;
+  width: 100%;
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    align-items: space-between;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 0;
+  }
 `
 
 const Technologies = () => {
@@ -35,8 +60,8 @@ const Technologies = () => {
     <section>
       <TechnologiesContainer>
         <TechnologiesHeading>TECHNOLOGIES WE USE FOR BUILDING DECENTRALIZED APPLICATIONS</TechnologiesHeading>
-        <TechnologyLogoBox>
-          <Flex>
+        <TechnologyLogoContainer>
+          <TechnologyLogoBox>
             <TechnologyLogo>
               <img height="30px" title="Ethereum" src="/main/ethereum.png" />
             </TechnologyLogo>
@@ -49,8 +74,8 @@ const Technologies = () => {
             <TechnologyLogo>
               <img width="80px" title="Solidity" src="/main/solidity.png" />
             </TechnologyLogo>
-          </Flex>
-          <Flex>
+          </TechnologyLogoBox>
+          <TechnologyLogoBox>
             <TechnologyLogo>
               <img height="40px" title="Metamask" src="/main/metamask.png" />
             </TechnologyLogo>
@@ -63,8 +88,8 @@ const Technologies = () => {
             <TechnologyLogo>
               <img height="30px" title="Python" src="/main/python.png" />
             </TechnologyLogo>
-          </Flex>
-        </TechnologyLogoBox>
+          </TechnologyLogoBox>
+        </TechnologyLogoContainer>
       </TechnologiesContainer>
     </section>
   )

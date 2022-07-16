@@ -33,10 +33,10 @@ const spacing = [0, 4, 8, 16, 24, 32, 48, 64]
 
 const zIndices = {
   toast: 1000,
-  header : 100
+  header: 100,
 }
 
-export {
+export default {
   breakpoints,
   mediaQueries,
   radii,
