@@ -3,6 +3,7 @@ import Link from 'next/link'
 import styled from 'styled-components'
 
 import { SvgSolidChevronDown } from '@/components/Svg'
+import { forwardRef } from 'react'
 
 const StyledNavIcon = styled.i`
   margin: -4px 0 0 12px;
@@ -29,10 +30,10 @@ const StyledNavItem = styled.li`
   }
 `
 
-const NavItem = ({ children, link }) => {
+const NavItem = forwardRef(({ children, link , ...rest }, ref) => {
   if (link != '') {
     return (
-      <StyledNavItem>
+      <StyledNavItem ref={ref} {...rest}  >
         <Link href={link}>
           <a>{children}</a>
         </Link>
@@ -41,13 +42,13 @@ const NavItem = ({ children, link }) => {
   }
 
   return (
-    <StyledNavItem>
+    <StyledNavItem ref={ref} {...rest}>
       {children}
       <StyledNavIcon>
         <SvgSolidChevronDown />
       </StyledNavIcon>
     </StyledNavItem>
   )
-}
+})
 
 export default NavItem

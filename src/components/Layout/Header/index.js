@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { Box, Flex } from '@/components/Core/Toolkit'
 import { Logo } from '@/components/Core/Logo'
-import { NavContainer, NavItem } from '@/components/Core/Nav'
+import { NavContainer, NavItem, NavItemWithMenu } from '@/components/Core/Nav'
 
 const Border = styled(Box)`
   background-color: rgba(0, 0, 0, 0.1);
@@ -19,16 +19,22 @@ const HeaderContainer = styled(Flex)`
   padding: 15px 69px;
 `
 
+const PRODUCTS = [
+  { link: '/', text: 'Docs' },
+  { link: '/', text: 'Community Forum' },
+  { link: '/', text: 'Ethernaut' },
+]
+
 const Header = () => {
   return (
     <header>
       <HeaderContainer>
         <Logo />
         <NavContainer>
-          <NavItem link="">Products</NavItem>
+          <NavItemWithMenu menuItems={PRODUCTS}>Products</NavItemWithMenu>
           <NavItem link="/company">Company</NavItem>
-          <NavItem link="">Resources</NavItem>
-          <NavItem link="">Services</NavItem>
+          <NavItemWithMenu menuItems={PRODUCTS}>Resources</NavItemWithMenu>
+          <NavItemWithMenu menuItems={PRODUCTS}>Services</NavItemWithMenu>
           <NavItem link="/news-and-events">News & Events</NavItem>
         </NavContainer>
       </HeaderContainer>
