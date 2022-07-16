@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { shadows } from '@/themes/base'
 
 const MenuContainer = styled.div`
   align-items: center;
@@ -7,7 +6,7 @@ const MenuContainer = styled.div`
   justify-content: center;
   padding: 1rem 2rem;
   background-color: #fff;
-  box-shadow: ${shadows.toast};
+  box-shadow: ${({ theme }) => theme.shadows.toast};
   position: fixed;
   transform: translate(
     ${(props) => (props.x ? props.x : 0)}px,
@@ -16,7 +15,7 @@ const MenuContainer = styled.div`
   inset: 0px auto auto 0px;
   opacity: ${(props) => (props.open ? 1 : 0)};
   transition: 0.2s ease;
-  visibility: ${(props) => (props.open ? "visible" : "hidden")};
+  visibility: ${(props) => (props.open ? 'visible' : 'hidden')};
 `
 
 const Menu = ({ open, element, children, ...rest }) => {

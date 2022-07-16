@@ -1,13 +1,23 @@
 import Link from 'next/link'
 
-import styled, { useTheme } from 'styled-components'
+import styled from 'styled-components'
 
-import { Box, Flex } from '@/components/Core/Toolkit'
+import { Flex } from '@/components/Core/Toolkit'
 import { Logo } from '@/components/Core/Logo'
 
-const FooterContainer = styled(Box)`
-  background-color: #282846;
-  padding: 75px 35px 35px 35px;
+const FooterContainer = styled(Flex)`
+  flex-direction: column;
+  height: 100%;
+  min-height: 282px;
+  position: relative;
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    flex-direction: row;
+    justify-content: space-between;
+    height: 282px;
+    margin: 0 auto;
+    max-width: ${({ theme }) => theme.siteWidth}px;
+  }
 `
 
 const FooterCopyright = styled.span`
@@ -51,8 +61,16 @@ const FooterLink = styled.li`
 const FooterLinkBox = styled(Flex)`
   flex-direction: column;
   margin: 0 0 20px 0;
-  padding: 0 28px;
-  width: 25%;
+  padding: 0 28px 0 0;
+  width: 50%;
+
+  ${({ theme }) => theme.mediaQueries.sm} {
+    width: 25%;
+  }
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    padding: 0 28px;
+  }
 `
 
 const FooterLinkBoxHeading = styled.h3`
@@ -65,95 +83,113 @@ const FooterLinkBoxHeading = styled.h3`
 `
 
 const FooterLinkContainer = styled(Flex)`
-  margin: 0 0 35px 0;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 45px 0 35px 0;
+
+  ${({ theme }) => theme.mediaQueries.sm} {
+    margin: 35px 0 35px 0;
+  }
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    margin: 0 0 35px 0;
+  }
+`
+
+const FooterSection = styled.footer`
+  background-color: #282846;
+  height: 550px;
+  padding: 75px 35px 35px 35px;
+
+  ${({ theme }) => theme.mediaQueries.sm} {
+    height: 485px;
+  }
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    height: auto;
+  }
 `
 
 const Footer = () => {
-  const theme = useTheme()
-
   return (
-    <footer>
+    <FooterSection>
       <FooterContainer>
-        <Flex justifyContent="space-between" height="282px" margin="0 auto" maxWidth={`${theme.siteWidth}px`}>
-          <Flex flexDirection="column" justifyContent="space-between">
-            <Logo height="37px" isWhite={true} />
-            <Flex>
-              <FooterCopyright>© TrendDapp 2022</FooterCopyright>
-              <FooterEmail href="mailto:support@trenddapp.com" target="_blank">
-                support@trenddapp.com
-              </FooterEmail>
-            </Flex>
+        <Logo height="37px" isWhite={true} />
+        <FooterLinkContainer>
+          <FooterLinkBox>
+            <FooterLinkBoxHeading>Products</FooterLinkBoxHeading>
+            <ul>
+              <FooterLink>
+                <Link href="/products/auction">
+                  <a>Auction</a>
+                </Link>
+              </FooterLink>
+              <FooterLink>
+                <Link href="/products/lottery">
+                  <a>Lottery</a>
+                </Link>
+              </FooterLink>
+              <FooterLink>
+                <Link href="/products/marketplace">
+                  <a>Marketplace</a>
+                </Link>
+              </FooterLink>
+            </ul>
+          </FooterLinkBox>
+          <FooterLinkBox>
+            <FooterLinkBoxHeading>Services</FooterLinkBoxHeading>
+            <ul>
+              <FooterLink>
+                <Link href="/services/contact">
+                  <a>Contact</a>
+                </Link>
+              </FooterLink>
+            </ul>
+          </FooterLinkBox>
+          <FooterLinkBox>
+            <FooterLinkBoxHeading>Resources</FooterLinkBoxHeading>
+            <ul>
+              <FooterLink>
+                <Link href="/resources/docs">
+                  <a>Docs</a>
+                </Link>
+              </FooterLink>
+            </ul>
+          </FooterLinkBox>
+          <FooterLinkBox>
+            <FooterLinkBoxHeading>Company</FooterLinkBoxHeading>
+            <ul>
+              <FooterLink>
+                <Link href="/company/about">
+                  <a>About</a>
+                </Link>
+              </FooterLink>
+              <FooterLink>
+                <Link href="/company/careers">
+                  <a>Careers</a>
+                </Link>
+              </FooterLink>
+              <FooterLink>
+                <Link href="https://github.com/trenddapp">
+                  <a target="_blank">GitHub</a>
+                </Link>
+              </FooterLink>
+              <FooterLink>
+                <Link href="/company/logo">
+                  <a>Logo Kit</a>
+                </Link>
+              </FooterLink>
+            </ul>
+          </FooterLinkBox>
+          <Flex bottom="0" left="0" position="absolute">
+            <FooterCopyright>© TrendDapp 2022</FooterCopyright>
+            <FooterEmail href="mailto:support@trenddapp.com" target="_blank">
+              support@trenddapp.com
+            </FooterEmail>
           </Flex>
-          <FooterLinkContainer>
-            <FooterLinkBox>
-              <FooterLinkBoxHeading>Products</FooterLinkBoxHeading>
-              <ul>
-                <FooterLink>
-                  <Link href="/products/auction">
-                    <a>Auction</a>
-                  </Link>
-                </FooterLink>
-                <FooterLink>
-                  <Link href="/products/lottery">
-                    <a>Lottery</a>
-                  </Link>
-                </FooterLink>
-                <FooterLink>
-                  <Link href="/products/marketplace">
-                    <a>Marketplace</a>
-                  </Link>
-                </FooterLink>
-              </ul>
-            </FooterLinkBox>
-            <FooterLinkBox>
-              <FooterLinkBoxHeading>Services</FooterLinkBoxHeading>
-              <ul>
-                <FooterLink>
-                  <Link href="/services/contact">
-                    <a>Contact</a>
-                  </Link>
-                </FooterLink>
-              </ul>
-            </FooterLinkBox>
-            <FooterLinkBox>
-              <FooterLinkBoxHeading>Resources</FooterLinkBoxHeading>
-              <ul>
-                <FooterLink>
-                  <Link href="/resources/docs">
-                    <a>Docs</a>
-                  </Link>
-                </FooterLink>
-              </ul>
-            </FooterLinkBox>
-            <FooterLinkBox>
-              <FooterLinkBoxHeading>Company</FooterLinkBoxHeading>
-              <ul>
-                <FooterLink>
-                  <Link href="/company/about">
-                    <a>About</a>
-                  </Link>
-                </FooterLink>
-                <FooterLink>
-                  <Link href="/company/careers">
-                    <a>Careers</a>
-                  </Link>
-                </FooterLink>
-                <FooterLink>
-                  <Link href="https://github.com/trenddapp">
-                    <a target="_blank">GitHub</a>
-                  </Link>
-                </FooterLink>
-                <FooterLink>
-                  <Link href="/company/logo">
-                    <a>Logo Kit</a>
-                  </Link>
-                </FooterLink>
-              </ul>
-            </FooterLinkBox>
-          </FooterLinkContainer>
-        </Flex>
+        </FooterLinkContainer>
       </FooterContainer>
-    </footer>
+    </FooterSection>
   )
 }
 
