@@ -15,7 +15,7 @@ const MenuContainer = styled.div`
   );
   inset: 0px auto auto 0px;
   opacity: ${(props) => (props.open ? 1 : 0)};
-  transition: opacity 0.2s ease;
+  transition: 0.2s ease;
   visibility: ${(props) => (props.open ? "visible" : "hidden")};
 `
 
