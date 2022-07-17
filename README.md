@@ -1,5 +1,11 @@
 This repository holds our frontend code, which includes the home page, all of the product pages, and etc.
 
+## Installation
+Run the commands below:
+```sh
+$ yarn prepare
+```
+
 ## Conventions
 Here is a list of conventions used:
 - [Airbnb React/JSX styled guide](https://github.com/airbnb/javascript/tree/master/react)
