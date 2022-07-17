@@ -44,7 +44,7 @@ const HeroHeading = styled.h1`
 
 const Main = () => {
   return (
-    <main >
+    <main>
       <section>
         <Flex alignItems="center" flexDirection="column" margin="0 auto" maxWidth="730px" padding="164px 35px 0 35px">
           <HeroHeading>Build Secure Smart Contracts in Solidity</HeroHeading>
