@@ -30,10 +30,10 @@ const StyledNavItem = styled.li`
   }
 `
 
-const NavItem = forwardRef(({ children, link , ...rest }, ref) => {
+const NavItem = forwardRef(({ children, link, ...rest }, ref) => {
   if (link != '') {
     return (
-      <StyledNavItem ref={ref} {...rest}  >
+      <StyledNavItem ref={ref} {...rest}>
         <Link href={link}>
           <a>{children}</a>
         </Link>

@@ -49,9 +49,7 @@ const NavItemWithMenu = ({ children, menuItems = [] }) => {
           {menuItems.map((item, index) => {
             return (
               <MenuItem onClick={handleClickOnItem} key={index}>
-                <Link href={item.link} >
-                  {item.text}
-                </Link>
+                <Link href={item.link}>{item.text}</Link>
               </MenuItem>
             )
           })}
