@@ -24,6 +24,7 @@ const radii = {
 }
 
 const shadows = {
+  menu: 'rgba(0, 0, 0, 0.2) 0px 0px 15px 0px',
   toast: 'rgba(0, 0, 0, 0.3) 0px 0px 20px 0px',
 }
 
