@@ -1,9 +1,9 @@
+import { forwardRef } from 'react'
 import Link from 'next/link'
 
 import styled from 'styled-components'
 
 import { SvgSolidChevronDown } from '@/components/Svg'
-import { forwardRef } from 'react'
 
 const StyledNavIcon = styled.i`
   margin: -4px 0 0 12px;

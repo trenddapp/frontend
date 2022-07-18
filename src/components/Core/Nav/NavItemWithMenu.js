@@ -1,24 +1,23 @@
-import styled from 'styled-components'
-
-import Menu from '@/components/Core/Menu'
 import { useRef, useState } from 'react'
-import { NavItem } from '@/components/Core/Nav'
 import Link from 'next/link'
 
-const CustomNavItem = styled.div`
+import styled from 'styled-components'
+
+import { Box, Flex } from '@/components/Core/Toolkit'
+import { Menu } from '@/components/Core/Menu'
+import { NavItem } from '@/components/Core/Nav'
+
+const StyledNavItemWithMenu = styled(Box)`
   margin: 0 40px 0 0;
 `
-const MenuListContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-`
-const MenuItem = styled.div`
+
+const StyledMenuItem = styled.div`
   margin: 10px 0;
+  transition: color 0.2s ease;
 
   &:hover {
     color: #614dce;
     cursor: pointer;
-    transition: color 0.2s ease;
   }
 `
 
@@ -26,36 +25,28 @@ const NavItemWithMenu = ({ children, menuItems = [] }) => {
   const linkRef = useRef()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const onPointerEnter = () => {
-    setIsMenuOpen(true)
-  }
-
-  const onPointerLeave = () => {
-    setIsMenuOpen(false)
-  }
-
-  const handleClickOnItem = () => {}
-
   return (
-    <CustomNavItem onMouseLeave={onPointerLeave}>
-      <div>
-        <NavItem onMouseEnter={onPointerEnter} ref={linkRef} link="">
+    <StyledNavItemWithMenu onMouseLeave={() => setIsMenuOpen(false)}>
+      <Box>
+        <NavItem onMouseEnter={() => setIsMenuOpen(true)} ref={linkRef} link="">
           {children}
         </NavItem>
-      </div>
+      </Box>
 
       <Menu open={isMenuOpen} element={linkRef.current}>
-        <MenuListContainer>
+        <Flex flexDirection="column">
           {menuItems.map((item, index) => {
             return (
-              <MenuItem onClick={handleClickOnItem} key={index}>
-                <Link href={item.link}>{item.text}</Link>
-              </MenuItem>
+              <StyledMenuItem key={index}>
+                <Link href={item.link}>
+                  <a>{item.text}</a>
+                </Link>
+              </StyledMenuItem>
             )
           })}
-        </MenuListContainer>
+        </Flex>
       </Menu>
-    </CustomNavItem>
+    </StyledNavItemWithMenu>
   )
 }
 
