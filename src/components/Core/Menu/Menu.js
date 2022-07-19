@@ -7,9 +7,8 @@ const StyledMenu = styled.div`
   box-shadow: ${({ theme }) => theme.shadows.menu};
   display: flex;
   inset: 0px auto auto 0px;
-  min-width: 190px;
   opacity: ${(props) => (props.open ? 1 : 0)};
-  padding: 12px 12px;
+  padding: 12px 0px;
   position: fixed;
   transform: translate(
     ${(props) => (props.x ? props.x : 0)}px,
@@ -17,6 +16,8 @@ const StyledMenu = styled.div`
   );
   transition: 0.3s ease;
   visibility: ${(props) => (props.open ? 'visible' : 'hidden')};
+  min-width: 150px;
+  border-radius: 8px;
 `
 
 const Menu = ({ open, element, children, ...rest }) => {
