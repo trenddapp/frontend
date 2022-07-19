@@ -39,6 +39,7 @@ const StyledNavContainer = styled.ul`
     justify-content: center;
     padding: 0;
     position: static;
+    overflow-y: auto;
   }
 `
 
