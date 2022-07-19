@@ -6,17 +6,30 @@ import { Box } from '@/components/Core/Toolkit'
 
 const StyledLogo = styled(Box)`
   cursor: pointer;
+  height: inherit;
 `
 
-const Logo = ({ height = '45px', isWhite = false }) => {
+const StyledImage = styled.img`
+  height: 30px;
+
+  ${({ theme }) => theme.mediaQueries.lg} {
+    height: 40px;
+  }
+
+  ${({ theme }) => theme.mediaQueries.xl} {
+    height: 45px;
+  }
+`
+
+const Logo = ({ isWhite = false }) => {
   return (
     <StyledLogo>
       <Link href="/">
         <a>
           {isWhite ? (
-            <img alt="TrendDapp logo white" height={height} src="/main/logo-white.png" />
+            <StyledImage alt="TrendDapp logo white" src="/main/logo-white.png" />
           ) : (
-            <img alt="TrendDapp logo" height={height} src="/main/logo.png" />
+            <StyledImage alt="TrendDapp logo" src="/main/logo.png" />
           )}
         </a>
       </Link>

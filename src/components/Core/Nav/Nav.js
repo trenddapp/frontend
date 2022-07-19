@@ -8,7 +8,7 @@ import { Hamburger } from '@/components/Core/Hamburger'
 const StyledHamburgerWrapper = styled(Box)`
   display: inline-block;
 
-  ${({ theme }) => theme.mediaQueries.md} {
+  ${({ theme }) => theme.mediaQueries.lg} {
     display: none;
   }
 `
@@ -28,11 +28,11 @@ const StyledNavContainer = styled.ul`
   padding: 0 20px 120px 20px;
   position: fixed;
   right: 0;
-  top: 75px;
+  top: 60px;
   width: 100%;
   display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
 
-  ${({ theme }) => theme.mediaQueries.md} {
+  ${({ theme }) => theme.mediaQueries.lg} {
     align-items: center;
     display: flex;
     height: auto;
