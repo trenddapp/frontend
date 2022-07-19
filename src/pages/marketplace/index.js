@@ -2,21 +2,21 @@ import Head from 'next/head'
 
 import Footer from '@/components/Layout/Footer'
 import Header from '@/components/Layout/Header'
-import Home from '@/components/View/Home'
+import Marketplace from '@/components/View/Marketplace'
 
-const HomePage = () => {
+const MarketplacePage = () => {
   return (
     <>
       <Head>
-        <title>TrendDapp</title>
-        <meta name="description" content="Decentralized applications by TrendDapp." />
+        <title>TrendDapp | Marketplace</title>
+        <meta name="description" content="Decentralized marketplace by TrendDapp." />
         <link rel="icon" href="/main/favicon.png" />
       </Head>
       <Header />
-      <Home />
+      <Marketplace />
       <Footer />
     </>
   )
 }
 
-export default HomePage
+export default MarketplacePage

@@ -1,22 +1,22 @@
 import Head from 'next/head'
 
+import Auction from '@/components/View/Auction'
 import Footer from '@/components/Layout/Footer'
 import Header from '@/components/Layout/Header'
-import Home from '@/components/View/Home'
 
-const HomePage = () => {
+const AuctionPage = () => {
   return (
     <>
       <Head>
-        <title>TrendDapp</title>
-        <meta name="description" content="Decentralized applications by TrendDapp." />
+        <title>TrendDapp | Auction</title>
+        <meta name="description" content="Decentralized auction by TrendDapp." />
         <link rel="icon" href="/main/favicon.png" />
       </Head>
       <Header />
-      <Home />
+      <Auction />
       <Footer />
     </>
   )
 }
 
-export default HomePage
+export default AuctionPage
