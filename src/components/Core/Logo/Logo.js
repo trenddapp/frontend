@@ -6,7 +6,6 @@ import { Box } from '@/components/Core/Toolkit'
 
 const StyledLogo = styled(Box)`
   cursor: pointer;
-  height: inherit;
 `
 
 const StyledImage = styled.img`
