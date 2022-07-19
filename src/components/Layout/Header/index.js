@@ -41,9 +41,10 @@ const HeaderSection = styled.header`
 
 const Header = () => {
   const products = [
-    { link: '/products/auction', text: 'Auction' },
-    { link: '/products/lottery', text: 'Lottery' },
-    { link: '/products/marketplace', text: 'Marketplace' },
+    { link: '/auction', text: 'Auction' },
+    { link: '/lottery', text: 'Lottery' },
+    { link: '/marketplace', text: 'Marketplace' },
+    { link: '/nft', text: 'NFT' },
   ]
 
   const resources = [{ link: '/', text: 'Docs' }]
