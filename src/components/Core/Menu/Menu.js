@@ -3,9 +3,11 @@ import styled from 'styled-components'
 const StyledMenu = styled.div`
   align-items: center;
   background-color: #fff;
+  border-radius: 8px;
   box-shadow: ${({ theme }) => theme.shadows.menu};
   display: flex;
   inset: 0px auto auto 0px;
+  min-width: 150px;
   opacity: ${(props) => (props.open ? 1 : 0)};
   padding: 0.5rem 0;
   position: fixed;
@@ -15,8 +17,6 @@ const StyledMenu = styled.div`
   );
   transition: 0.3s ease;
   visibility: ${(props) => (props.open ? 'visible' : 'hidden')};
-  min-width: 150px;
-  border-radius: 8px;
 `
 
 const Menu = ({ open, element, children, ...rest }) => {
