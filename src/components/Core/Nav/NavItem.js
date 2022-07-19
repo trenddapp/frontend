@@ -11,12 +11,12 @@ const StyledNavItem = styled.li`
   list-style: none;
   padding: 32px 0;
 
-  ${({ theme }) => theme.mediaQueries.md} {
+  ${({ theme }) => theme.mediaQueries.lg} {
     align-items: center;
     border: none;
     cursor: pointer;
     display: flex;
-    font-size: 15px;
+    font-size: 12px;
     line-height: 45px;
     margin: 0 40px 0 0;
     padding: 0;
@@ -29,6 +29,10 @@ const StyledNavItem = styled.li`
     &:last-child {
       margin: 0;
     }
+  }
+
+  ${({ theme }) => theme.mediaQueries.xl} {
+    font-size: 15px;
   }
 `
 

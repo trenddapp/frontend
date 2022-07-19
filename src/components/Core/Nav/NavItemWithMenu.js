@@ -9,18 +9,23 @@ import { SvgSolidChevronDown } from '@/components/Svg'
 
 const StyledMenuItem = styled.div`
   cursor: pointer;
+  font-size: 12px;
   margin: 10px 0;
   transition: color 0.2s ease;
 
   &:hover {
     color: #614dce;
   }
+
+  ${({ theme }) => theme.mediaQueries.xl} {
+    font-size: 15px;
+  }
 `
 
 const StyledMenuWrapper = styled(Box)`
   display: none;
 
-  ${({ theme }) => theme.mediaQueries.md} {
+  ${({ theme }) => theme.mediaQueries.lg} {
     display: block;
   }
 `
@@ -28,8 +33,12 @@ const StyledMenuWrapper = styled(Box)`
 const StyledNavIcon = styled.i`
   display: none;
 
-  ${({ theme }) => theme.mediaQueries.md} {
+  ${({ theme }) => theme.mediaQueries.lg} {
     display: inline-block;
+    margin: -2px 0 0 12px;
+  }
+
+  ${({ theme }) => theme.mediaQueries.xl} {
     margin: -4px 0 0 12px;
   }
 `
@@ -50,12 +59,12 @@ const StyledNavItemWithMenu = styled.li`
   list-style: none;
   padding: 32px 0;
 
-  ${({ theme }) => theme.mediaQueries.md} {
+  ${({ theme }) => theme.mediaQueries.lg} {
     align-items: center;
     border: none;
     color: #282846;
     display: flex;
-    font-size: 15px;
+    font-size: 12px;
     line-height: 45px;
     margin: 0 40px 0 0;
     padding: 0;
@@ -69,12 +78,16 @@ const StyledNavItemWithMenu = styled.li`
       margin: 0;
     }
   }
+
+  ${({ theme }) => theme.mediaQueries.xl} {
+    font-size: 15px;
+  }
 `
 
 const StyledNavList = styled.ul`
   display: block;
 
-  ${({ theme }) => theme.mediaQueries.md} {
+  ${({ theme }) => theme.mediaQueries.lg} {
     display: none;
   }
 `

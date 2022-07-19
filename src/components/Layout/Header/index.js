@@ -7,8 +7,16 @@ import { Nav, NavItem, NavItemWithMenu } from '@/components/Core/Nav'
 const Border = styled(Box)`
   background-color: rgba(0, 0, 0, 0.1);
   height: 1px;
-  margin: 75px auto 0 auto;
+  margin: 60px auto 0 auto;
   max-width: ${({ theme }) => theme.siteWidth + 50}px;
+
+  ${({ theme }) => theme.mediaQueries.lg} {
+    margin: 75px auto 0 auto;
+  }
+
+  ${({ theme }) => theme.mediaQueries.xl} {
+    margin: 75px auto 0 auto;
+  }
 `
 
 const HeaderContainer = styled(Flex)`
@@ -16,7 +24,15 @@ const HeaderContainer = styled(Flex)`
   justify-content: space-between;
   margin: 0 auto;
   max-width: 1240px;
-  padding: 15px 69px;
+  padding: 12px 20px;
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    padding: 15px 96px;
+  }
+
+  ${({ theme }) => theme.mediaQueries.lg} {
+    padding: 15px 69px;
+  }
 `
 
 const HeaderSection = styled.header`
