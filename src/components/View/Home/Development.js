@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { Box, Flex } from '@/components/Core/Toolkit'
+import { Box } from '@/components/Core/Toolkit'
 
 const DevelopmentBody = styled(Box)`
   background-color: rgb(255, 255, 255);
@@ -9,7 +9,13 @@ const DevelopmentBody = styled(Box)`
   box-shadow: 0px 0px 34px rgb(0 0 0 / 10%);
   margin: 0 auto;
   max-width: 1024px;
-  padding: 60px;
+  padding: 30px;
+  text-align: center;
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    padding: 60px;
+    text-align: left;
+  }
 `
 
 const DevelopmentBodyDescription = styled.p`
@@ -19,7 +25,10 @@ const DevelopmentBodyDescription = styled.p`
   line-height: 1.6;
   margin: 0 0 22px 0;
   max-width: 1024px;
-  padding: 0 117px 0 0;
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    padding: 0 117px 0 0;
+  }
 `
 
 const DevelopmentBodyLink = styled.a`
@@ -35,12 +44,17 @@ const DevelopmentBodyLink = styled.a`
   line-height: 1.6;
   padding: 11px 33px;
   transition: background-color 0.4s ease, color 0.4s ease, transform 0.4s ease;
+  width: 100%;
 
   &:hover {
     color: #fff;
     background-color: #4351c5;
     box-shadow: 0 7px 14px rgb(50 50 93 / 10%), 0 3px 6px rgb(0 0 0 / 8%);
     transform: matrix(1, 0, 0, 1, 0, -1);
+  }
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    width: auto;
   }
 `
 
@@ -55,17 +69,25 @@ const DevelopmentBodyHeading = styled.h3`
 
 const DevelopmentContainer = styled.section`
   background-color: rgb(242, 244, 247);
-  padding: 80px 95px;
+  padding: 60px 35px;
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    padding: 80px 95px;
+  }
 `
 
 const DevelopmentHeading = styled.h2`
   color: #3c3c57;
-  font-size: 35px;
+  font-size: 32px;
   font-weight: 700;
   line-height: 1.2;
   margin: 0 auto 30px auto;
   max-width: 500px;
   text-align: center;
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    font-size: 35px;
+  }
 `
 
 const Development = () => {
@@ -76,15 +98,12 @@ const Development = () => {
           Our development <br /> approach and methodology
         </DevelopmentHeading>
         <DevelopmentBody>
-          <Box>
-            <DevelopmentBodyHeading>Automate your workflow</DevelopmentBodyHeading>
-            <DevelopmentBodyDescription>
-              Our specialists are more concerned about delivering a usable product, than focusing only on technical
-              aspects. We will take a more active approach in understanding of your business challenges and industry.
-            </DevelopmentBodyDescription>
-            <DevelopmentBodyLink>LEARN MORE</DevelopmentBodyLink>
-          </Box>
-          <Flex></Flex>
+          <DevelopmentBodyHeading>Automate your workflow</DevelopmentBodyHeading>
+          <DevelopmentBodyDescription>
+            Our specialists are more concerned about delivering a usable product, than focusing only on technical
+            aspects. We will take a more active approach in understanding of your business challenges and industry.
+          </DevelopmentBodyDescription>
+          <DevelopmentBodyLink>LEARN MORE</DevelopmentBodyLink>
         </DevelopmentBody>
       </DevelopmentContainer>
     </section>
