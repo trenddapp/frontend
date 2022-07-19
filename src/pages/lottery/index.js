@@ -1,7 +1,5 @@
 import Head from 'next/head'
 
-import Footer from '@/components/Layout/Footer'
-import Header from '@/components/Layout/Header'
 import Lottery from '@/components/View/Lottery'
 
 const LotteryPage = () => {
@@ -10,11 +8,8 @@ const LotteryPage = () => {
       <Head>
         <title>Lottery | TrendDapp</title>
         <meta name="description" content="Decentralized lottery by TrendDapp." />
-        <link rel="icon" href="/main/favicon.png" />
       </Head>
-      <Header />
       <Lottery />
-      <Footer />
     </>
   )
 }
