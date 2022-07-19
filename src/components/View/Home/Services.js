@@ -2,43 +2,75 @@ import styled from 'styled-components'
 
 import { Box, Flex } from '@/components/Core/Toolkit'
 
-const ServicesCard = styled(Flex)`
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0 0 30px 0;
-  padding: 0 30px;
-  text-align: center;
-  width: calc(100% / 3);
+const LineBreak = styled.br`
+  display: none;
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    display: inline;
+  }
 `
 
-const ServicesCardBox = styled(Flex)``
+const ServicesCard = styled(Flex)`
+  flex-direction: column;
+  margin: 0 0 30px 0;
+  padding: 0;
+  width: 100%;
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    align-items: center;
+    justify-content: center;
+    padding: 0 30px;
+    width: calc(100% / 3);
+  }
+`
+
+const ServicesCardBox = styled(Flex)`
+  flex-direction: column;
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    flex-direction: row;
+  }
+`
 
 const ServicesCardIcon = styled(Flex)``
 
 const ServicesCardHeading = styled.h3`
   color: #3c3c57;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 700;
   line-height: 1.2;
-  padding: 30px 0 0 0;
+  padding: 15px 0 0 0;
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    font-size: 20px;
+    padding: 30px 0 0 0;
+  }
 `
 
 const ServicesCardDescription = styled.p`
   color: #282846;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 330;
   line-height: 1.6;
-  padding: 30px 0;
+  padding: 15px 0;
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    font-size: 15px;
+    padding: 30px 0;
+  }
 `
 
 const ServicesCardFooter = styled.a`
   color: #614dce;
   cursor: pointer;
   display: flex;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   line-height: 1.6;
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    font-size: 12px;
+  }
 `
 
 const ServicesContainer = styled(Box)`
@@ -48,17 +80,26 @@ const ServicesContainer = styled(Box)`
 
 const ServicesHeading = styled.h2`
   color: #3c3c57;
-  font-size: 35px;
+  font-size: 30px;
   font-weight: 700;
   line-height: 1.2;
   margin: 0 auto 60px auto;
   max-width: 900px;
-  text-align: center;
+
+  ${({ theme }) => theme.mediaQueries.lg} {
+    font-size: 35px;
+  }
 `
 
 const ServicesSection = styled.section`
   background-color: #f2f4f7;
-  padding: 80px 95px;
+  padding: 60px 35px;
+  text-align: left;
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    padding: 80px 95px;
+    text-align: center;
+  }
 `
 
 const Services = () => {
@@ -66,8 +107,8 @@ const Services = () => {
     <ServicesSection>
       <ServicesContainer>
         <ServicesHeading>
-          Dedicated software developers for you to create <br /> world-class software from scratch, <br /> or modernize
-          your software.
+          Dedicated software developers for you to create <LineBreak /> world-class software from scratch, <LineBreak />{' '}
+          or modernize your software.
         </ServicesHeading>
         <ServicesCardBox>
           <ServicesCard>
@@ -76,7 +117,7 @@ const Services = () => {
             </ServicesCardIcon>
             <ServicesCardHeading>Smart Contract</ServicesCardHeading>
             <ServicesCardDescription>
-              Smart contract development and auditing <br /> using best practices.
+              Smart contract development and auditing <LineBreak /> using best practices.
             </ServicesCardDescription>
             <ServicesCardFooter>
               LEARN MORE
@@ -91,7 +132,7 @@ const Services = () => {
             </ServicesCardIcon>
             <ServicesCardHeading>Backend</ServicesCardHeading>
             <ServicesCardDescription>
-              Standard microservices with dozens of ready <br />
+              Standard microservices with dozens of ready <LineBreak />
               to be used endpoints.
             </ServicesCardDescription>
             <ServicesCardFooter>

@@ -9,10 +9,17 @@ const TerminalContainer = styled(Flex)`
   border-radius: 20px 20px 5px 5px;
   border: 1px solid #4a4a4a;
   box-shadow: 0 20px 50px 0 rgb(0 0 0 / 20%);
-  height: 365px;
+  height: 400px;
   position: absolute;
-  width: 448px;
+  transform: scale(0.8);
+  width: 400px;
   z-index: 30;
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    height: 365px;
+    transform: none;
+    width: 448px;
+  }
 `
 
 const TerminalBody = styled(Box)`

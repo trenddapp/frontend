@@ -5,20 +5,70 @@ import { Box, Flex } from '@/components/Core/Toolkit'
 import { Terminal } from '@/components/Core/Terminal'
 
 const HeroBackground = styled(Box)`
-  background-image: url('/main/bg_main_full.svg');
+  display: none;
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    background-image: url('/main/bg_main_full.svg');
+    background-position-x: center;
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    bottom: 20%;
+    display: block;
+    height: 30%;
+    left: 0px;
+    padding: 0 0 30% 0;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    z-index: -2;
+  }
+`
+
+const HeroBackgroundLeft = styled(Box)`
+  background-image: url('/main/bg_left.svg');
   background-position-x: center;
   background-position-y: bottom;
   background-repeat: no-repeat;
-  background-size: cover;
-  bottom: 20%;
+  background-size: contain;
   display: block;
-  height: 30%;
-  left: 0px;
-  padding: 0 0 30% 0;
+  height: 100%;
   position: absolute;
-  right: 0;
-  width: 100%;
+  width: 50%;
+  top: 0;
+  left: 0;
   z-index: -2;
+
+  ${({ theme }) => theme.mediaQueries.sm} {
+    width: 35%;
+  }
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    display: none;
+  }
+`
+
+const HeroBackgroundRight = styled(Box)`
+  background-image: url('/main/bg_right.svg');
+  background-position-x: center;
+  background-position-y: bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+  height: 100%;
+  position: absolute;
+  width: 50%;
+  top: 0;
+  right: 0;
+  z-index: -2;
+
+  ${({ theme }) => theme.mediaQueries.sm} {
+    width: 35%;
+  }
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    display: none;
+  }
 `
 
 const HeroButton = styled.a`
@@ -41,37 +91,66 @@ const HeroButton = styled.a`
   }
 `
 
+const HeroContainer = styled(Flex)`
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 730px;
+  padding: 134px 5px 0 5px;
+
+  ${({ theme }) => theme.mediaQueries.sm} {
+    padding: 134px 35px 0 35px;
+  }
+
+  ${({ theme }) => theme.mediaQueries.lg} {
+    padding: 164px 35px 0 35px;
+  }
+`
+
 const HeroDescription = styled.p`
   color: #282846;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 340;
   line-height: 1.6em;
   margin: 0 0 30px 0;
   text-align: center;
+
+  ${({ theme }) => theme.mediaQueries.lg} {
+    font-size: 18px;
+  }
 `
 
 const HeroFinal = styled(Box)`
-  background-image: url('/main/final_tg.svg');
-  background-position-x: center;
-  background-position-y: bottom;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  bottom: 16%;
-  height: 100%;
-  left: 0px;
-  position: absolute;
-  right: 0px;
-  width: 100%;
-  z-index: -1;
+  display: none;
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    background-image: url('/main/final_tg.svg');
+    background-position-x: center;
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    bottom: 16%;
+    display: block;
+    height: 100%;
+    left: 0px;
+    position: absolute;
+    right: 0px;
+    width: 100%;
+    z-index: -1;
+  }
 `
 
 const HeroHeading = styled.h1`
   color: #3c3c57;
-  font-size: 47px;
+  font-size: 40px;
   font-weight: 700;
   line-height: 1.2em;
   margin: 0 0 30px 0;
   text-align: center;
+
+  ${({ theme }) => theme.mediaQueries.lg} {
+    font-size: 47px;
+  }
 `
 
 const HeroSection = styled.section`
@@ -81,30 +160,37 @@ const HeroSection = styled.section`
 
 const HeroSpacer = styled(Box)`
   background-clip: border-box;
-  background-color: rgb(242, 244, 247);
+  background-color: #fff;
   background-origin: padding-box;
   height: 200px;
   position: relative;
-  z-index: 2;
+  z-index: -10;
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    background-color: rgb(242, 244, 247);
+  }
 `
 
 const Hero = () => {
   return (
     <HeroSection>
-      <Flex alignItems="center" flexDirection="column" margin="0 auto" maxWidth="730px" padding="164px 35px 0 35px">
+      <HeroContainer>
         <HeroHeading>
           Build Secure Decentralized <br /> Applications with TrendDapp
         </HeroHeading>
         <HeroDescription>
-          TrendDapp helps you to turn your idea for a decentralized application, smart contract, crypto wallet, or
-          non-fungible token into a real business. It includes backend, blockchain, and frontend.
+          TrendDapp helps you to turn your idea for a decentralized application, smart contract,
+          <br /> crypto wallet, or non-fungible token into a real business. It includes backend,
+          <br /> blockchain, and frontend.
         </HeroDescription>
         <HeroButton>CONTACT US</HeroButton>
-      </Flex>
+      </HeroContainer>
       <Flex justifyContent="center" height="300px" padding="60px 35px">
         <Terminal title="vim cosmic_ray_detector.go" />
       </Flex>
       <HeroBackground />
+      <HeroBackgroundLeft />
+      <HeroBackgroundRight />
       <HeroFinal />
       <HeroSpacer />
     </HeroSection>
