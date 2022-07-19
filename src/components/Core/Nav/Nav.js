@@ -28,7 +28,7 @@ const StyledNavContainer = styled.ul`
   padding: 0 20px 120px 20px;
   position: fixed;
   right: 0;
-  top: 60px;
+  top: 54px;
   width: 100%;
   display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
 
