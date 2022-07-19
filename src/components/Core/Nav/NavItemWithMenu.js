@@ -10,11 +10,13 @@ import { SvgSolidChevronDown } from '@/components/Svg'
 const StyledMenuItem = styled.div`
   cursor: pointer;
   font-size: 12px;
-  margin: 10px 0;
-  transition: color 0.2s ease;
+  padding: 0.5rem 1rem;
+  transition: 0.2s ease;
 
   &:hover {
+    /* TODO: use color palette in the next refactor */
     color: #614dce;
+    background-color: rgb(242 244 247);
   }
 
   ${({ theme }) => theme.mediaQueries.xl} {
@@ -24,6 +26,7 @@ const StyledMenuItem = styled.div`
 
 const StyledMenuWrapper = styled(Box)`
   display: none;
+  cursor: pointer;
 
   ${({ theme }) => theme.mediaQueries.lg} {
     display: block;
@@ -86,9 +89,14 @@ const StyledNavItemWithMenu = styled.li`
 
 const StyledNavList = styled.ul`
   display: block;
+  font-size: 0.9rem;
+  width: 100%;
+  transition: 0.5s ease;
 
   ${({ theme }) => theme.mediaQueries.lg} {
     display: none;
+    cursor: pointer;
+    background-color: rgb(242 244 247);
   }
 `
 
@@ -117,7 +125,7 @@ const NavItemWithMenu = ({ children, menuItems = [] }) => {
       </StyledNavItemWithMenu>
       <StyledMenuWrapper>
         <Menu open={isMenuOpen} element={linkRef.current}>
-          <Flex flexDirection="column">
+          <Flex flexDirection="column" width="100%">
             {menuItems.map((item, index) => {
               return (
                 <StyledMenuItem key={index}>

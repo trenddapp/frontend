@@ -6,16 +6,17 @@ const StyledMenu = styled.div`
   box-shadow: ${({ theme }) => theme.shadows.menu};
   display: flex;
   inset: 0px auto auto 0px;
-  justify-content: center;
   opacity: ${(props) => (props.open ? 1 : 0)};
-  padding: 1rem 2rem;
+  padding: 0.5rem 0;
   position: fixed;
   transform: translate(
     ${(props) => (props.x ? props.x : 0)}px,
     ${(props) => (props.y && props.height ? props.y + props.height : 0)}px
   );
-  transition: 0.2s ease;
+  transition: 0.3s ease;
   visibility: ${(props) => (props.open ? 'visible' : 'hidden')};
+  min-width: 150px;
+  border-radius: 8px;
 `
 
 const Menu = ({ open, element, children, ...rest }) => {
