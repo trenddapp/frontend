@@ -120,18 +120,23 @@ const Footer = () => {
             <FooterLinkBoxHeading>Products</FooterLinkBoxHeading>
             <ul>
               <FooterLink>
-                <Link href="/products/auction">
+                <Link href="/auction">
                   <a>Auction</a>
                 </Link>
               </FooterLink>
               <FooterLink>
-                <Link href="/products/lottery">
+                <Link href="/lottery">
                   <a>Lottery</a>
                 </Link>
               </FooterLink>
               <FooterLink>
-                <Link href="/products/marketplace">
+                <Link href="/marketplace">
                   <a>Marketplace</a>
+                </Link>
+              </FooterLink>
+              <FooterLink>
+                <Link href="/nft">
+                  <a>NFT</a>
                 </Link>
               </FooterLink>
             </ul>
