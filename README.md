@@ -3,7 +3,8 @@ This repository holds our frontend code, which includes the home page, all of th
 ## Installation
 Run the commands below:
 ```sh
-$ yarn prepare
+$ yarn install
+$ yarn dev
 ```
 
 ## Conventions
