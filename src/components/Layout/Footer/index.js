@@ -111,6 +111,24 @@ const FooterSection = styled.footer`
 `
 
 const Footer = () => {
+  const company = [
+    { displayText: 'About', url: '/about' },
+    { displayText: 'Careers', url: '/careers' },
+    { displayText: 'GitHub', url: 'https://github.com/trenddapp' },
+    { displayText: 'Logo Kit', url: '/logo' },
+  ]
+
+  const products = [
+    { displayText: 'Auction', url: '/auction' },
+    { displayText: 'Lottery', url: '/lottery' },
+    { displayText: 'Marketplace', url: '/marketplace' },
+    { displayText: 'NFT', url: '/nft' },
+  ]
+
+  const resources = [{ displayText: 'Docs', url: '/' }]
+
+  const services = [{ displayText: 'Contact', url: '/' }]
+
   return (
     <FooterSection>
       <FooterContainer>
@@ -119,71 +137,49 @@ const Footer = () => {
           <FooterLinkBox>
             <FooterLinkBoxHeading>Products</FooterLinkBoxHeading>
             <ul>
-              <FooterLink>
-                <Link href="/auction">
-                  <a>Auction</a>
-                </Link>
-              </FooterLink>
-              <FooterLink>
-                <Link href="/lottery">
-                  <a>Lottery</a>
-                </Link>
-              </FooterLink>
-              <FooterLink>
-                <Link href="/marketplace">
-                  <a>Marketplace</a>
-                </Link>
-              </FooterLink>
-              <FooterLink>
-                <Link href="/nft">
-                  <a>NFT</a>
-                </Link>
-              </FooterLink>
+              {products.map((item, index) => (
+                <FooterLink key={index}>
+                  <Link href={item.url}>
+                    <a>{item.displayText}</a>
+                  </Link>
+                </FooterLink>
+              ))}
             </ul>
           </FooterLinkBox>
           <FooterLinkBox>
             <FooterLinkBoxHeading>Services</FooterLinkBoxHeading>
             <ul>
-              <FooterLink>
-                <Link href="/services/contact">
-                  <a>Contact</a>
-                </Link>
-              </FooterLink>
+              {services.map((item, index) => (
+                <FooterLink key={index}>
+                  <Link href={item.url}>
+                    <a>{item.displayText}</a>
+                  </Link>
+                </FooterLink>
+              ))}
             </ul>
           </FooterLinkBox>
           <FooterLinkBox>
             <FooterLinkBoxHeading>Resources</FooterLinkBoxHeading>
             <ul>
-              <FooterLink>
-                <Link href="/resources/docs">
-                  <a>Docs</a>
-                </Link>
-              </FooterLink>
+              {resources.map((item, index) => (
+                <FooterLink key={index}>
+                  <Link href={item.url}>
+                    <a>{item.displayText}</a>
+                  </Link>
+                </FooterLink>
+              ))}
             </ul>
           </FooterLinkBox>
           <FooterLinkBox>
             <FooterLinkBoxHeading>Company</FooterLinkBoxHeading>
             <ul>
-              <FooterLink>
-                <Link href="/company/about">
-                  <a>About</a>
-                </Link>
-              </FooterLink>
-              <FooterLink>
-                <Link href="/company/careers">
-                  <a>Careers</a>
-                </Link>
-              </FooterLink>
-              <FooterLink>
-                <Link href="https://github.com/trenddapp">
-                  <a target="_blank">GitHub</a>
-                </Link>
-              </FooterLink>
-              <FooterLink>
-                <Link href="/company/logo">
-                  <a>Logo Kit</a>
-                </Link>
-              </FooterLink>
+              {company.map((item, index) => (
+                <FooterLink key={index}>
+                  <Link href={item.url}>
+                    <a>{item.displayText}</a>
+                  </Link>
+                </FooterLink>
+              ))}
             </ul>
           </FooterLinkBox>
           <Flex bottom="0" left="0" position="absolute">
