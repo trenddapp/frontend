@@ -1,2 +1,5 @@
 export { default as useInternal } from './useInterval'
 export { default as useIsomorphicEffect } from './useIsomorphicEffect'
+export { default as useWeb3Connector } from './useWeb3Connector'
+export { default as useWeb3Provider } from './useWeb3Provider'
+export { default as useWeb3Signer } from './useWeb3Signer'
