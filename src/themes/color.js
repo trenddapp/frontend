@@ -11,4 +11,5 @@ export const darkColors = {
 
 export const lightColors = {
   ...baseColors,
+  background: '#FFFFFF',
 }
