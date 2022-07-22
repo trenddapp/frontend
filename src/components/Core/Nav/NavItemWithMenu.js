@@ -8,15 +8,19 @@ import { Menu } from '@/components/Core/Menu'
 import { SvgSolidChevronDown } from '@/components/Svg'
 
 const StyledMenuItem = styled.div`
+  border-top: 1px solid rgb(216, 216, 216, 0.4);
   cursor: pointer;
   font-size: 12px;
-  padding: 0.5rem 1rem;
+  padding: 12px 0;
   transition: 0.2s ease;
 
   &:hover {
     /* TODO: use color palette in the next refactor */
     color: #614dce;
-    background-color: rgb(242 244 247);
+  }
+
+  &:first-child {
+    border: none;
   }
 
   ${({ theme }) => theme.mediaQueries.xl} {
@@ -66,6 +70,7 @@ const StyledNavItemWithMenu = styled.li`
     align-items: center;
     border: none;
     color: #282846;
+    cursor: pointer;
     display: flex;
     font-size: 12px;
     line-height: 45px;
@@ -128,11 +133,11 @@ const NavItemWithMenu = ({ children, menuItems = [] }) => {
           <Flex flexDirection="column" width="100%">
             {menuItems.map((item, index) => {
               return (
-                <StyledMenuItem key={index}>
-                  <Link href={item.link}>
+                <Link href={item.link} key={index}>
+                  <StyledMenuItem>
                     <a>{item.text}</a>
-                  </Link>
-                </StyledMenuItem>
+                  </StyledMenuItem>
+                </Link>
               )
             })}
           </Flex>
