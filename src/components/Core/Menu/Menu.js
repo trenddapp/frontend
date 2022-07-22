@@ -3,13 +3,13 @@ import styled from 'styled-components'
 const StyledMenu = styled.div`
   align-items: center;
   background-color: #fff;
-  border-radius: 8px;
+  border-radius: 6px;
   box-shadow: ${({ theme }) => theme.shadows.menu};
   display: flex;
   inset: 0px auto auto 0px;
-  min-width: 150px;
+  min-width: 190px;
   opacity: ${(props) => (props.open ? 1 : 0)};
-  padding: 0.5rem 0;
+  padding: 12px 12px;
   position: fixed;
   transform: translate(
     ${(props) => (props.x ? props.x : 0)}px,
