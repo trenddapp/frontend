@@ -8,7 +8,7 @@ const LotteryPage = () => {
   return (
     <>
       <Head>
-        <title>TrendDapp | Lottery</title>
+        <title>Lottery | TrendDapp</title>
         <meta name="description" content="Decentralized lottery by TrendDapp." />
         <link rel="icon" href="/main/favicon.png" />
       </Head>

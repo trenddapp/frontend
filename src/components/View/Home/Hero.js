@@ -27,8 +27,8 @@ const HeroBackground = styled(Box)`
 
 const HeroBackgroundLeft = styled(Box)`
   background-image: url('/main/bg_left.svg');
-  background-position-x: center;
-  background-position-y: bottom;
+  background-position-x: 0;
+  background-position-y: 0;
   background-repeat: no-repeat;
   background-size: contain;
   display: block;
@@ -39,10 +39,6 @@ const HeroBackgroundLeft = styled(Box)`
   left: 0;
   z-index: -2;
 
-  ${({ theme }) => theme.mediaQueries.sm} {
-    width: 35%;
-  }
-
   ${({ theme }) => theme.mediaQueries.md} {
     display: none;
   }
@@ -50,8 +46,8 @@ const HeroBackgroundLeft = styled(Box)`
 
 const HeroBackgroundRight = styled(Box)`
   background-image: url('/main/bg_right.svg');
-  background-position-x: center;
-  background-position-y: bottom;
+  background-position-x: 100%;
+  background-position-y: 0;
   background-repeat: no-repeat;
   background-size: contain;
   display: block;
@@ -61,10 +57,6 @@ const HeroBackgroundRight = styled(Box)`
   top: 0;
   right: 0;
   z-index: -2;
-
-  ${({ theme }) => theme.mediaQueries.sm} {
-    width: 35%;
-  }
 
   ${({ theme }) => theme.mediaQueries.md} {
     display: none;

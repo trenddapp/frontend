@@ -792,40 +792,40 @@
     "@typescript-eslint/types" "5.30.5"
     eslint-visitor-keys "^3.3.0"
 
-"@web3-react/core@8.0.35-beta.0":
-  version "8.0.35-beta.0"
-  resolved "https://registry.yarnpkg.com/@web3-react/core/-/core-8.0.35-beta.0.tgz#8667483bdbc283fc8377d7f56faba1ec2fcdb095"
-  integrity sha512-vkEL2Vafu57lTA9T/cd3DNkZoDZ3G/JDUgxgjHqKLQVF4bPucrkeErqIHutAJ4suIi4bLOD0dFPMpFs+Bq7RgA==
+"@web3-react/core@8.0.23-beta.0":
+  version "8.0.23-beta.0"
+  resolved "https://registry.yarnpkg.com/@web3-react/core/-/core-8.0.23-beta.0.tgz#3a33234fbe25459ae2ce82b8bada5077386961f1"
+  integrity sha512-NmVWUKSzYr+Yk0nbZdOLMtidtgXs6qOCR1DcxLF4Aa0zJ/8hRrX23siFfrVNTSpck4fgyURv8QVzE5+VHQx2HA==
   dependencies:
-    "@web3-react/store" "^8.0.25-beta.0"
-    "@web3-react/types" "^8.0.20-beta.0"
-    zustand "^4.0.0-rc.0"
+    "@web3-react/store" "^8.0.17-beta.0"
+    "@web3-react/types" "^8.0.12-beta.0"
+    zustand "^4.0.0-beta.3"
   optionalDependencies:
     "@ethersproject/providers" "^5"
 
-"@web3-react/metamask@8.0.28-beta.0":
-  version "8.0.28-beta.0"
-  resolved "https://registry.yarnpkg.com/@web3-react/metamask/-/metamask-8.0.28-beta.0.tgz#f7e9e0de446727a961745cbec75c8cbf6c961388"
-  integrity sha512-IXuVyj6vhRAhfGQ/sN4qgET8EEdqX844pB4kCDG9kjPD3LLm5kq47ykBosgTr9YCUtdHAXN0UaUimD0TbLMRFg==
+"@web3-react/metamask@8.0.19-beta.0":
+  version "8.0.19-beta.0"
+  resolved "https://registry.yarnpkg.com/@web3-react/metamask/-/metamask-8.0.19-beta.0.tgz#7d7c306c1245ada7dff2e1c4bdae871abb126956"
+  integrity sha512-KRW+uvOnEadQEWAhX//o/OsCHuQCGuHmRUwcH8o5Q1jnjXtelTA9HmjWt8tyLQchPM7PHgrxfY1OH/Li05XTEA==
   dependencies:
     "@metamask/detect-provider" "^1.2.0"
-    "@web3-react/types" "^8.0.20-beta.0"
+    "@web3-react/types" "^8.0.12-beta.0"
 
-"@web3-react/store@^8.0.25-beta.0":
-  version "8.0.25-beta.0"
-  resolved "https://registry.yarnpkg.com/@web3-react/store/-/store-8.0.25-beta.0.tgz#853a029a9f82d8950e306adb455ba308f908c8f4"
-  integrity sha512-YHrZ42EHiQ9UAJq8Y/pHsyXu6GhzbCSHaQJ9U0wCDhbPoQ9QjOj0Pwcaa/VLXljuynK/7ERP942nI1IzArt9Sg==
+"@web3-react/store@^8.0.17-beta.0":
+  version "8.0.17-beta.0"
+  resolved "https://registry.yarnpkg.com/@web3-react/store/-/store-8.0.17-beta.0.tgz#a059b6e761598e108c25dfccabb227682b32899d"
+  integrity sha512-1JGkYs8HCd7ixLB5Yb7TZzz98QmCTvg0vhR+7s2m29wbp9ADsJN/EI9Avr1Kxi0UbRXTrXnEfgvl68HHmAC0GQ==
   dependencies:
     "@ethersproject/address" "^5"
-    "@web3-react/types" "^8.0.20-beta.0"
-    zustand "^4.0.0-rc.0"
+    "@web3-react/types" "^8.0.12-beta.0"
+    zustand "^4.0.0-beta.3"
 
-"@web3-react/types@^8.0.20-beta.0":
-  version "8.0.20-beta.0"
-  resolved "https://registry.yarnpkg.com/@web3-react/types/-/types-8.0.20-beta.0.tgz#6b4509bef8c5c7eb866e49295880c865c20fb565"
-  integrity sha512-qOZYMyUmsm3Um6t6Pg3OgnE86ufhWZpB5/VxsooB8cdpXc/C/f8KMyYSeM63GoKSMScOKwfqV6yODFL7g/Qc8g==
+"@web3-react/types@^8.0.12-beta.0":
+  version "8.0.12-beta.0"
+  resolved "https://registry.yarnpkg.com/@web3-react/types/-/types-8.0.12-beta.0.tgz#787c7ca8b4dfd66bed0e4801fef7039ba42db59e"
+  integrity sha512-BWz8RnpO0gdySjL62iURcn41ZDGxq4kokV2qbgqgASHwst5/uZ7RI2MJHTzn8vH0AUrCsg/y6E8oeTNsCAQvfg==
   dependencies:
-    zustand "^4.0.0-rc.0"
+    zustand "^4.0.0-beta.3"
 
 acorn-jsx@^5.3.2:
   version "5.3.2"
@@ -2934,9 +2934,9 @@ yaml@^2.1.1:
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.1.1.tgz#1e06fb4ca46e60d9da07e4f786ea370ed3c3cfec"
   integrity sha512-o96x3OPo8GjWeSLF+wOAbrPfhFOGY0W00GNaxCDv+9hkcDJEnev1yh8S7pgHF0ik6zc8sQLuL8hjHjJULZp8bw==
 
-zustand@^4.0.0-rc.0:
-  version "4.0.0-rc.2"
-  resolved "https://registry.yarnpkg.com/zustand/-/zustand-4.0.0-rc.2.tgz#6b23131d3b5486d5afde7c04946b81674c722abf"
-  integrity sha512-eGDJHNmubDTggkMyZciCfI0H+NptOKQICpliJ4hd/XAjEvYp5h525CVJZ8uDfwd9P5JfSFjpBo14Z0qv04NWJA==
+zustand@^4.0.0-beta.3:
+  version "4.0.0-rc.4"
+  resolved "https://registry.yarnpkg.com/zustand/-/zustand-4.0.0-rc.4.tgz#ed0e0f1fa3e1c7d0d9021739d862d88048d845da"
+  integrity sha512-BP35Rq40GBTKKtYyjLuZogzXGh289xqO8U8ivGIK43nRqURD2dEEImkUci1/jWRUz7J1OPJkUZuNySCho801gQ==
   dependencies:
     use-sync-external-store "1.2.0"
