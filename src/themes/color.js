@@ -12,4 +12,6 @@ export const darkColors = {
 export const lightColors = {
   ...baseColors,
   background: '#FFFFFF',
+  headline: '#3C3C57',
+  overlay: 'rgba(0, 0, 0, 0.2)',
 }
