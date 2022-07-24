@@ -11,12 +11,13 @@ const StyledMenuItem = styled.div`
   border-top: 1px solid rgb(216, 216, 216, 0.4);
   cursor: pointer;
   font-size: 12px;
-  padding: 12px 0;
+  padding: 7px 12px;
   transition: 0.2s ease;
 
   &:hover {
     /* TODO: use color palette in the next refactor */
     color: #614dce;
+    background-color: rgb(242 244 247);
   }
 
   &:first-child {
