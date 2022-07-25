@@ -1,5 +1,11 @@
 import { ethers } from 'ethers'
 
+export const buyTicket = async (contract, costPerTicket) => {
+  return await contract.buyTicket({
+    value: ethers.utils.parseEther(costPerTicket.toString()),
+  })
+}
+
 export const getCostPerTicket = async (contract) => {
   const costPerTicketWei = await contract.costPerTicket()
   return parseFloat(ethers.utils.formatEther(costPerTicketWei))

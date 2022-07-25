@@ -1,6 +1,13 @@
+import { useContext } from 'react'
+
 import styled from 'styled-components'
 
 import { Box, Flex } from '@/components/Core/Toolkit'
+import { buyTicket } from '@/api/lottery'
+import { CurrencyContext } from '@/context/Currency'
+import { LotteryContext } from '@/context/Lottery'
+import { LotteryStatus } from '@/config/constants/lottery'
+import { useContractLottery } from '@/hooks/lottery'
 
 const HeroBackgroundLeft = styled(Box)`
   background-image: url('/main/bg_home_left.svg');
@@ -80,13 +87,72 @@ const HeroSection = styled.section`
 `
 
 const Hero = () => {
+  const { ethToUsdRate, ethToUsdRateError, ethToUsdRateIsLoading } = useContext(CurrencyContext)
+  const {
+    costPerTicket,
+    costPerTicketError,
+    costPerTicketIsLoading,
+    prizePool,
+    prizePoolError,
+    prizePoolIsLoading,
+    status,
+    statusError,
+    statusIsLoading,
+  } = useContext(LotteryContext)
+  const { contractLottery, contractLotteryError } = useContractLottery()
+  const isBuyTicketDisabled =
+    !statusIsLoading && !statusError && status !== LotteryStatus.OPEN && !costPerTicketIsLoading && !costPerTicketError
+
+  const handleBuyTicket = async () => {
+    if (contractLotteryError !== undefined) {
+      return
+    }
+
+    if (isBuyTicketDisabled) {
+      return
+    }
+
+    const transaction = await buyTicket(contractLottery, costPerTicket)
+    console.log(transaction)
+  }
+
+  const getHeroHeading = () => {
+    if (statusIsLoading) {
+      return <HeroHeading>Loading...</HeroHeading>
+    }
+
+    if (statusError !== undefined) {
+      return <HeroHeading>Something went wrong!</HeroHeading>
+    }
+
+    if (status !== LotteryStatus.OPEN) {
+      return <HeroHeading>Tickets on sale soon!</HeroHeading>
+    }
+
+    if (ethToUsdRateIsLoading || prizePoolIsLoading) {
+      return <HeroHeading>Loading...</HeroHeading>
+    }
+
+    if (ethToUsdRateError !== undefined || prizePoolError !== undefined) {
+      return <HeroHeading>Something went wrong!</HeroHeading>
+    }
+
+    return (
+      <>
+        <HeroPrize>${ethToUsdRate.rate.value * prizePool}</HeroPrize>
+        <HeroHeading>in prizes!</HeroHeading>
+      </>
+    )
+  }
+
   return (
     <HeroSection>
       <HeroContainer>
         <HeroHeading>The TrendDapp Lottery</HeroHeading>
-        <HeroPrize>$85,000</HeroPrize>
-        <HeroHeading>in prizes!</HeroHeading>
-        <HeroButton>Buy Ticket</HeroButton>
+        {getHeroHeading()}
+        <HeroButton disabled={isBuyTicketDisabled} onClick={handleBuyTicket}>
+          Buy Ticket
+        </HeroButton>
       </HeroContainer>
       <HeroBackgroundLeft />
       <HeroBackgroundRight />

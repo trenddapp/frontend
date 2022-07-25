@@ -3,7 +3,6 @@ import useSWR from 'swr'
 import {
   LOTTERY_PRIZE_POOL_REFRESH_INTERVAL_MS,
   LOTTERY_STATUS_REFRESH_INTERVAL_MS,
-  LotteryStatus,
   LOTTERY_COST_PER_TICKET_REFRESH_INTERVAL_MS,
 } from '@/config/constants/lottery'
 import { getCostPerTicket, getPrizePool, getStatus } from '@/api/lottery'
@@ -28,7 +27,7 @@ const LotteryProvider = ({ children }) => {
   const { data: status, error: statusError } = useSWR(
     !contractLotteryError ? ['/lottery/status', contractLottery] : null,
     (_, contract) => getStatus(contract),
-    { fallbackData: LotteryStatus.NOT_STARTED, refreshInterval: LOTTERY_STATUS_REFRESH_INTERVAL_MS },
+    { refreshInterval: LOTTERY_STATUS_REFRESH_INTERVAL_MS },
   )
 
   return (
