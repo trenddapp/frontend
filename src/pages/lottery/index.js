@@ -1,5 +1,7 @@
 import Head from 'next/head'
 
+import { CurrencyProvider } from '@/context/Currency'
+import { LotteryProvider } from '@/context/Lottery'
 import Lottery from '@/components/View/Lottery'
 
 const LotteryPage = () => {
@@ -9,7 +11,11 @@ const LotteryPage = () => {
         <title>Lottery | TrendDapp</title>
         <meta name="description" content="Decentralized lottery by TrendDapp." />
       </Head>
-      <Lottery />
+      <CurrencyProvider>
+        <LotteryProvider>
+          <Lottery />
+        </LotteryProvider>
+      </CurrencyProvider>
     </>
   )
 }

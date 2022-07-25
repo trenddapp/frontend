@@ -1,6 +1,10 @@
+import { useCallback } from 'react'
+
 import styled from 'styled-components'
 
 import { SvgMore } from '@/components/Svg'
+import { defaultChainId } from '@/config/constants'
+import getChainParameters from '@/utils/chain'
 
 const ConnectButton = styled.button`
   display: flex;
@@ -33,16 +37,12 @@ export const ConnectCardMore = (props) => {
 }
 
 const ConnectCard = ({ connector, icon: ConnectButtonIcon, onConnect, title }) => {
-  const connectButtonHandler = () => {
+  const connectButtonHandler = useCallback(() => {
     connector
-      .activate({
-        chainId: 4,
-        urls: [`https://rinkeby.infura.io/v3/5f06f41cca9140d78bdaeef7e07c9d94`],
-        name: 'Rinkeby',
-      })
+      .activate(getChainParameters(defaultChainId))
       .then(() => onConnect())
-      .catch((err) => console.log(err))
-  }
+      .catch((error) => console.debug(error))
+  }, [connector])
 
   return (
     <ConnectButton onClick={connectButtonHandler}>

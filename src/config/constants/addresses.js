@@ -3,7 +3,7 @@ const addresses = {
     4: '',
   },
   lottery: {
-    4: '0x504a84447800aC601f63899650c485511eb6e9e6',
+    4: '0xf7FC67f103cF08a23F243dC51f14bDe43eaD68Cf',
   },
   marketplace: {
     4: '',
