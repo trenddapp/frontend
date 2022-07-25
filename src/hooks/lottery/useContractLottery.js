@@ -18,10 +18,10 @@ const useContractLottery = () => {
         contract: contract,
         error: undefined,
       }
-    } catch (err) {
+    } catch (error) {
       return {
         contract: undefined,
-        error: err,
+        error: error,
       }
     }
   }, [provider, signer])

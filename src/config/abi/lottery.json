@@ -54,7 +54,6 @@
       { "internalType": "uint256", "name": "prizePool", "type": "uint256" },
       { "internalType": "uint256", "name": "costPerTicket", "type": "uint256" },
       { "internalType": "uint256", "name": "startingTimestamp", "type": "uint256" },
-      { "internalType": "uint256", "name": "closingTimestamp", "type": "uint256" },
       { "internalType": "address", "name": "winner", "type": "address" },
       { "internalType": "uint256", "name": "randomNumber", "type": "uint256" }
     ],

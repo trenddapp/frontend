@@ -1,37 +1,29 @@
 import axios from 'axios'
 
-const API_BASE = process.env.NEXT_PUBLIC_APP_API_BASE
-
-const Instance = axios.create({
-  baseURL: API_BASE,
+const customAxios = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_API_BASE,
 })
 
-function apiCaller() {
-  Instance.interceptors.response.use(
-    (response) => {
-      return response
-    },
-    (error) => {
-      if (!error.response) {
-        // user has no internet connection
-      }
-      switch (error.response.status) {
-        case 422:
-          // do smth
-          break
-
-        case 500:
-          // redirect to 500.js page
-          break
-        default:
-          break
-      }
-
-      return Promise.reject(error)
-    },
-  )
-
-  return Instance
+const handleError = (error) => {
+  return Promise.reject(error)
 }
 
-export default apiCaller
+const handleRequest = (request) => {
+  return request
+}
+
+const handleResponse = (response) => {
+  return response
+}
+
+customAxios.interceptors.request.use(
+  (request) => handleRequest(request),
+  (error) => handleError(error),
+)
+
+customAxios.interceptors.response.use(
+  (response) => handleResponse(response),
+  (error) => handleError(error),
+)
+
+export default customAxios

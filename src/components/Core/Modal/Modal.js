@@ -6,27 +6,27 @@ import { Box } from '@/components/Core/Toolkit'
 
 const StyledModal = styled(Box)``
 
-const StyledModalContainer = styled.div`
+const StyledModalContainer = styled(Box)`
   background-color: ${({ theme }) => theme.colors.background};
   border-radius: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 20px 0px;
   left: 50%;
   min-width: 320px;
   overflow: hidden;
-  position: absolute;
+  position: fixed;
   top: 50%;
   transform: translate(-50%, -50%);
-  z-index: 110;
+  z-index: ${({ theme }) => theme.zIndices.modal + 10};
 `
 
-const StyledModalOverlay = styled.div`
+const StyledModalOverlay = styled(Box)`
   background-color: ${({ theme }) => `${theme.colors.overlay}`};
   height: 100%;
   left: 0;
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 100;
+  z-index: ${({ theme }) => theme.zIndices.modal};
 `
 
 const Modal = ({ children, onDismiss }) => {
