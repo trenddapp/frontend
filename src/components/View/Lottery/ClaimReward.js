@@ -33,7 +33,7 @@ const ClaimReward = () => {
     <ClaimRewardSection>
       <ClaimRewardContainer>
         <ClaimRewardHeading>
-          Connect you wallet <br /> to check if you've won!
+          Connect your wallet <br /> to check if you've won!
         </ClaimRewardHeading>
         <ClaimRewardButtonWrapper>
           <ConnectButton />
