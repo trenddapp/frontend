@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 import { Box, Flex } from '@/components/Core/Toolkit'
+import { Profile } from '@/components/Core/Profile'
+import { useWeb3Profile } from '@/hooks'
 import ConnectButton from '@/components/Core/Wallet/ConnectButton'
 
 const HeaderContainer = styled(Flex)`
@@ -27,6 +29,8 @@ const HeaderSection = styled(Box)`
 `
 
 const Header = () => {
+  const { isActive, isActivating } = useWeb3Profile()
+
   return (
     <HeaderSection>
       <HeaderContainer>
@@ -34,7 +38,7 @@ const Header = () => {
           <img height="45px;" src="/main/lottery.png" />
           Lottery
         </HeaderLogo>
-        <ConnectButton />
+        {isActive || isActivating ? <Profile /> : <ConnectButton />}
       </HeaderContainer>
     </HeaderSection>
   )
