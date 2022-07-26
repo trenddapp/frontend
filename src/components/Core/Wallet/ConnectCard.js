@@ -41,7 +41,7 @@ const ConnectCard = ({ connector, icon: ConnectButtonIcon, onConnect, title }) =
     connector
       .activate(getChainParameters(defaultChainId))
       .then(() => onConnect())
-      .catch((error) => console.debug(error))
+      .catch((error) => console.log(error))
   }, [connector])
 
   return (
