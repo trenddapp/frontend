@@ -1,8 +1,8 @@
-import Communication from './Communication'
-import Development from './Development'
-import Hero from './Hero'
-import Services from './Services'
-import Technologies from './Technologies'
+import Communication from './components/Communication'
+import Development from './components/Development'
+import Hero from './components/Hero'
+import Services from './components/Services'
+import Technologies from './components/Technologies'
 
 const Home = () => {
   return (

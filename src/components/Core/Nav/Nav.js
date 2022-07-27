@@ -31,7 +31,7 @@ const StyledNavContainer = styled.ul`
   right: 0;
   top: 54px;
   width: 100%;
-  z-index: 300;
+  z-index: 110;
 
   ${({ theme }) => theme.mediaQueries.lg} {
     align-items: center;
@@ -41,6 +41,7 @@ const StyledNavContainer = styled.ul`
     padding: 0;
     position: static;
     overflow-y: auto;
+    z-index: 0;
   }
 `
 
