@@ -6,14 +6,14 @@ import Footer from '@/components/Layout/Footer'
 import Header from '@/components/Layout/Header'
 
 const App = ({ Component, pageProps }) => {
+  let isHeaderFixed = !['AuctionPage', 'LotteryPage', 'MarketplacePage'].includes(Component.customPropDisplayName)
+
   return (
     <ThemeProvider theme={light}>
       <ResetCss />
       <GlobalStyle />
-      <Header />
-      <main>
-        <Component {...pageProps} />
-      </main>
+      <Header isFixed={isHeaderFixed} />
+      <Component {...pageProps} />
       <Footer />
     </ThemeProvider>
   )

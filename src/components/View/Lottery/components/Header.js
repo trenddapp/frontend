@@ -11,7 +11,11 @@ const HeaderContainer = styled(Flex)`
   justify-content: space-between;
   margin: 0 auto;
   max-width: ${({ theme }) => theme.siteWidth + 50}px;
-  padding: 0 96px;
+  padding: 0 35px;
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    padding: 0 96px;
+  }
 `
 
 const HeaderLogo = styled(Flex)`
@@ -26,6 +30,9 @@ const HeaderLogo = styled(Flex)`
 const HeaderSection = styled(Box)`
   background-color: ${({ theme }) => theme.colors.background};
   height: 64px;
+  position: sticky;
+  top: 0;
+  z-index: ${({ theme }) => theme.zIndices.header};
 `
 
 const Header = () => {

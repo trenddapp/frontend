@@ -20,4 +20,6 @@ const LotteryPage = () => {
   )
 }
 
+LotteryPage.customPropDisplayName = 'LotteryPage'
+
 export default LotteryPage

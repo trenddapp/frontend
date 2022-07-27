@@ -168,7 +168,7 @@ const Hero = () => {
     <HeroSection>
       <HeroContainer>
         <HeroHeading>
-          Build Secure Decentralized <br /> Applications with TrendDapp
+          Build Secure Decentralized <br /> Applications with <br /> TrendDapp
         </HeroHeading>
         <HeroDescription>
           TrendDapp helps you to turn your idea for a decentralized application, smart contract,

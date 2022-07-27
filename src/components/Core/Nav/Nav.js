@@ -22,6 +22,7 @@ const StyledNav = styled.nav`
 const StyledNavContainer = styled.ul`
   background-color: #fff;
   bottom: 0;
+  display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
   height: 100vh;
   left: 0;
   overflow-y: scroll;
@@ -30,7 +31,7 @@ const StyledNavContainer = styled.ul`
   right: 0;
   top: 54px;
   width: 100%;
-  display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
+  z-index: 300;
 
   ${({ theme }) => theme.mediaQueries.lg} {
     align-items: center;

@@ -14,4 +14,6 @@ const AuctionPage = () => {
   )
 }
 
+AuctionPage.customPropDisplayName = 'AuctionPage'
+
 export default AuctionPage
