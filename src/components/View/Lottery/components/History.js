@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import { Flex } from '@/components/Core/Toolkit'
+import { Content, Detail, Heading, InfoBox } from './DrawInfo'
 
 const HistoryContainer = styled(Flex)`
   align-items: center;
@@ -23,6 +24,11 @@ const History = () => {
     <HistorySection>
       <HistoryContainer>
         <HistoryHeading>Finished Rounds</HistoryHeading>
+        <InfoBox
+          renderHeading={<Heading drawNumber={608} drawDate={'Jul 28, 2022, 4:30 PM'} hasPagination />}
+          renderContent={<Content />}
+          renderDetail={<Detail />}
+        />
       </HistoryContainer>
     </HistorySection>
   )

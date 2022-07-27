@@ -1,9 +1,9 @@
 import { Box } from '@/components/Core/Toolkit'
-import ClaimReward from './ClaimReward'
-import Header from './Header'
-import Hero from './Hero'
-import History from './History'
-import NextDraw from './NextDraw'
+import ClaimReward from './components/ClaimReward'
+import Header from './components/Header'
+import Hero from './components/Hero'
+import History from './components/History'
+import NextDraw from './components/NextDraw'
 
 const Lottery = () => {
   return (

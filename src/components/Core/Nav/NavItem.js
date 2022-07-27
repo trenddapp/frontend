@@ -40,9 +40,9 @@ const StyledNavLink = styled.a`
   cursor: pointer;
 `
 
-const NavItem = forwardRef(({ children, link, ...rest }, ref) => {
+const NavItem = forwardRef(({ children, link, setIsOpen, ...rest }, ref) => {
   return (
-    <StyledNavItem ref={ref} {...rest}>
+    <StyledNavItem onClick={() => setIsOpen(false)} ref={ref} {...rest}>
       <Link href={link}>
         <StyledNavLink>{children}</StyledNavLink>
       </Link>

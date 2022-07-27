@@ -106,7 +106,7 @@ const StyledNavList = styled.ul`
   }
 `
 
-const NavItemWithMenu = ({ children, menuItems = [] }) => {
+const NavItemWithMenu = ({ children, menuItems = [], setIsOpen }) => {
   const linkRef = useRef()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -120,7 +120,7 @@ const NavItemWithMenu = ({ children, menuItems = [] }) => {
         <StyledNavList>
           {menuItems.map((item, index) => {
             return (
-              <StyledNavItem key={index}>
+              <StyledNavItem onClick={() => setIsOpen(false)} key={index}>
                 <Link href={item.link}>
                   <a>{item.text}</a>
                 </Link>

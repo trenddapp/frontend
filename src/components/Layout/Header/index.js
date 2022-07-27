@@ -57,11 +57,25 @@ const Header = () => {
         <HeaderContainer>
           <Logo />
           <Nav>
-            <NavItemWithMenu menuItems={products}>Products</NavItemWithMenu>
-            <NavItem link="/company">Company</NavItem>
-            <NavItemWithMenu menuItems={resources}>Resources</NavItemWithMenu>
-            <NavItemWithMenu menuItems={services}>Services</NavItemWithMenu>
-            <NavItem link="/news-and-events">News & Events</NavItem>
+            {(setIsOpen) => (
+              <>
+                <NavItemWithMenu menuItems={products} {...{ setIsOpen }}>
+                  Products
+                </NavItemWithMenu>
+                <NavItem link="/company" {...{ setIsOpen }}>
+                  Company
+                </NavItem>
+                <NavItemWithMenu menuItems={resources} {...{ setIsOpen }}>
+                  Resources
+                </NavItemWithMenu>
+                <NavItemWithMenu menuItems={services} {...{ setIsOpen }}>
+                  Services
+                </NavItemWithMenu>
+                <NavItem link="/news-and-events" {...{ setIsOpen }}>
+                  News & Events
+                </NavItem>
+              </>
+            )}
           </Nav>
         </HeaderContainer>
       </HeaderSection>

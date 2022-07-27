@@ -48,7 +48,7 @@ const Nav = ({ children }) => {
 
   return (
     <StyledNav>
-      <StyledNavContainer isOpen={isOpen}>{children}</StyledNavContainer>
+      <StyledNavContainer isOpen={isOpen}>{children(setIsOpen)}</StyledNavContainer>
       <StyledHamburgerWrapper onClick={() => setIsOpen(!isOpen)}>
         <Hamburger isOpen={isOpen} />
       </StyledHamburgerWrapper>
