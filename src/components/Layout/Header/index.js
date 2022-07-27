@@ -7,11 +7,11 @@ import { Nav, NavItem, NavItemWithMenu } from '@/components/Core/Nav'
 const Border = styled(Box)`
   background-color: rgba(0, 0, 0, 0.1);
   height: 1px;
-  margin: 60px auto 0 auto;
+  margin: ${({ isFixed }) => (isFixed ? '60px auto 0 auto' : '0 auto')};
   max-width: ${({ theme }) => theme.siteWidth + 50}px;
 
   ${({ theme }) => theme.mediaQueries.lg} {
-    margin: 75px auto 0 auto;
+    margin: ${({ isFixed }) => (isFixed ? '75px auto 0 auto' : '0 auto')};
   }
 `
 
@@ -33,13 +33,13 @@ const HeaderContainer = styled(Flex)`
 
 const HeaderSection = styled.header`
   background-color: ${({ theme }) => theme.colors.background};
-  position: fixed;
+  position: ${({ isFixed }) => (isFixed ? 'fixed' : 'block')};
   top: 0;
   width: 100%;
   z-index: ${({ theme }) => theme.zIndices.header};
 `
 
-const Header = () => {
+const Header = ({ isFixed = true }) => {
   const products = [
     { link: '/auction', text: 'Auction' },
     { link: '/lottery', text: 'Lottery' },
@@ -53,7 +53,7 @@ const Header = () => {
 
   return (
     <>
-      <HeaderSection>
+      <HeaderSection isFixed={isFixed}>
         <HeaderContainer>
           <Logo />
           <Nav>
@@ -79,7 +79,7 @@ const Header = () => {
           </Nav>
         </HeaderContainer>
       </HeaderSection>
-      <Border />
+      <Border isFixed={isFixed} />
     </>
   )
 }

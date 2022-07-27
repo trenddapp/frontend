@@ -14,4 +14,6 @@ const MarketplacePage = () => {
   )
 }
 
+MarketplacePage.customPropDisplayName = 'MarketplacePage'
+
 export default MarketplacePage

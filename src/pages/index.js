@@ -14,4 +14,6 @@ const HomePage = () => {
   )
 }
 
+HomePage.customPropDisplayName = 'HomePage'
+
 export default HomePage
