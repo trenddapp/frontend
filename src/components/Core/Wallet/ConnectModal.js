@@ -2,10 +2,10 @@ import { useState } from 'react'
 
 import styled from 'styled-components'
 
+import { connectorCards } from '@/config/connectors'
 import { Modal, ModalHeader, ModalBody, ModalTitle } from '@/components/Core/Modal'
 import ConnectCancel from './ConnectCancel'
 import ConnectCard, { ConnectCardMore } from './ConnectCard'
-import connectors from '@/config/connectors'
 
 const ConnectCards = styled.div`
   display: grid;
@@ -15,9 +15,9 @@ const ConnectCards = styled.div`
 const ConnectModal = ({ open, onDismiss }) => {
   const [showMore, setShowMore] = useState(false)
 
-  let customConnectors = connectors.slice(0, 3)
+  let customConnectorCards = connectorCards.slice(0, 3)
   if (showMore) {
-    customConnectors = connectors
+    customConnectorCards = connectorCards
   }
 
   if (!open) {
@@ -31,15 +31,17 @@ const ConnectModal = ({ open, onDismiss }) => {
       </ModalHeader>
       <ModalBody>
         <ConnectCards>
-          {customConnectors.map((connector) => (
-            <ConnectCard
-              connector={connector.connector}
-              icon={connector.icon}
-              key={connector.id}
-              onConnect={onDismiss}
-              title={connector.title}
-            />
-          ))}
+          {customConnectorCards.map((customConnectorCard) => {
+            return (
+              <ConnectCard
+                connector={customConnectorCard?.connection?.connector}
+                icon={customConnectorCard.icon}
+                key={customConnectorCard.id}
+                onConnect={onDismiss}
+                title={customConnectorCard.title}
+              />
+            )
+          })}
           {showMore ? null : <ConnectCardMore onClick={() => setShowMore(true)} />}
         </ConnectCards>
         <ConnectCancel onClick={onDismiss}>Cancel</ConnectCancel>
