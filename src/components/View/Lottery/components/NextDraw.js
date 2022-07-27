@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import { Flex } from '@/components/Core/Toolkit'
+import { Content, Detail, Heading, InfoBox } from './DrawInfo'
 
 const NextDrawContainer = styled(Flex)`
   align-items: center;
@@ -22,6 +23,11 @@ const NextDraw = () => {
     <NextDrawSection>
       <NextDrawContainer>
         <NextDrawHeading>Get your tickets now!</NextDrawHeading>
+        <InfoBox
+          renderHeading={<Heading drawNumber={608} drawDate={'Jul 28, 2022, 4:30 PM'} />}
+          renderContent={<Content />}
+          renderDetail={<Detail />}
+        />
       </NextDrawContainer>
     </NextDrawSection>
   )
