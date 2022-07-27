@@ -1,8 +1,8 @@
 import { useState } from 'react'
+
 import styled from 'styled-components'
 
 import { Flex } from '@/components/Core/Toolkit'
-
 import { SvgSolidChevronDown } from '@/components/Svg'
 
 const BoxContainer = styled(Flex)`
