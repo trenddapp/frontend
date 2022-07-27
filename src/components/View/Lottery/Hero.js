@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 
+import { BigNumber, ethers } from 'ethers'
 import styled from 'styled-components'
 
 import { Box, Flex } from '@/components/Core/Toolkit'
@@ -8,6 +9,7 @@ import { CurrencyContext } from '@/context/Currency'
 import { LotteryContext } from '@/context/Lottery'
 import { LotteryStatus } from '@/config/constants/lottery'
 import { useContractLottery } from '@/hooks/lottery'
+import { useWeb3Signer } from '@/hooks'
 
 const HeroBackgroundLeft = styled(Box)`
   background-image: url('/main/bg_home_left.svg');
@@ -99,20 +101,25 @@ const Hero = () => {
     statusError,
     statusIsLoading,
   } = useContext(LotteryContext)
-  const { contractLottery, contractLotteryError } = useContractLottery()
+  const { contract: contractLottery, error: contractLotteryError } = useContractLottery()
+  const signer = useWeb3Signer()
   const isBuyTicketDisabled =
-    !statusIsLoading && !statusError && status !== LotteryStatus.OPEN && !costPerTicketIsLoading && !costPerTicketError
+    !statusIsLoading &&
+    !statusError &&
+    status !== LotteryStatus.OPEN &&
+    !costPerTicketIsLoading &&
+    !costPerTicketError &&
+    !contractLotteryError &&
+    !signer
 
   const handleBuyTicket = async () => {
-    if (contractLotteryError !== undefined) {
-      return
-    }
-
     if (isBuyTicketDisabled) {
       return
     }
 
-    const transaction = await buyTicket(contractLottery, costPerTicket)
+    const contractLotteryWithSigner = contractLottery.connect(signer)
+
+    const transaction = await buyTicket(contractLotteryWithSigner, costPerTicket)
     console.log(transaction)
   }
 
@@ -139,7 +146,9 @@ const Hero = () => {
 
     return (
       <>
-        <HeroPrize>${ethToUsdRate.rate.value * prizePool}</HeroPrize>
+        <HeroPrize>
+          ${ethers.utils.formatEther(BigNumber.from(Math.floor(ethToUsdRate.rate.value)).mul(prizePool))}
+        </HeroPrize>
         <HeroHeading>in prizes!</HeroHeading>
       </>
     )

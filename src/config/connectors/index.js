@@ -1,4 +1,6 @@
-import { metaMask } from './metaMask'
+import { initializeConnector } from '@web3-react/core'
+import { MetaMask } from '@web3-react/metamask'
+
 import {
   SvgMathWallet,
   SvgMetaMask,
@@ -8,12 +10,28 @@ import {
   SvgWalletConnect,
 } from '@/components/Svg'
 
-const connectors = [
+export const ConnectionType = {
+  INJECTED: 'INJECTED',
+  NETWORK: 'NETWORK',
+}
+
+const onError = (error) => {
+  console.log(`web3-react error: ${error}`)
+}
+
+const [metaMask, metaMaskHooks] = initializeConnector((actions) => new MetaMask({ actions, onError }))
+export const metaMaskConnection = {
+  connector: metaMask,
+  hooks: metaMaskHooks,
+  type: ConnectionType.INJECTED,
+}
+
+export const connectorCards = [
   {
     id: '1',
     title: 'Meta Mask',
     icon: SvgMetaMask,
-    connector: metaMask,
+    connection: metaMaskConnection,
   },
   {
     id: '2',
@@ -46,5 +64,3 @@ const connectors = [
     connector: null, // TODO: implement me!
   },
 ]
-
-export default connectors
