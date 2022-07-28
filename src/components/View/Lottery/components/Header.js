@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { Box, Flex } from '@/components/Core/Toolkit'
-import { Profile } from '@/components/Core/Profile'
+import { Profile } from './Profile'
 import { useWeb3Profile } from '@/hooks'
 import ConnectButton from '@/components/Core/Wallet/ConnectButton'
 

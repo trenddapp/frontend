@@ -3,7 +3,7 @@ import Link from 'next/link'
 import styled from 'styled-components'
 
 import { Flex } from '@/components/Core/Toolkit'
-import { Logo } from '@/components/Core/Logo'
+import { Logo } from '@/components/Common/Logo'
 
 const FooterContainer = styled(Flex)`
   flex-direction: column;

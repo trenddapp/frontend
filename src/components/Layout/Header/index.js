@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 import { Box, Flex } from '@/components/Core/Toolkit'
-import { Logo } from '@/components/Core/Logo'
-import { Nav, NavItem, NavItemWithMenu } from '@/components/Core/Nav'
+import { Logo } from '@/components/Common/Logo'
+import { Nav, NavItem, NavItemWithMenu } from '@/components/Layout/Header/components/Nav'
 
 const Border = styled(Box)`
   background-color: rgba(0, 0, 0, 0.1);
