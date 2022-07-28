@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { Box, Flex } from '@/components/Core/Toolkit'
 
-import { Terminal } from '@/components/Core/Terminal'
+import { Terminal } from '@/components/View/Home/components/Terminal'
 
 const HeroBackground = styled(Box)`
   display: none;

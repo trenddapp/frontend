@@ -3,7 +3,7 @@ import { useState } from 'react'
 import styled from 'styled-components'
 
 import { Box } from '@/components/Core/Toolkit'
-import { Hamburger } from '@/components/Core/Hamburger'
+import { Hamburger } from '../Hamburger'
 
 const StyledHamburgerWrapper = styled(Box)`
   display: inline-block;
