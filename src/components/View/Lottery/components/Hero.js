@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 
 import { BigNumber, ethers } from 'ethers'
+import { toast } from 'react-toastify'
 import styled from 'styled-components'
 
 import { Box, Flex } from '@/components/Core/Toolkit'
@@ -127,10 +128,16 @@ const Hero = () => {
       return
     }
 
-    const contractLotteryWithSigner = contractLottery.connect(signer)
-
-    const transaction = await buyTicket(contractLotteryWithSigner, costPerTicket)
-    console.log(transaction)
+    try {
+      const transaction = await buyTicket(contractLottery.connect(signer), costPerTicket)
+      toast.promise(transaction.wait(), {
+        error: 'Failed to buy a ticket!',
+        pending: 'Waiting for the transaction!',
+        success: 'Successfully bought a ticket!',
+      })
+    } catch (error) {
+      toast.error('Failed to buy a ticket. Please try again!')
+    }
   }
 
   const getHeroHeading = () => {

@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react'
 
+import { toast } from 'react-toastify'
 import styled from 'styled-components'
 
 import { Box, Flex } from '@/components/Core/Toolkit'
@@ -85,16 +86,18 @@ const ClaimReward = () => {
 
   const handleClaim = async () => {
     if (contractLotteryError !== undefined) {
-      console.log(contractLotteryError)
       return
     }
 
     try {
-      const contractLotteryWithSigner = contractLottery.connect(signer)
-      const transaction = await claimReward(contractLotteryWithSigner)
-      console.log(transaction)
+      const transaction = await claimReward(contractLottery.connect(signer))
+      toast.promise(transaction.wait(), {
+        error: 'Failed to claim reward!',
+        pending: 'Waiting for the transaction!',
+        success: 'Successfully claimed reward!',
+      })
     } catch (error) {
-      console.log(error)
+      toast.error('Failed to claim reward. Please try again!')
     }
   }
 
