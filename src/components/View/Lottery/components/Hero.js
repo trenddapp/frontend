@@ -12,31 +12,41 @@ import { useContractLottery } from '@/hooks/lottery'
 import { useWeb3Signer } from '@/hooks'
 
 const HeroBackgroundLeft = styled(Box)`
-  background-image: url('/main/bg_home_left.svg');
-  background-position-x: 0;
-  background-position-y: 0;
-  background-repeat: no-repeat;
-  background-size: contain;
-  height: 100%;
-  position: absolute;
-  width: 50%;
-  top: 0;
-  left: 0;
-  z-index: 0;
+  display: none;
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    background-image: url('/main/bg_home_left.svg');
+    background-position-x: 0;
+    background-position-y: 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 50%;
+    z-index: 0;
+  }
 `
 
 const HeroBackgroundRight = styled(Box)`
-  background-image: url('/main/bg_home_right.svg');
-  background-position-x: 100%;
-  background-position-y: 0;
-  background-repeat: no-repeat;
-  background-size: contain;
-  height: 100%;
-  position: absolute;
-  width: 50%;
-  top: 0;
-  right: 0;
-  z-index: 0;
+  display: none;
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    background-image: url('/main/bg_home_right.svg');
+    background-position-x: 100%;
+    background-position-y: 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+    height: 100%;
+    position: absolute;
+    width: 50%;
+    top: 0;
+    right: 0;
+    z-index: 0;
+  }
 `
 
 const HeroButton = styled.a`
