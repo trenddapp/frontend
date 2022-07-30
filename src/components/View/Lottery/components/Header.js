@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 import { Box, Flex } from '@/components/Core/Toolkit'
-import { Profile } from './Profile'
+import { Profile } from '@/components/Common/Profile'
 import { useWeb3Profile } from '@/hooks'
-import ConnectButton from '@/components/Core/Wallet/ConnectButton'
+import { WalletConnectButton } from '@/components/Common/Wallet'
 
 const HeaderContainer = styled(Flex)`
   align-items: center;
@@ -45,7 +45,7 @@ const Header = () => {
           <img height="45px;" src="/main/lottery.png" />
           Lottery
         </HeaderLogo>
-        {isActive || isActivating ? <Profile /> : <ConnectButton />}
+        {isActive || isActivating ? <Profile /> : <WalletConnectButton />}
       </HeaderContainer>
     </HeaderSection>
   )

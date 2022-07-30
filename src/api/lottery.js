@@ -4,6 +4,10 @@ export const buyTicket = async (contract, costPerTicket) => {
   })
 }
 
+export const claimReward = async (contract) => {
+  return await contract.claimReward()
+}
+
 export const getCostPerTicket = async (contract) => {
   return await contract.costPerTicket()
 }
@@ -14,4 +18,8 @@ export const getPrizePool = async (contract) => {
 
 export const getStatus = async (contract) => {
   return await contract.lotteryStatus()
+}
+
+export const getWinner = async (contract) => {
+  return await contract.winner()
 }
