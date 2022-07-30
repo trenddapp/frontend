@@ -1,4 +1,6 @@
 import { ThemeProvider } from 'styled-components'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 import { GlobalStyle, ResetCss } from '@/styles'
 import { light } from '@/themes'
@@ -10,6 +12,17 @@ const App = ({ Component, pageProps }) => {
 
   return (
     <ThemeProvider theme={light}>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <ResetCss />
       <GlobalStyle />
       <Header isFixed={isHeaderFixed} />
