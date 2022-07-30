@@ -29,8 +29,12 @@ const StyledModalOverlay = styled(Box)`
   z-index: ${({ theme }) => theme.zIndices.modal};
 `
 
-const Modal = ({ children, onDismiss }) => {
+const Modal = ({ children, isScrollDisabled = false, onDismiss }) => {
   useEffect(() => {
+    if (!isScrollDisabled) {
+      return
+    }
+
     document.body.style.overflow = 'hidden'
 
     return () => {
