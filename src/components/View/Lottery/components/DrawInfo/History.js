@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { Flex } from '@/components/Core/Toolkit'
-import { Content, Detail, Heading, InfoBox } from './DrawInfo'
+import { Content, Detail, Heading, InfoBox } from '.'
 
 const HistoryContainer = styled(Flex)`
   align-items: center;
