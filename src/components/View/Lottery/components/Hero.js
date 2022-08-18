@@ -43,9 +43,9 @@ const HeroBackgroundRight = styled(Box)`
     display: block;
     height: 100%;
     position: absolute;
-    width: 50%;
-    top: 0;
     right: 0;
+    top: 0;
+    width: 50%;
     z-index: 0;
   }
 `
@@ -64,7 +64,6 @@ const HeroButton = styled.a`
   text-align: center;
   transition: background-color 0.4s ease 0s, color 0.4s ease 0s, transform 0.4s ease 0s;
   width: 240px;
-  z-index: 1;
 
   &:hover {
     background-color: rgb(67, 81, 197);
@@ -79,18 +78,18 @@ const HeroContainer = styled(Flex)`
   flex-direction: column;
   height: 100%;
   justify-content: center;
+  position: relative;
+  z-index: 1;
 `
 
 const HeroHeading = styled.h2`
   font-size: 18px;
   font-weight: 400;
-  z-index: 1;
 `
 
 const HeroPrize = styled.span`
   font-size: 60px;
   font-weight: 600;
-  z-index: 1;
 `
 
 const HeroSection = styled.section`

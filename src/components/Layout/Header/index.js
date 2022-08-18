@@ -33,7 +33,7 @@ const HeaderContainer = styled(Flex)`
 
 const HeaderSection = styled.header`
   background-color: ${({ theme }) => theme.colors.background};
-  position: ${({ isFixed }) => (isFixed ? 'fixed' : 'block')};
+  position: ${({ isFixed }) => (isFixed ? 'fixed' : 'relative')};
   top: 0;
   width: 100%;
   z-index: ${({ theme }) => theme.zIndices.header};
@@ -49,8 +49,6 @@ const Header = ({ isFixed = true }) => {
 
   const resources = [{ link: '/', text: 'Docs' }]
 
-  const services = [{ link: '/', text: 'Contact' }]
-
   return (
     <>
       <HeaderSection isFixed={isFixed}>
@@ -62,17 +60,14 @@ const Header = ({ isFixed = true }) => {
                 <NavItemWithMenu menuItems={products} {...{ setIsOpen }}>
                   Products
                 </NavItemWithMenu>
-                <NavItem link="/company" {...{ setIsOpen }}>
-                  Company
-                </NavItem>
                 <NavItemWithMenu menuItems={resources} {...{ setIsOpen }}>
                   Resources
                 </NavItemWithMenu>
-                <NavItemWithMenu menuItems={services} {...{ setIsOpen }}>
+                <NavItem link="/" {...{ setIsOpen }}>
                   Services
-                </NavItemWithMenu>
-                <NavItem link="/news-and-events" {...{ setIsOpen }}>
-                  News & Events
+                </NavItem>
+                <NavItem link="/company" {...{ setIsOpen }}>
+                  Company
                 </NavItem>
               </>
             )}
