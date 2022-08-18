@@ -12,6 +12,8 @@ const HeaderContainer = styled(Flex)`
   margin: 0 auto;
   max-width: ${({ theme }) => theme.siteWidth + 50}px;
   padding: 0 35px;
+  position: relative;
+  z-index: ${({ theme }) => theme.zIndices.header};
 
   ${({ theme }) => theme.mediaQueries.md} {
     padding: 0 96px;
@@ -32,7 +34,7 @@ const HeaderSection = styled(Box)`
   height: 64px;
   position: sticky;
   top: 0;
-  z-index: ${({ theme }) => theme.zIndices.header};
+  z-index: ${({ theme }) => theme.zIndices.header - 1};
 `
 
 const Header = () => {
