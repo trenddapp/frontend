@@ -40,14 +40,21 @@ const HeaderSection = styled.header`
 `
 
 const Header = ({ isFixed = true }) => {
-  const products = [
-    { link: '/auction', text: 'Auction' },
-    { link: '/lottery', text: 'Lottery' },
-    { link: '/marketplace', text: 'Marketplace' },
-    { link: '/nft', text: 'NFT' },
+  const company = [
+    { displayText: 'About', url: '/about' },
+    { displayText: 'Careers', url: '/careers' },
+    { displayText: 'GitHub', url: 'https://github.com/trenddapp' },
+    { displayText: 'Logo Kit', url: '/logo-kit' },
   ]
 
-  const resources = [{ link: '/', text: 'Docs' }]
+  const products = [
+    { displayText: 'Auction', url: '/auction' },
+    { displayText: 'Lottery', url: '/lottery' },
+    { displayText: 'Marketplace', url: '/marketplace' },
+    { displayText: 'NFT', url: '/nft' },
+  ]
+
+  const resources = [{ displayText: 'Docs', url: '/' }]
 
   return (
     <>
@@ -63,11 +70,11 @@ const Header = ({ isFixed = true }) => {
                 <NavItemWithMenu menuItems={resources} {...{ setIsOpen }}>
                   Resources
                 </NavItemWithMenu>
-                <NavItem link="/" {...{ setIsOpen }}>
-                  Services
-                </NavItem>
-                <NavItem link="/company" {...{ setIsOpen }}>
+                <NavItemWithMenu menuItems={company} {...{ setIsOpen }}>
                   Company
+                </NavItemWithMenu>
+                <NavItem link="/services" {...{ setIsOpen }}>
+                  Services
                 </NavItem>
               </>
             )}

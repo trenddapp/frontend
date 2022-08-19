@@ -121,8 +121,8 @@ const NavItemWithMenu = ({ children, menuItems = [], setIsOpen }) => {
           {menuItems.map((item, index) => {
             return (
               <StyledNavItem onClick={() => setIsOpen(false)} key={index}>
-                <Link href={item.link}>
-                  <a>{item.text}</a>
+                <Link href={item.url}>
+                  <a>{item.displayText}</a>
                 </Link>
               </StyledNavItem>
             )
@@ -134,9 +134,9 @@ const NavItemWithMenu = ({ children, menuItems = [], setIsOpen }) => {
           <Flex flexDirection="column" width="100%">
             {menuItems.map((item, index) => {
               return (
-                <Link href={item.link} key={index}>
+                <Link href={item.url} key={index}>
                   <StyledMenuItem>
-                    <a>{item.text}</a>
+                    <a>{item.displayText}</a>
                   </StyledMenuItem>
                 </Link>
               )

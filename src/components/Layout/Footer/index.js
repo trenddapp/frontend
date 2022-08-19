@@ -115,7 +115,7 @@ const Footer = () => {
     { displayText: 'About', url: '/about' },
     { displayText: 'Careers', url: '/careers' },
     { displayText: 'GitHub', url: 'https://github.com/trenddapp' },
-    { displayText: 'Logo Kit', url: '/logo' },
+    { displayText: 'Logo Kit', url: '/logo-kit' },
   ]
 
   const products = [

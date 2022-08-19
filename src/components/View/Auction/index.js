@@ -1,5 +1,5 @@
 const Auction = () => {
-  return <>Auction View</>
+  return <main></main>
 }
 
 export default Auction
