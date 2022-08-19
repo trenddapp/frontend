@@ -1,5 +1,11 @@
+import Header from './components/Header'
+
 const Auction = () => {
-  return <main></main>
+  return (
+    <main>
+      <Header />
+    </main>
+  )
 }
 
 export default Auction
