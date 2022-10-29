@@ -7,9 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prepare": "husky install"
   },
   "dependencies": {
+    "install": "^0.13.0",
     "next": "13.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -21,7 +23,12 @@
     "@types/react-dom": "18.0.8",
     "eslint": "8.26.0",
     "eslint-config-next": "13.0.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "prettier": "2.7.1",
     "typescript": "4.8.4"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
 }
