@@ -1,0 +1,7 @@
+.github
+.next
+.vscode
+node_modules
+public
+out
+README.md
