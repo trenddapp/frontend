@@ -1,0 +1,22 @@
+name: Continues Integration
+on:
+  push:
+    branches:
+    - main
+  workflow_dispatch:
+jobs:
+  nextjs:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Source Code
+      uses: actions/checkout@v3
+    - name: Setup Nodejs
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+    - name: Install Dependencies
+      run: yarn install --frozen-lockfile
+    - name: Check Source Code Format
+      run: yarn prettier --check .
+    - name: Build Source Code
+      run: yarn build
