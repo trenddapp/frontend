@@ -1,3 +1,6 @@
+import { ThemeProvider } from 'styled-components'
+import { lightTheme } from 'theme'
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -6,7 +9,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="description" content="Decentralized applications by TrendDapp" />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body>{children}</body>
+      <ThemeProvider theme={lightTheme}>
+        <body>{children}</body>
+      </ThemeProvider>
     </html>
   )
 }
