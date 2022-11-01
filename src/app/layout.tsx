@@ -10,7 +10,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <title>Trenddapp</title>
         <meta name="description" content="Decentralized applications by TrendDapp" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
       </head>
       <ThemeProvider theme={lightTheme}>
         <ResetCss />
