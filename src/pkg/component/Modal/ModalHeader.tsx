@@ -5,7 +5,7 @@ interface ModalHeaderProps {
   children: React.ReactNode
 }
 
-const Container = styled(Flex)`
+const ModalHeaderContainer = styled(Flex)`
   align-items: center;
   justify-content: center;
   min-height: 42px;
@@ -13,5 +13,5 @@ const Container = styled(Flex)`
 `
 
 export default function ModalHeader({ children }: ModalHeaderProps) {
-  return <Container>{children}</Container>
+  return <ModalHeaderContainer>{children}</ModalHeaderContainer>
 }

@@ -1,2 +1,5 @@
+export { default as SvgChevronDown } from './ChevronDown'
+export { default as SvgExclamation } from './Exclamation'
 export { default as SvgMetaMask } from './MetaMask'
 export { default as SvgWalletConnect } from './WalletConnect'
+export { default as SvgUser } from './User'

@@ -5,11 +5,11 @@ interface ModalBodyProps {
   children: React.ReactNode
 }
 
-const Container = styled(Box)`
+const ModalBodyContainer = styled(Box)`
   overflow-y: auto;
   padding: 12px 24px;
 `
 
 export default function ModalBody({ children }: ModalBodyProps) {
-  return <Container>{children}</Container>
+  return <ModalBodyContainer>{children}</ModalBodyContainer>
 }

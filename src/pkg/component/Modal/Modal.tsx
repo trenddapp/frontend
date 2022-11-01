@@ -8,7 +8,7 @@ interface ModalProps {
   onDismiss: () => void
 }
 
-const Container = styled(Box)`
+const ModalContainer = styled(Box)`
   background-color: ${({ theme }) => theme.colors.background};
   border-radius: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 20px 0px;
@@ -21,7 +21,7 @@ const Container = styled(Box)`
   z-index: ${({ theme }) => theme.zIndices.modal + 10};
 `
 
-const Overlay = styled(Box)`
+const ModalOverlay = styled(Box)`
   background-color: ${({ theme }) => `${theme.colors.overlay}`};
   height: 100%;
   left: 0;
@@ -44,8 +44,8 @@ export default function Modal({ children, isScrollDisabled = false, onDismiss }:
 
   return (
     <Box>
-      <Overlay onClick={onDismiss} />
-      <Container>{children}</Container>
+      <ModalOverlay onClick={onDismiss} />
+      <ModalContainer>{children}</ModalContainer>
     </Box>
   )
 }
