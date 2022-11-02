@@ -3,6 +3,7 @@
 import { ThemeProvider } from 'styled-components'
 import { GlobalCss, ResetCss } from 'pkg/style'
 import { lightTheme } from 'pkg/theme'
+import { Footer } from 'pkg/component/Footer'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -15,7 +16,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <ThemeProvider theme={lightTheme}>
         <ResetCss />
         <GlobalCss />
-        <body>{children}</body>
+        <body>
+          {children}
+          <Footer />
+        </body>
       </ThemeProvider>
     </html>
   )
