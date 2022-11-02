@@ -1,14 +1,12 @@
-'use client'
-
 import { useState } from 'react'
 import styled from 'styled-components'
 import ConnectModal from './ConnectModal'
 
 interface ConnectButtonProps {
-  onConnect: () => void
+  onConnect?: () => void
 }
 
-const Container = styled.a`
+const ConnectButtonContainer = styled.a`
   background-color: rgb(78, 94, 228);
   border-radius: 6px;
   box-shadow: rgb(50 50 93 / 11%) 0px 4px 6px, rgb(0 0 0 / 8%) 0px 1px 3px;
@@ -30,8 +28,8 @@ export default function ConnectButton({ onConnect }: ConnectButtonProps) {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <>
-      <ConnectModal open={isOpen} onConnect={onConnect} onDismiss={() => setIsOpen(false)} />
-      <Container onClick={() => setIsOpen(true)}>Connect Wallet</Container>
+      <ConnectModal open={isOpen} onConnect={onConnect || (() => {})} onDismiss={() => setIsOpen(false)} />
+      <ConnectButtonContainer onClick={() => setIsOpen(true)}>Connect Wallet</ConnectButtonContainer>
     </>
   )
 }

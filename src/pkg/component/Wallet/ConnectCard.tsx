@@ -1,28 +1,28 @@
 import { useCallback } from 'react'
-import styled from 'styled-components'
-import { getChainParameters } from 'pkg/util/chain'
-import { Text } from 'pkg/component/Toolkit'
-import config from 'config'
 import { MetaMask } from '@web3-react/metamask'
+import { WalletConnect } from '@web3-react/walletconnect'
+import styled from 'styled-components'
+import { Text } from 'pkg/component/Toolkit'
+import constants from 'config/constants'
 
 interface ConnectCardProps {
-  connector?: MetaMask
+  connector: MetaMask | WalletConnect
   icon: () => JSX.Element
   onConnect: () => void
   title: string
 }
 
-const ConnectButton = styled.button`
+const ConnectCardContainer = styled.button`
   align-items: center;
   background-color: inherit;
   border-radius: 0.375rem;
-  border: none;
+  border: 1px solid ${({ theme }) => theme.colors.borderAlt};
   color: ${({ theme }) => theme.colors.text};
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   margin: 4px;
-  padding: 12px 0px;
+  padding: 4px 12px;
+  width: 100%;
   &:hover {
     background-color: ${({ theme }) => theme.colors.overlay};
     cursor: pointer;
@@ -32,17 +32,15 @@ const ConnectButton = styled.button`
 const ConnectCard = ({ connector, icon: ConnectButtonIcon, onConnect, title }: ConnectCardProps) => {
   const connectButtonHandler = useCallback(() => {
     connector
-      ?.activate(getChainParameters(config.defaultChainId))
-      .then(() => onConnect())
-      .catch((error) => console.log(error))
+      ?.activate(constants.defaultChainId)
+      .then(onConnect)
+      .catch((error) => console.log('activate:', error))
   }, [connector])
   return (
-    <ConnectButton onClick={connectButtonHandler}>
+    <ConnectCardContainer onClick={connectButtonHandler}>
       <ConnectButtonIcon />
-      <Text as="p" margin="8px 0 0 0">
-        {title}
-      </Text>
-    </ConnectButton>
+      <Text as="p">{title}</Text>
+    </ConnectCardContainer>
   )
 }
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Button = styled.button`
+const ConnectButtonContainer = styled.button`
   background-color: inherit;
   border-radius: 0.375rem;
   border: none;
@@ -16,5 +16,5 @@ const Button = styled.button`
 `
 
 export default function CancelButton(props: any) {
-  return <Button {...props}>Cancel</Button>
+  return <ConnectButtonContainer {...props}>Cancel</ConnectButtonContainer>
 }

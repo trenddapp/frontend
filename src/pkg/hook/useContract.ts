@@ -1,9 +1,9 @@
 import { useMemo } from 'react'
 import { ethers } from 'ethers'
-import useProvider from './useProvider'
+import useConnector from 'pkg/hook/useConnector'
 
 export default function useContract(abi: any, address: string) {
-  const provider = useProvider()
+  const { provider } = useConnector()
   return useMemo(() => {
     try {
       return new ethers.Contract(address, abi, provider)

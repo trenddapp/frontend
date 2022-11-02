@@ -1,19 +1,14 @@
-import styled from 'styled-components'
-import { connectorCards } from 'config/connector'
+import { Flex } from 'pkg/component/Toolkit'
 import { Modal, ModalBody, ModalHeader, ModalTitle } from 'pkg/component/Modal'
 import ConnectCancel from './ConnectCancel'
 import ConnectCard from './ConnectCard'
+import connection from 'config/connection'
 
 interface ConnectModalProps {
   open: boolean
   onConnect: () => void
   onDismiss: () => void
 }
-
-const ConnectCards = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-`
 
 export default function ConnectModal({ open, onConnect, onDismiss }: ConnectModalProps) {
   if (!open) {
@@ -25,19 +20,19 @@ export default function ConnectModal({ open, onConnect, onDismiss }: ConnectModa
         <ModalTitle>Connect Your Wallet</ModalTitle>
       </ModalHeader>
       <ModalBody>
-        <ConnectCards>
-          {connectorCards.map((connectorCard) => {
+        <Flex alignItems="center" flexDirection="column" justifyContent="center">
+          {Object.keys(connection).map((key) => {
             return (
               <ConnectCard
-                connector={connectorCard?.connection?.connector}
-                icon={connectorCard.icon}
-                key={connectorCard.id}
+                connector={connection[key].connector}
+                icon={connection[key].icon}
+                key={key}
                 onConnect={onConnect}
-                title={connectorCard.title}
+                title={connection[key].name}
               />
             )
           })}
-        </ConnectCards>
+        </Flex>
         <ConnectCancel onClick={onDismiss}>Cancel</ConnectCancel>
       </ModalBody>
     </Modal>
