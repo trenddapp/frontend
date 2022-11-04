@@ -1,7 +1,7 @@
 import jwt_decode from 'jwt-decode'
 
 interface AccessToken {
-  user_id: string
+  id: string
   address: string
   exp: number
 }
