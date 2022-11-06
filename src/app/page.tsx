@@ -1,3 +1,15 @@
+'use client'
+
+import { Communication, Development, Hero, Service, Technology } from 'pkg/component/Home'
+
 export default function HomePage() {
-  return <div>Hello World</div>
+  return (
+    <main>
+      <Hero />
+      <Service />
+      <Technology />
+      <Development />
+      <Communication />
+    </main>
+  )
 }

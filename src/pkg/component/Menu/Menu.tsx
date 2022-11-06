@@ -3,7 +3,6 @@ import styled from 'styled-components'
 const MenuContainer = styled.div<any>`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.background};
-  border-radius: 6px;
   border-radius: 8px;
   box-shadow: ${({ theme }) => theme.shadows.menu};
   display: flex;

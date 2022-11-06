@@ -108,6 +108,7 @@ export default function Footer() {
         { displayText: 'Lottery', url: '/dapps/lottery' },
         { displayText: 'Marketplace', url: '/dapps/marketplace' },
         { displayText: 'NFT', url: '/dapps/nft' },
+        { displayText: 'Wordle', url: '/dapps/wordle' },
       ],
     },
     {
