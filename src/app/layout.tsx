@@ -2,10 +2,10 @@
 
 import { usePathname } from 'next/navigation'
 import { ThemeProvider } from 'styled-components'
-import { GlobalCss, ResetCss } from 'pkg/style'
-import { lightTheme } from 'pkg/theme'
 import { Footer } from 'pkg/component/Footer'
+import { GlobalCss, ResetCss } from 'pkg/style'
 import { Header } from 'pkg/component/Header'
+import { lightTheme } from 'pkg/theme'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()

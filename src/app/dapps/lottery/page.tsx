@@ -1,3 +1,5 @@
+'use client'
+
 export default function LotteryPage() {
-  return <div>Lottery Page</div>
+  return <main>Lottery Page</main>
 }

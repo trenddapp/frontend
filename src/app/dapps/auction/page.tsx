@@ -1,3 +1,5 @@
+'use client'
+
 export default function AuctionPage() {
-  return <div>Auction Page</div>
+  return <main>Auction Page</main>
 }

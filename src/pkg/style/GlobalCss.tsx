@@ -1,3 +1,5 @@
+'use client'
+
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
@@ -5,10 +7,12 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
   }
   body {
+    display: flex;
+    flex-direction: column;
     background-color: ${({ theme }) => theme.colors.background};
   }
-  main {
-    min-height: 90vh;
+  footer {
+    margin: auto 0 0 0;
   }
   /* width */
   ::-webkit-scrollbar {

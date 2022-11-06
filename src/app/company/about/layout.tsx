@@ -1,3 +1,5 @@
+'use client'
+
 interface AboutLayoutProps {
   children: React.ReactNode
 }
