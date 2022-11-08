@@ -1,7 +1,7 @@
 import { initializeConnector, Web3ReactHooks } from '@web3-react/core'
 import { MetaMask } from '@web3-react/metamask'
 import { WalletConnect } from '@web3-react/walletconnect'
-import { SvgMetaMask, SvgWalletConnect } from 'pkg/component/Svg'
+import { SvgMetaMask, SvgWalletConnect } from 'lib/component/Svg'
 import config from 'config/constants'
 
 interface Connection {

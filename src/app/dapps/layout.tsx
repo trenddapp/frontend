@@ -1,6 +1,6 @@
 'use client'
 
-import { AuthProvider } from 'pkg/context/Auth'
+import { AuthProvider } from 'lib/context/Auth'
 
 interface DappsLayoutProps {
   children: React.ReactNode
