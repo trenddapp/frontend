@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import styled from 'styled-components'
 import { Flex } from 'lib/component/Toolkit'
-import { Wordle, WordleCharStatus } from '../../api'
+import { Wordle, WordleCharStatus } from 'lib/api/wordle'
 import Key from './Key'
 
 interface KeyboardProps {

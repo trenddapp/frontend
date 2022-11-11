@@ -2,7 +2,7 @@ import { default as GraphemeSplitter } from 'grapheme-splitter'
 import styled from 'styled-components'
 import { Flex } from 'lib/component/Toolkit'
 import Cell from './Cell'
-import { WordleCharStatus } from '../../api'
+import { WordleCharStatus } from 'lib/api/wordle'
 
 interface CompleteRowProps {
   guess: string

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Flex } from 'lib/component/Toolkit'
-import { Wordle } from '../../api'
+import { Wordle } from 'lib/api/wordle'
 import CompleteRow from './CompleteRow'
 import CurrentRow from './CurrentRow'
 import EmptyRow from './EmptyRow'

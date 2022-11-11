@@ -11,9 +11,6 @@ const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     background-color: ${({ theme }) => theme.colors.background};
   }
-  footer {
-    margin: auto 0 0 0;
-  }
   /* width */
   ::-webkit-scrollbar {
     width: 8px;
@@ -40,6 +37,9 @@ const GlobalStyle = createGlobalStyle`
   /* Firefox */
   input[type="number"] {
     -moz-appearance: textfield;
+  }
+  [data-nextjs-scroll-focus-boundary] {
+    display: contents;
   }
 `
 

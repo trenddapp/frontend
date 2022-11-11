@@ -1,9 +1,9 @@
 'use client'
 
-interface MarketplaceLayoutProps {
+interface LayoutProps {
   children: React.ReactNode
 }
 
-export default function MarketplaceLayout({ children }: MarketplaceLayoutProps) {
-  return children
+export default function Layout(props: LayoutProps) {
+  return props.children
 }

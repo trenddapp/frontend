@@ -1,9 +1,5 @@
 'use client'
 
-export default function MarketplaceHead() {
-  return (
-    <>
-      <title>Marketplace | Trenddapp</title>
-    </>
-  )
+export default function Head() {
+  return <title>Marketplace | Trenddapp</title>
 }

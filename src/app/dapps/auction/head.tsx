@@ -1,9 +1,5 @@
 'use client'
 
-export default function AuctionHead() {
-  return (
-    <>
-      <title>Auction | Trenddapp</title>
-    </>
-  )
+export default function Head() {
+  return <title>Auction | Trenddapp</title>
 }

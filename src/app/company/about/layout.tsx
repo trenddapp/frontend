@@ -1,9 +1,9 @@
 'use client'
 
-interface AboutLayoutProps {
+interface LayoutProps {
   children: React.ReactNode
 }
 
-export default function AboutLayout({ children }: AboutLayoutProps) {
-  return children
+export default function Layout(props: LayoutProps) {
+  return props.children
 }

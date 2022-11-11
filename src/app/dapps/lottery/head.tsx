@@ -1,9 +1,5 @@
 'use client'
 
-export default function LotteryHead() {
-  return (
-    <>
-      <title>Lottery | Trenddapp</title>
-    </>
-  )
+export default function Head() {
+  return <title>Lottery | Trenddapp</title>
 }

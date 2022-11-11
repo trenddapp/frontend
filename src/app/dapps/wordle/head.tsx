@@ -1,9 +1,5 @@
 'use client'
 
-export default function WordleHead() {
-  return (
-    <>
-      <title>Wordle | Trenddapp</title>
-    </>
-  )
+export default function Head() {
+  return <title>Wordle | Trenddapp</title>
 }

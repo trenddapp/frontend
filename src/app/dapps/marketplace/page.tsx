@@ -1,5 +1,5 @@
 'use client'
 
-export default function MarketplacePage() {
-  return <main>Marketplace Page</main>
+export default function Page() {
+  return <>Marketplace Page</>
 }

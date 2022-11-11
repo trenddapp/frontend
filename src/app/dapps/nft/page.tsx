@@ -1,5 +1,5 @@
 'use client'
 
-export default function NftPage() {
-  return <main>Nft Page</main>
+export default function Page() {
+  return <>NFT Page</>
 }

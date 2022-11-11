@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Flex } from 'lib/component/Toolkit'
-import { WordleCharStatus } from '../../api'
+import { WordleCharStatus } from 'lib/api/wordle'
 
 interface CellProps {
   status: WordleCharStatus

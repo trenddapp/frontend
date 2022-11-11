@@ -1,11 +1,11 @@
 'use client'
 
-import { AuthProvider } from 'lib/context/Auth'
+import { CurrencyProvider } from 'lib/context/Currency'
 
-interface DappsLayoutProps {
+interface LayoutProps {
   children: React.ReactNode
 }
 
-export default function DappsLayout({ children }: DappsLayoutProps) {
-  return <AuthProvider>{children}</AuthProvider>
+export default function Layout(props: LayoutProps) {
+  return <CurrencyProvider>{props.children}</CurrencyProvider>
 }

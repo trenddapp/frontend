@@ -1,5 +1,5 @@
 'use client'
 
-export default function AboutPage() {
-  return <main>About Page</main>
+export default function Page() {
+  return <>About Page</>
 }

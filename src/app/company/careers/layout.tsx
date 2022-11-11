@@ -1,9 +1,9 @@
 'use client'
 
-interface CareersLayoutProps {
+interface LayoutProps {
   children: React.ReactNode
 }
 
-export default function CareersLayout({ children }: CareersLayoutProps) {
-  return children
+export default function Layout(props: LayoutProps) {
+  return props.children
 }

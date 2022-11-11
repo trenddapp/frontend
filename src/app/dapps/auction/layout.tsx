@@ -1,9 +1,9 @@
 'use client'
 
-interface AuctionLayoutProps {
+interface LayoutProps {
   children: React.ReactNode
 }
 
-export default function AuctionLayout({ children }: AuctionLayoutProps) {
-  return children
+export default function Layout(props: LayoutProps) {
+  return props.children
 }

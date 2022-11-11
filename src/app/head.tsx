@@ -1,9 +1,5 @@
 'use client'
 
-export default function HomeHead() {
-  return (
-    <>
-      <title>Home | Trenddapp</title>
-    </>
-  )
+export default function Head() {
+  return <title>Home | Trenddapp</title>
 }

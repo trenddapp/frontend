@@ -1,9 +1,9 @@
 'use client'
 
-interface AssetsLayoutProps {
+interface LayoutProps {
   children: React.ReactNode
 }
 
-export default function AssetsLayout({ children }: AssetsLayoutProps) {
-  return children
+export default function Layout(props: LayoutProps) {
+  return props.children
 }

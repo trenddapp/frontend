@@ -1,9 +1,17 @@
 'use client'
 
-interface LotteryLayoutProps {
+import { Header } from './component/Header'
+import { LotteryProvider } from 'lib/context/Lottery'
+
+interface LayoutProps {
   children: React.ReactNode
 }
 
-export default function LotteryLayout({ children }: LotteryLayoutProps) {
-  return children
+export default function Layout(props: LayoutProps) {
+  return (
+    <LotteryProvider>
+      <Header />
+      {props.children}
+    </LotteryProvider>
+  )
 }

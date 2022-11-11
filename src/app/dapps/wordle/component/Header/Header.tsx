@@ -5,8 +5,8 @@ import Image from 'next/image'
 import styled from 'styled-components'
 import { AuthContext } from 'lib/context/Auth'
 import { Box, Flex } from 'lib/component/Toolkit'
+import { ConnectKitButton } from 'connectkit'
 import { Profile } from 'lib/component/Profile'
-import { WalletConnectButton } from 'lib/component/Wallet'
 
 const HeaderContainer = styled(Flex)`
   align-items: center;
@@ -50,7 +50,7 @@ export default function Header() {
           </Box>
           Wordle
         </HeaderLogo>
-        {userId !== null ? <Profile /> : <WalletConnectButton />}
+        {userId !== null ? <Profile /> : <ConnectKitButton />}
       </HeaderContainer>
     </HeaderSection>
   )

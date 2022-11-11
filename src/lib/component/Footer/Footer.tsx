@@ -90,6 +90,7 @@ const FooterLinkContainer = styled(Flex)`
 const FooterSection = styled.footer`
   background-color: #282846;
   height: 550px;
+  margin: auto 0 0 0;
   padding: 75px 35px 35px 35px;
   ${({ theme }) => theme.mediaQueries.sm} {
     height: 485px;

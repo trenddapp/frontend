@@ -1,5 +1,5 @@
 'use client'
 
-export default function AuctionPage() {
-  return <main>Auction Page</main>
+export default function Page() {
+  return <>Auction Page</>
 }

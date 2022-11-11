@@ -1,5 +1,5 @@
 'use client'
 
-export default function AssetsPage() {
-  return <main>Assets Page</main>
+export default function Page() {
+  return <>Assets Page</>
 }

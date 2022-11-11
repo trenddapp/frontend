@@ -1,9 +1,9 @@
 'use client'
 
-interface NftLayoutProps {
+interface LayoutProps {
   children: React.ReactNode
 }
 
-export default function NftLayout({ children }: NftLayoutProps) {
-  return children
+export default function Layout(props: LayoutProps) {
+  return props.children
 }

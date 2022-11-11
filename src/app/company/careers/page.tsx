@@ -1,5 +1,5 @@
 'use client'
 
-export default function CareersPage() {
-  return <main>Careers Page</main>
+export default function Page() {
+  return <>Careers Page</>
 }

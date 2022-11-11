@@ -4,13 +4,13 @@ import { useContext, useEffect, useState } from 'react'
 import { default as GraphmeSplitter } from 'grapheme-splitter'
 import { AuthContext } from 'lib/context/Auth'
 import { Board } from './component/Board'
-import { createWordle, listWordles, updateWordle, Wordle, WordleStatus } from './api'
+import { createWordle, listWordles, updateWordle, Wordle, WordleStatus } from 'lib/api/wordle'
 import { Flex } from 'lib/component/Toolkit'
 import { Keyboard } from './component/Keyboard'
 import { Modal, ModalBody, ModalHeader, ModalTitle } from 'lib/component/Modal'
 import { unicodeLength } from 'lib/util/unicode'
 
-export default function WordlePage() {
+export default function Page() {
   const { userId } = useContext(AuthContext)
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
   const [isWinner, setIsWinner] = useState<boolean>(false)

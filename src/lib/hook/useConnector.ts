@@ -1,32 +1,31 @@
 import { useMemo } from 'react'
 import { ethers } from 'ethers'
-import { getPriorityConnector } from '@web3-react/core'
-import connection from 'config/connection'
-import constants from 'config/constants'
+import { useAccount, useNetwork, useProvider, useSigner } from 'wagmi'
+import constant from 'config'
 
-export default function useConnector() {
-  const { usePriorityAccount, usePriorityChainId, usePriorityIsActivating, usePriorityIsActive, usePriorityProvider } =
-    getPriorityConnector(
-      [connection.metaMask.connector, connection.metaMask.hooks],
-      [connection.walletConnect.connector, connection.walletConnect.hooks],
-    )
+interface Output {
+  address?: string
+  isConnected: boolean
+  isConnecting: boolean
+  isWrongNetwork: boolean
+  provider?: ethers.providers.Provider
+  signer?: ethers.Signer
+}
 
-  const account = usePriorityAccount()
-  const chainId = usePriorityChainId()
-  const isActivating = usePriorityIsActivating()
-  const isActive = usePriorityIsActive()
-  const isWrongNetwork = chainId !== constants.defaultChainId
-  const provider = usePriorityProvider()
-
+export default function useConnector(): Output {
+  const { address, isConnected, isConnecting } = useAccount()
+  const { chain } = useNetwork()
+  const { data: signer } = useSigner()
+  const isWrongNetwork = chain?.id !== constant.defaultChainId
+  const provider = useProvider()
   return useMemo(() => {
     return {
-      account: account,
-      chainId: chainId,
-      isActivating: isActivating,
-      isActive: isActive,
-      isWrongNetwork: isWrongNetwork,
-      provider: provider || new ethers.providers.StaticJsonRpcProvider(constants.defaultRpcUrl),
-      signer: provider?.getSigner(),
+      address,
+      isConnected,
+      isConnecting,
+      isWrongNetwork,
+      provider: provider || new ethers.providers.StaticJsonRpcProvider(constant.defaultRpcUrl),
+      signer: signer === null ? undefined : signer,
     }
-  }, [account, chainId, isActivating, isActive, isWrongNetwork, provider])
+  }, [address, isConnected, isConnecting, isWrongNetwork, provider, signer])
 }

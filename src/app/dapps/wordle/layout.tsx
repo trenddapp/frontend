@@ -1,18 +1,19 @@
 'use client'
 
-import styled from 'styled-components'
 import { Flex } from 'lib/component/Toolkit'
 import { Header } from './component/Header'
 
-const Container = styled.main``
+interface LayoutProps {
+  children: React.ReactNode
+}
 
-export default function WordleLayout({ children }: { children: React.ReactNode }) {
+export default function Layout(props: LayoutProps) {
   return (
-    <Container>
+    <>
       <Header />
       <Flex flexDirection="column" margin="54px">
-        {children}
+        {props.children}
       </Flex>
-    </Container>
+    </>
   )
 }

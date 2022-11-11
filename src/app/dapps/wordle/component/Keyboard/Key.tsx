@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { WordleCharStatus } from '../../api'
+import { WordleCharStatus } from 'lib/api/wordle'
 
 interface KeyProps {
   onClick: (text: string) => void

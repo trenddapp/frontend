@@ -1,9 +1,5 @@
 'use client'
 
-export default function NFTHead() {
-  return (
-    <>
-      <title>NFT | Trenddapp</title>
-    </>
-  )
+export default function Head() {
+  return <title>NFT | Trenddapp</title>
 }

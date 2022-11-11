@@ -1,9 +1,5 @@
 'use client'
 
-export default function CareersHead() {
-  return (
-    <>
-      <title>Careers | Trenddapp</title>
-    </>
-  )
+export default function Head() {
+  return <title>Careers | Trenddapp</title>
 }
