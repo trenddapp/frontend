@@ -26,6 +26,7 @@
     "wagmi": "^0.8.1"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "^4.28.4-appdir.0",
     "@types/node": "18.11.7",
     "@types/react": "18.0.24",
     "@types/react-dom": "18.0.8",
