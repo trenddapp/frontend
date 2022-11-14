@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Flex } from 'lib/component/Toolkit'
 import { SvgPrevious, SvgNext, SvgEnd } from 'lib/component/Svg'
 
-const Container = styled(Flex)`
+const Container = styled(Flex)<any>`
   padding: 1rem;
   background-color: ${(props) => (props.hasPagination ? '#fff' : 'rgb(232 242 246)')};
   border-bottom: ${(props) => (props.hasPagination ? '1px solid rgb(231, 227, 235)' : '')};
@@ -66,19 +66,15 @@ const IconContainer = styled.div`
 
 export default function Heading({ hasPagination, drawNumber, drawDate }: any) {
   const [num, setNum] = useState(drawNumber)
-
   const handleDecrement = () => {
-    setNum((prev) => (prev - 1 > 0 ? prev - 1 : 0))
+    setNum((prev: any) => (prev - 1 > 0 ? prev - 1 : 0))
   }
-
   const handleIncrement = () => {
-    setNum((prev) => (prev + 1 > drawNumber ? prev : prev + 1))
+    setNum((prev: any) => (prev + 1 > drawNumber ? prev : prev + 1))
   }
-
   const handleGoToEnd = () => {
     setNum(drawNumber)
   }
-
   return (
     <Container {...{ hasPagination }}>
       {hasPagination ? (

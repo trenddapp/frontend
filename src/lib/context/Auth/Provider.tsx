@@ -18,7 +18,7 @@ interface ProviderProps {
 
 export default function Provider({ children }: ProviderProps) {
   const [userId, setUserId] = useState<string | null>(null)
-  const { account: userWalletAddress, isActive: isUserWalletActive, signer } = useConnector()
+  const { address: userWalletAddress, isConnected: isUserWalletConnected, signer } = useConnector()
 
   // disconnect removes access-token and refreshes the page.
   const disconnect = async () => {
@@ -29,7 +29,7 @@ export default function Provider({ children }: ProviderProps) {
   // Try to obtain access token if user wallet is connected and there isn't a valid access token.
   useEffect(() => {
     // Return if user wallet is not connected.
-    if (userWalletAddress === undefined || !isUserWalletActive) {
+    if (userWalletAddress === undefined || !isUserWalletConnected) {
       setUserId(null)
       return
     }
@@ -78,7 +78,7 @@ export default function Provider({ children }: ProviderProps) {
       }
     }
     connect()
-  }, [userWalletAddress, isUserWalletActive])
+  }, [userWalletAddress, isUserWalletConnected])
 
   return <Context.Provider value={{ disconnect, userId }}>{children}</Context.Provider>
 }

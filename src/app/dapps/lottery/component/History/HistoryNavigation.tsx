@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Flex } from 'lib/component/Toolkit'
 import { SvgEnd, SvgNext, SvgPrevious } from 'lib/component/Svg'
 
-const Button = styled(Flex)`
+const HistoryNavigationButton = styled(Flex)<any>`
   align-items: center;
   cursor: pointer;
   margin: 0 10px;
@@ -17,11 +17,11 @@ const Button = styled(Flex)`
   }
 `
 
-const Container = styled(Flex)`
+const HistoryNavigationContainer = styled(Flex)`
   justify-content: space-between;
 `
 
-const Heading = styled.h4`
+const HistoryNavigationHeading = styled.h4`
   color: ${({ theme }) => theme.colors.headline};
   margin: 0 10px 0 0;
 `
@@ -46,12 +46,10 @@ export default function HistoryNavigation({ currentLotteryId, id, isLoading, set
     if (!event.currentTarget.validity.valid) {
       return
     }
-
     if (event.target.value === '') {
       setId(-2)
       return
     }
-
     let id = parseInt(event.target.value, 10)
     if (id >= currentLotteryId - 1) {
       id = currentLotteryId - 1
@@ -59,33 +57,27 @@ export default function HistoryNavigation({ currentLotteryId, id, isLoading, set
 
     setId(id)
   }
-
   const handleLeftClick = () => {
     if (id <= 0) {
       setId(0)
       return
     }
-
     setId(id - 1)
   }
-
   const handleRightClick = () => {
     if (id >= currentLotteryId - 1) {
       setId(currentLotteryId - 1)
       return
     }
-
     setId(id + 1)
   }
-
   const handleRightEndClick = () => {
     setId(currentLotteryId - 1)
   }
-
   return (
-    <Container>
+    <HistoryNavigationContainer>
       <Flex>
-        <Heading>Round</Heading>
+        <HistoryNavigationHeading>Round</HistoryNavigationHeading>
         <Input
           disabled={false}
           onChange={handleInputChange}
@@ -95,16 +87,16 @@ export default function HistoryNavigation({ currentLotteryId, id, isLoading, set
         />
       </Flex>
       <Flex>
-        <Button disabled={isLoading || id === 0} onClick={handleLeftClick}>
+        <HistoryNavigationButton disabled={isLoading || id === 0} onClick={handleLeftClick}>
           <SvgPrevious />
-        </Button>
-        <Button disabled={isLoading || id === currentLotteryId - 1} onClick={handleRightClick}>
+        </HistoryNavigationButton>
+        <HistoryNavigationButton disabled={isLoading || id === currentLotteryId - 1} onClick={handleRightClick}>
           <SvgNext />
-        </Button>
-        <Button disabled={isLoading || id === currentLotteryId - 1} onClick={handleRightEndClick}>
+        </HistoryNavigationButton>
+        <HistoryNavigationButton disabled={isLoading || id === currentLotteryId - 1} onClick={handleRightEndClick}>
           <SvgEnd />
-        </Button>
+        </HistoryNavigationButton>
       </Flex>
-    </Container>
+    </HistoryNavigationContainer>
   )
 }

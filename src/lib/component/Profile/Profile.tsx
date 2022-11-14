@@ -74,14 +74,14 @@ export default function Profile() {
   const ref = useRef()
   const { disconnect } = useContext(AuthContext)
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false)
-  const { account, isActivating, isActive, isWrongNetwork } = useConnector()
+  const { address, isConnected, isConnecting, isWrongNetwork } = useConnector()
   const onDisconnect = () => {
     setIsDropdownOpen(false)
     disconnect()
   }
   return (
     <ProfileContainer ref={ref}>
-      {isActivating ? (
+      {isConnecting ? (
         <>
           <ProfileCircle>
             <SvgUser height="20px" width="20px" />
@@ -90,7 +90,7 @@ export default function Profile() {
             <Text>connecting...</Text>
           </ProfileAccount>
         </>
-      ) : isActive ? (
+      ) : isConnected ? (
         <Flex
           onMouseEnter={() => setIsDropdownOpen(true)}
           onMouseLeave={() => setIsDropdownOpen(false)}
@@ -100,7 +100,7 @@ export default function Profile() {
             <SvgUser height="20px" width="20px" />
           </ProfileCircle>
           <ProfileAccount>
-            <Text>{shortenAddress(account || '')}</Text>
+            <Text>{shortenAddress(address || '')}</Text>
             <Flex alignItems="center" justifyContent="center" marginLeft="10px">
               <SvgChevronDown height="20px" width="20px" />
             </Flex>
@@ -110,7 +110,7 @@ export default function Profile() {
             offsetLeft={0}
             offsetTop={ref.current !== undefined ? ref.current['clientHeight'] : 0}
           >
-            <DropdownLink href={getEtherscanUrl(account || '')} onClick={() => setIsDropdownOpen(false)}>
+            <DropdownLink href={getEtherscanUrl(address || '')} onClick={() => setIsDropdownOpen(false)}>
               <SvgWallet height={20} width={20} />
               <Text as="span" margin="0 0 0 15px">
                 Wallet

@@ -31,12 +31,12 @@ const ShowDetailButton = styled.div`
   }
 `
 
-const ChevronDownStyle = styled.div`
+const ChevronDownStyle = styled.div<any>`
   transition: 0.3s ease;
   margin: 0 6px;
-  transform: ${(props) => (props.showDeatail ? 'rotate(180deg)' : '')};
-  margin-top: ${(props) => (props.showDeatail ? '2px' : '')};
-  margin-bottom: ${(props) => (props.showDeatail ? '' : '2px')};
+  transform: ${(props) => (props.showDetail ? 'rotate(180deg)' : '')};
+  margin-top: ${(props) => (props.showDetail ? '2px' : '')};
+  margin-bottom: ${(props) => (props.showDetail ? '' : '2px')};
 `
 
 function DrawInfo({ renderHeading, renderContent, renderDetail }: any) {

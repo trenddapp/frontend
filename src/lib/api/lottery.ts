@@ -7,7 +7,7 @@ export enum LotteryStatus {
   Complete,
 }
 
-export async function buyTicket(contract: ethers.Contract, costPerTicket) {
+export async function buyTicket(contract: ethers.Contract, costPerTicket: any) {
   return await contract.buyTicket({
     value: costPerTicket,
   })
