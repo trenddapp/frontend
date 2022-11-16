@@ -9,6 +9,13 @@
   Develop dapps for friends!
 </p>
 
+<p align="center">
+  <a href="https://trenddapp.com/dapps/auction"><strong>Auction</strong></a> .
+  <a href="https://trenddapp.com/dapps/lottery"><strong>Lottery</strong></a> .
+  <a href="https://trenddapp.com/dapps/nft"><strong>NFT</strong></a> .
+  <a href="https://trenddapp.com/dapps/wordle"><strong>Wordle</strong></a>
+</p>
+<br/>
 
 ## Frontend
 This repository holds our frontend code, which includes the home page, all of the dapps, and etc.
