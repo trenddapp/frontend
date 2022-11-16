@@ -1,4 +1,4 @@
-This repository holds our frontend code, which includes the home page, all of the product pages, and etc.
+This repository holds our frontend code, which includes the home page, all of the dapps, and etc.
 
 ## Installation
 Run the commands below:
