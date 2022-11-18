@@ -20,13 +20,6 @@
 ## Frontend
 This repository holds our frontend code, which includes the home page, all of the dapps, and etc.
 
-## Installation
-Run the commands below:
-```sh
-$ yarn install
-$ yarn dev
-```
-
 ## Conventions
 Here is a list of conventions used:
 - [Airbnb React/JSX styled guide](https://github.com/airbnb/javascript/tree/master/react)
