@@ -1,8 +1,10 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
+import 'react-toastify/dist/ReactToastify.css'
 import { ConnectKitProvider } from 'connectkit'
 import { ThemeProvider } from 'styled-components'
+import { ToastContainer } from 'react-toastify'
 import { WagmiConfig } from 'wagmi'
 import { AuthProvider } from 'lib/context/Auth'
 import { Footer } from 'lib/component/Footer'
@@ -30,6 +32,17 @@ export default function Layout(props: LayoutProps) {
           <ConnectKitProvider theme="soft">
             <AuthProvider>
               <body>
+                <ToastContainer
+                  position="bottom-left"
+                  autoClose={5000}
+                  hideProgressBar={false}
+                  newestOnTop
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                />
                 <Header isFixed={pathname === null ? true : !pathname.includes('/dapps')} />
                 <main>{props.children}</main>
                 <Footer />

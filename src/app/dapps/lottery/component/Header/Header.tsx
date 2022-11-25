@@ -4,8 +4,6 @@ import Image from 'next/image'
 import { ConnectKitButton } from 'connectkit'
 import styled from 'styled-components'
 import { Box, Flex } from 'lib/component/Toolkit'
-import { Profile } from 'lib/component/Profile'
-import { useConnector } from 'lib/hook'
 
 const HeaderContainer = styled(Flex)`
   align-items: center;
@@ -39,7 +37,6 @@ const HeaderSection = styled(Box)`
 `
 
 export default function Header() {
-  const { isConnected, isConnecting } = useConnector()
   return (
     <HeaderSection>
       <HeaderContainer>
@@ -47,7 +44,7 @@ export default function Header() {
           <Image alt="lottery logo" height={45} src="/dapps/lottery/logo.png" width={45} />
           Lottery
         </HeaderLogo>
-        {isConnected || isConnecting ? <Profile /> : <ConnectKitButton />}
+        <ConnectKitButton />
       </HeaderContainer>
     </HeaderSection>
   )
