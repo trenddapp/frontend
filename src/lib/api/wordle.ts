@@ -22,6 +22,7 @@ export interface Wordle {
   status: WordleStatus
   guesses: string[]
   char_status: WordleCharStatus[][]
+  solution?: string
 }
 
 export async function getWordle(id: string) {

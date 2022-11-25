@@ -2,13 +2,34 @@
 
 import { useContext, useEffect, useState } from 'react'
 import { default as GraphmeSplitter } from 'grapheme-splitter'
+import { toast } from 'react-toastify'
+import styled from 'styled-components'
 import { AuthContext } from 'lib/context/Auth'
 import { Board } from './component/Board'
 import { createWordle, listWordles, updateWordle, Wordle, WordleStatus } from 'lib/api/wordle'
-import { Flex } from 'lib/component/Toolkit'
+import { Flex, Text } from 'lib/component/Toolkit'
 import { Keyboard } from './component/Keyboard'
 import { Modal, ModalBody, ModalHeader, ModalTitle } from 'lib/component/Modal'
 import { unicodeLength } from 'lib/util/unicode'
+
+const WordlePlayButton = styled.a`
+  background-color: rgb(78, 94, 228);
+  border-radius: 6px;
+  box-shadow: rgb(50 50 93 / 11%) 0px 4px 6px, rgb(0 0 0 / 8%) 0px 1px 3px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 24px 0 0 0;
+  padding: 11px 35px;
+  transition: background-color 0.4s ease 0s, color 0.4s ease 0s, transform 0.4s ease 0s;
+  &:hover {
+    background-color: rgb(67, 81, 197);
+    box-shadow: rgb(50 50 93 / 10%) 0px 7px 14px, rgb(0 0 0 / 8%) 0px 3px 6px;
+    color: rgb(255, 255, 255);
+  }
+`
 
 export default function Page() {
   const { userId } = useContext(AuthContext)
@@ -36,41 +57,51 @@ export default function Page() {
     try {
       const wordle = await updateWordle({ ...currentWordle, guesses: [...currentWordle.guesses, currentGuess] })
       if (wordle.char_status === null) {
+        // TODO: Remove me!
         wordle.char_status = []
       }
       if (wordle.guesses === null) {
+        // TODO: Remove me!
         wordle.guesses = []
       }
       setCurrentWordle(wordle)
+      setCurrentGuess('')
     } catch (error) {
-      console.log(error)
+      setCurrentGuess('')
+      toast.error('Invalid word!')
+      return
     }
+  }
+  const initialize = async () => {
+    if (userId === undefined) {
+      return
+    }
+    setIsModalOpen(false)
+    setIsWinner(false)
     setCurrentGuess('')
+    try {
+      const wordles = await listWordles(undefined, 1, WordleStatus.Open)
+      if (wordles.length !== 0) {
+        setCurrentWordle(wordles[0])
+      }
+    } catch (error: any) {
+      if (error?.response?.data?.error?.code !== 404) {
+        console.log(error)
+        toast.error('Failed to fetch wordle data!')
+        return
+      }
+      try {
+        setCurrentWordle(await createWordle({ id: '', status: WordleStatus.Open, guesses: [], char_status: [] }))
+      } catch (error: any) {
+        console.log(error)
+        toast.error('Failed to create a new wordle!')
+        return
+      }
+    }
   }
   // Set the `currentWordle` to the latest open wordle otherwise, create a new one and set it as the `currentWordle`.
   useEffect(() => {
-    const initialize = async () => {
-      try {
-        const wordles = await listWordles(undefined, 1, WordleStatus.Open)
-        if (wordles.length !== 0) {
-          setCurrentWordle(wordles[0])
-        }
-      } catch (error: any) {
-        if (error?.response?.data?.error?.code !== 404) {
-          console.log(error)
-          return
-        }
-        try {
-          setCurrentWordle(await createWordle({ id: '', status: WordleStatus.Open, guesses: [], char_status: [] }))
-        } catch (error: any) {
-          console.log(error)
-          return
-        }
-      }
-    }
-    if (userId !== null) {
-      initialize()
-    }
+    initialize()
   }, [userId])
   useEffect(() => {
     if (currentWordle.status !== WordleStatus.Complete) {
@@ -92,11 +123,26 @@ export default function Page() {
         <Keyboard currentWordle={currentWordle} onChar={onChar} onDelete={onDelete} onEnter={onEnter} />
       </Flex>
       {isModalOpen ? (
-        <Modal onDismiss={() => setIsModalOpen(false)}>
+        <Modal onDismiss={() => {}}>
           <ModalHeader>
-            <ModalTitle>{isWinner ? 'You have won :)' : 'You have lost :('}</ModalTitle>
+            <ModalTitle>{isWinner ? 'WINNER' : 'LOSER'}</ModalTitle>
           </ModalHeader>
-          <ModalBody>{isWinner ? '' : ''}</ModalBody>
+          <ModalBody>
+            <Flex flexDirection="column" justifyContent="center" alignItems="center" height="150px">
+              {isWinner ? (
+                <>
+                  <Text as="p">The solution was:</Text>
+                  <Text as="p">{currentWordle.solution?.toUpperCase()}</Text>
+                </>
+              ) : (
+                <>
+                  <Text as="p">The solution was:</Text>
+                  <Text as="p">{currentWordle.solution?.toUpperCase()}</Text>
+                </>
+              )}
+              <WordlePlayButton onClick={initialize}>PLAY</WordlePlayButton>
+            </Flex>
+          </ModalBody>
         </Modal>
       ) : null}
     </>

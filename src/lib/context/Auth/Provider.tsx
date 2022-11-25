@@ -17,47 +17,48 @@ interface ProviderProps {
 }
 
 export default function Provider({ children }: ProviderProps) {
-  const [userId, setUserId] = useState<string | null>(null)
-  const { address: userWalletAddress, isConnected: isUserWalletConnected, signer } = useConnector()
+  const [userId, setUserId] = useState<string | undefined>(undefined)
+  const { address, isConnected, signer } = useConnector()
 
   // disconnect removes access-token and refreshes the page.
   const disconnect = async () => {
-    setUserId(null)
+    setUserId(undefined)
     localStorage.removeItem('access_token')
   }
 
   // Try to obtain access token if user wallet is connected and there isn't a valid access token.
   useEffect(() => {
     // Return if user wallet is not connected.
-    if (userWalletAddress === undefined || !isUserWalletConnected) {
-      setUserId(null)
+    if (address === undefined || !isConnected) {
+      setUserId(undefined)
       return
     }
     // Return and set access token state on a valid access token in local storage.
-    const accessTokenStr = localStorage.getItem('access_token')
-    if (accessTokenStr !== '' && accessTokenStr !== null) {
-      const accessToken = jwt_decode<AccessToken>(accessTokenStr)
-      if (userWalletAddress === accessToken.address) {
-        setUserId(accessToken.id)
+    const accessToken = localStorage.getItem('access_token')
+    if (accessToken !== '' && accessToken !== null) {
+      const jwt = jwt_decode<AccessToken>(accessToken)
+      if (address === jwt.address) {
+        setUserId(jwt.id)
         return
       }
     }
     // Create access token and store it in local storage and set access token state.
     const connect = async () => {
+      console.log('Trying to connect')
       let user
       try {
-        user = await getUser(userWalletAddress)
+        user = await getUser(address)
       } catch (error: any) {
         if (error?.response?.data?.error?.code !== 404) {
-          setUserId(null)
           console.log('connect:', error)
+          setUserId(undefined)
           return
         }
         try {
-          user = await createUser(userWalletAddress)
-        } catch (error) {
-          setUserId(null)
+          user = await createUser(address)
+        } catch (error: any) {
           console.log('connect:', error)
+          setUserId(undefined)
           return
         }
       }
@@ -71,14 +72,14 @@ export default function Provider({ children }: ProviderProps) {
         localStorage.setItem('access_token', session.token)
         const claims = jwt_decode<AccessToken>(session.token)
         setUserId(claims.id)
-      } catch (error) {
-        setUserId(null)
+      } catch (error: any) {
         console.log('connect:', error)
+        setUserId(undefined)
         return
       }
     }
     connect()
-  }, [userWalletAddress, isUserWalletConnected])
+  }, [address, isConnected, signer])
 
   return <Context.Provider value={{ disconnect, userId }}>{children}</Context.Provider>
 }

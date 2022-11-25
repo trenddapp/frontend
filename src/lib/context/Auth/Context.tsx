@@ -4,9 +4,9 @@ import { createContext } from 'react'
 
 export interface Auth {
   disconnect: () => void
-  userId: string | null
+  userId?: string
 }
 
-const Context = createContext<Auth>({ disconnect: () => {}, userId: null })
+const Context = createContext<Auth>({ disconnect: () => {} })
 
 export default Context

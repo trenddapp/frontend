@@ -1,12 +1,9 @@
 'use client'
 
-import { useContext } from 'react'
 import Image from 'next/image'
 import styled from 'styled-components'
-import { AuthContext } from 'lib/context/Auth'
 import { Box, Flex } from 'lib/component/Toolkit'
 import { ConnectKitButton } from 'connectkit'
-import { Profile } from 'lib/component/Profile'
 
 const HeaderContainer = styled(Flex)`
   align-items: center;
@@ -40,7 +37,6 @@ const HeaderSection = styled(Box)`
 `
 
 export default function Header() {
-  const { userId } = useContext(AuthContext)
   return (
     <HeaderSection>
       <HeaderContainer>
@@ -50,7 +46,7 @@ export default function Header() {
           </Box>
           Wordle
         </HeaderLogo>
-        {userId !== null ? <Profile /> : <ConnectKitButton />}
+        <ConnectKitButton />
       </HeaderContainer>
     </HeaderSection>
   )
