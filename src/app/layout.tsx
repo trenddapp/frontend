@@ -23,6 +23,7 @@ export default function Layout(props: LayoutProps) {
     <html lang="en">
       <head>
         <meta name="description" content="Decentralized applications by TrendDapp" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />
       </head>
       <ThemeProvider theme={lightTheme}>
