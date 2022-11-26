@@ -44,7 +44,6 @@ export default function History() {
   const [currentLotteryId, setCurrentLotteryId] = useState(-1)
   const [id, setId] = useState(-1)
   const { contract } = useContractLottery({})
-  console.log(contract)
   const { error: lotteryError, data: lottery } = useSWR(
     contract !== undefined ? ['lotteries/:id', contract, id] : null,
     async (_, contract, id) => {

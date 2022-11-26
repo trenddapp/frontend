@@ -107,8 +107,6 @@ export default function Hero() {
     status,
     statusError,
   } = useContext(LotteryContext)
-  console.log(status)
-  console.log(statusError)
   const handleBuyTicket = async () => {
     if (
       contract === undefined ||
