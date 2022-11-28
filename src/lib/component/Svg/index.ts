@@ -1,6 +1,7 @@
 export { default as SvgChevronDown } from './ChevronDown'
 export { default as SvgEnd } from './End'
 export { default as SvgExclamation } from './Exclamation'
+export { default as SvgExclamationTriangle } from './ExclamationTriangle'
 export { default as SvgLogout } from './Logout'
 export { default as SvgMetaMask } from './MetaMask'
 export { default as SvgNext } from './Next'
