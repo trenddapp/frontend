@@ -1,6 +1,6 @@
 import useSWR from 'swr'
 import { getRate } from 'lib/api/currency'
-import constant from 'config'
+import config from 'config'
 import Context from './Context'
 
 interface ProviderProps {
@@ -12,7 +12,7 @@ export default function Provider({ children }: ProviderProps) {
   const { data: dataEthUsd, error: errorEthUsd } = useSWR(
     'eth-usd',
     (symbol: string) => getRate(symbol),
-    { refreshInterval: constant.currencyRateRefreshIntervalMs },
+    { refreshInterval: config.currencyRateRefreshIntervalMs },
   )
 
   return (

@@ -15,6 +15,8 @@ export interface Colors {
   failure: string
   headline: string
   overlay: string
+  primary: string
+  primaryAlt: string
   secondary: string
   success: string
   text: string
@@ -38,6 +40,7 @@ export interface Radii {
 }
 
 export interface Shadows {
+  button: string
   menu: string
   toast: string
 }
