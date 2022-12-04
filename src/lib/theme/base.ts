@@ -26,6 +26,7 @@ export const radii: Radii = {
 }
 
 export const shadows: Shadows = {
+  button: '0 4px 6px rgb(50 50 93 / 11%), 0 1px 3px rgb(0 0 0 / 8%)',
   menu: 'rgba(0, 0, 0, 0.2) 0px 0px 15px 0px',
   toast: 'rgba(0, 0, 0, 0.3) 0px 0px 20px 0px',
 }

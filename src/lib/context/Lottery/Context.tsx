@@ -1,9 +1,10 @@
 import { createContext } from 'react'
+import { ethers } from 'ethers'
 
 interface Lottery {
-  costPerTicket?: number
+  costPerTicket?: ethers.BigNumber
   costPerTicketError?: any
-  prizePool?: number
+  prizePool?: ethers.BigNumber
   prizePoolError?: any
   status?: number
   statusError?: any
