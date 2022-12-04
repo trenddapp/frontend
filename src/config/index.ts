@@ -14,7 +14,7 @@ const address: {
   }
 } = {
   lottery: {
-    5: '0xf7FC67f103cF08a23F243dC51f14bDe43eaD68Cf',
+    5: '0x5248bC37FB71130F429A6b0010dEC62d51035432',
   },
 }
 

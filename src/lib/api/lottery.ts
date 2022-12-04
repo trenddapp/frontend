@@ -7,6 +7,14 @@ export enum LotteryStatus {
   Complete,
 }
 
+export interface Lottery {
+  id: number
+  startedAt: number
+  prizePool: ethers.BigNumber
+  winningAddress: string
+  winningNumber: string
+}
+
 export async function buyTicket(contract: ethers.Contract, costPerTicket: any) {
   return await contract.buyTicket({
     value: costPerTicket,
@@ -17,7 +25,7 @@ export async function claimReward(contract: ethers.Contract) {
   return await contract.claimReward()
 }
 
-export async function getCostPerTicket(contract: ethers.Contract) {
+export async function getCostPerTicket(contract: ethers.Contract): Promise<ethers.BigNumber> {
   return await contract.costPerTicket()
 }
 
@@ -33,10 +41,10 @@ export async function getLottery(contract: ethers.Contract, id: number) {
 }
 
 export async function getLotteryId(contract: ethers.Contract): Promise<number> {
-  return await contract.lotteryID()
+  return (await contract.lotteryID()).toNumber()
 }
 
-export async function getPrizePool(contract: ethers.Contract) {
+export async function getPrizePool(contract: ethers.Contract): Promise<ethers.BigNumber> {
   return await contract.prizePool()
 }
 

@@ -5,10 +5,10 @@ import styled from 'styled-components'
 import useSWR from 'swr'
 import { Box, Flex } from 'lib/component/Toolkit'
 import { getLotteryId, getLottery } from 'lib/api/lottery'
+import { useContractLottery } from 'lib/hook'
 import HistoryDate from './HistoryDate'
 import HistoryInformation from './HistoryInformation'
 import HistoryNavigation from './HistoryNavigation'
-import { useContractLottery } from 'lib/hook'
 
 const HistoryCard = styled(Box)`
   border-radius: ${({ theme }) => theme.radii.default};
@@ -26,8 +26,6 @@ const HistoryContainer = styled(Flex)`
   flex-direction: column;
 `
 
-const HistoryHeader = styled(Box)``
-
 const HistoryHeading = styled.h2`
   color: ${({ theme }) => theme.colors.headline};
   font-size: 40px;
@@ -41,14 +39,12 @@ const HistorySection = styled.section`
 `
 
 export default function History() {
-  const [currentLotteryId, setCurrentLotteryId] = useState(-1)
   const [id, setId] = useState(-1)
   const { contract } = useContractLottery({})
   const { error: lotteryError, data: lottery } = useSWR(
     contract !== undefined ? ['lotteries/:id', contract, id] : null,
     async (_, contract, id) => {
       const currentLotteryId = await getLotteryId(contract)
-      setCurrentLotteryId(currentLotteryId)
       // Value `-2` indicates empty id.
       if (id === -2) {
         return
@@ -65,16 +61,11 @@ export default function History() {
       <HistoryContainer>
         <HistoryHeading>Finished Rounds</HistoryHeading>
         <HistoryCard>
-          <HistoryHeader>
-            <HistoryNavigation
-              currentLotteryId={currentLotteryId}
-              id={id}
-              isLoading={!lotteryError && lottery === undefined}
-              setId={setId}
-            />
-            <HistoryDate id={id} isLoading={!lotteryError && lottery === undefined} lottery={lottery} />
-          </HistoryHeader>
-          <HistoryInformation isLoading={!lotteryError && lottery === undefined} lottery={lottery} />
+          <Box>
+            <HistoryNavigation id={id} lottery={lottery} lotteryError={lotteryError} setId={setId} />
+            <HistoryDate id={id} lottery={lottery} lotteryError={lotteryError} />
+          </Box>
+          <HistoryInformation lottery={lottery} lotteryError={lotteryError} />
         </HistoryCard>
       </HistoryContainer>
     </HistorySection>

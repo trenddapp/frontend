@@ -5,10 +5,10 @@ import { BigNumber, ethers } from 'ethers'
 import { toast } from 'react-toastify'
 import styled from 'styled-components'
 import { Box, Flex } from 'lib/component/Toolkit'
+import { Button } from 'lib/component/Button'
 import { buyTicket, LotteryStatus } from 'lib/api/lottery'
-import { CurrencyContext } from 'lib/context/Currency'
 import { LotteryContext } from 'lib/context/Lottery'
-import { useConnector, useContractLottery } from 'lib/hook'
+import { useConnector, useContractLottery, useCurrency } from 'lib/hook'
 
 const HeroBackgroundLeft = styled(Box)`
   display: none;
@@ -46,24 +46,16 @@ const HeroBackgroundRight = styled(Box)`
   }
 `
 
-const HeroButton = styled.a`
-  background-color: rgb(78, 94, 228);
-  border-radius: 6px;
+const HeroButton = styled(Button)`
   box-shadow: rgb(50 50 93 / 11%) 0px 4px 6px, rgb(0 0 0 / 8%) 0px 1px 3px;
-  color: rgb(255, 255, 255);
-  cursor: pointer;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 1px;
   margin: 30px 0 0 0;
   padding: 11px 35px;
-  text-align: center;
-  transition: background-color 0.4s ease 0s, color 0.4s ease 0s, transform 0.4s ease 0s;
   width: 240px;
   &:hover {
-    background-color: rgb(67, 81, 197);
     box-shadow: rgb(50 50 93 / 10%) 0px 7px 14px, rgb(0 0 0 / 8%) 0px 3px 6px;
-    color: rgb(255, 255, 255);
   }
 `
 
@@ -96,17 +88,9 @@ const HeroSection = styled.section`
 export default function Hero() {
   const { signer } = useConnector()
   const { contract } = useContractLottery({ signer })
-  const currency = useContext(CurrencyContext)
-  const rate = currency?.['eth-usd']?.rate
-  const rateError = currency?.['eth-usd']?.error
-  // prettier-ignore
-  const { 
-    costPerTicket,
-    prizePool,
-    prizePoolError,
-    status,
-    statusError,
-  } = useContext(LotteryContext)
+  const { data: rate, error: rateError } = useCurrency('eth-usd')
+  const { costPerTicket, costPerTicketError, prizePool, prizePoolError, status, statusError } =
+    useContext(LotteryContext)
   const handleBuyTicket = async () => {
     if (
       contract === undefined ||
@@ -127,21 +111,51 @@ export default function Hero() {
       toast.error('Failed to buy a ticket. Please try again!')
     }
   }
+  if (
+    (costPerTicket === undefined && costPerTicketError === undefined) ||
+    (prizePool === undefined && prizePoolError === undefined) ||
+    (rate === undefined && rateError === undefined) ||
+    (status === undefined && statusError === undefined)
+  ) {
+    return (
+      <HeroSection>
+        <HeroContainer>
+          <HeroHeading>The Trenddapp Lottery</HeroHeading>
+          <HeroHeading>loading...</HeroHeading>
+        </HeroContainer>
+      </HeroSection>
+    )
+  }
+  if (
+    costPerTicket === undefined ||
+    costPerTicketError !== undefined ||
+    prizePool === undefined ||
+    prizePoolError !== undefined ||
+    rate === undefined ||
+    rateError !== undefined ||
+    status === undefined ||
+    statusError !== undefined
+  ) {
+    return (
+      <HeroSection>
+        <HeroContainer>
+          <HeroHeading>The Trenddapp Lottery</HeroHeading>
+          <HeroHeading>something went wrong!</HeroHeading>
+        </HeroContainer>
+      </HeroSection>
+    )
+  }
   return (
     <HeroSection>
       <HeroContainer>
         <HeroHeading>The TrendDapp Lottery</HeroHeading>
-        {statusError === undefined && status !== LotteryStatus.Open ? (
-          <HeroHeading>Next round starting soon!</HeroHeading>
-        ) : prizePool !== undefined && status === LotteryStatus.Open && rate !== undefined ? (
+        {status === LotteryStatus.Open ? (
           <>
             <HeroPrize>${ethers.utils.formatEther(BigNumber.from(Math.floor(rate.value)).mul(prizePool))}</HeroPrize>
             <HeroHeading>in prizes!</HeroHeading>
           </>
-        ) : prizePoolError !== undefined || statusError !== undefined || rateError !== undefined ? (
-          <HeroHeading>Something went wrong!</HeroHeading>
         ) : (
-          <HeroHeading>Loading...</HeroHeading>
+          <HeroHeading>next round starting soon!</HeroHeading>
         )}
         <HeroButton onClick={handleBuyTicket}>Buy Ticket</HeroButton>
       </HeroContainer>
