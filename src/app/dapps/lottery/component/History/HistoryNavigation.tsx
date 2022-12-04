@@ -1,8 +1,18 @@
 'use client'
 
+import { useContext } from 'react'
 import styled from 'styled-components'
 import { Flex } from 'lib/component/Toolkit'
+import { Lottery } from 'lib/api/lottery'
+import { LotteryContext } from 'lib/context/Lottery'
 import { SvgEnd, SvgNext, SvgPrevious } from 'lib/component/Svg'
+
+interface HistoryNavigationProps {
+  id: number
+  lottery?: Lottery
+  lotteryError?: any
+  setId: any
+}
 
 const HistoryNavigationButton = styled(Flex)<any>`
   align-items: center;
@@ -26,7 +36,7 @@ const HistoryNavigationHeading = styled.h4`
   margin: 0 10px 0 0;
 `
 
-const Input = styled.input`
+const HistoryNavigationInput = styled.input`
   background-color: rgb(238, 234, 244);
   border-radius: ${({ theme }) => theme.radii.default};
   border: 1px solid rgb(215, 202, 236);
@@ -41,8 +51,12 @@ const Input = styled.input`
   width: 60px;
 `
 
-export default function HistoryNavigation({ currentLotteryId, id, isLoading, setId }: any) {
+export default function HistoryNavigation({ id, lottery, lotteryError, setId }: HistoryNavigationProps) {
+  const { lotteryId, lotteryIdError } = useContext(LotteryContext)
   const handleInputChange = (event: any) => {
+    if (lotteryId === undefined) {
+      return
+    }
     if (!event.currentTarget.validity.valid) {
       return
     }
@@ -51,10 +65,9 @@ export default function HistoryNavigation({ currentLotteryId, id, isLoading, set
       return
     }
     let id = parseInt(event.target.value, 10)
-    if (id >= currentLotteryId - 1) {
-      id = currentLotteryId - 1
+    if (id >= lotteryId - 1) {
+      id = lotteryId - 1
     }
-
     setId(id)
   }
   const handleLeftClick = () => {
@@ -65,20 +78,77 @@ export default function HistoryNavigation({ currentLotteryId, id, isLoading, set
     setId(id - 1)
   }
   const handleRightClick = () => {
-    if (id >= currentLotteryId - 1) {
-      setId(currentLotteryId - 1)
+    if (lotteryId === undefined) {
+      return
+    }
+    if (id >= lotteryId - 1) {
+      setId(lotteryId - 1)
       return
     }
     setId(id + 1)
   }
   const handleRightEndClick = () => {
-    setId(currentLotteryId - 1)
+    if (lotteryId === undefined) {
+      return
+    }
+    setId(lotteryId - 1)
+  }
+  if (
+    (lottery === undefined && lotteryError === undefined) ||
+    (lotteryId === undefined && lotteryIdError === undefined)
+  ) {
+    return (
+      <HistoryNavigationContainer>
+        <Flex>
+          <HistoryNavigationHeading>Round</HistoryNavigationHeading>
+          <HistoryNavigationInput
+            disabled={false}
+            onChange={handleInputChange}
+            pattern="^[0-9]+$"
+            type="text"
+            value={id === -1 || id === -2 ? '' : id}
+          />
+        </Flex>
+        <Flex>
+          <HistoryNavigationButton disabled>
+            <SvgPrevious />
+          </HistoryNavigationButton>
+          <HistoryNavigationButton disabled>
+            <SvgNext />
+          </HistoryNavigationButton>
+          <HistoryNavigationButton disabled>
+            <SvgEnd />
+          </HistoryNavigationButton>
+        </Flex>
+      </HistoryNavigationContainer>
+    )
+  }
+  if (lottery === undefined || lotteryError !== undefined || lotteryId === undefined || lotteryIdError !== undefined) {
+    return (
+      <HistoryNavigationContainer>
+        <Flex>
+          <HistoryNavigationHeading>Round</HistoryNavigationHeading>
+          <HistoryNavigationInput disabled pattern="^[0-9]+$" type="text" />
+        </Flex>
+        <Flex>
+          <HistoryNavigationButton disabled>
+            <SvgPrevious />
+          </HistoryNavigationButton>
+          <HistoryNavigationButton disabled>
+            <SvgNext />
+          </HistoryNavigationButton>
+          <HistoryNavigationButton disabled>
+            <SvgEnd />
+          </HistoryNavigationButton>
+        </Flex>
+      </HistoryNavigationContainer>
+    )
   }
   return (
     <HistoryNavigationContainer>
       <Flex>
         <HistoryNavigationHeading>Round</HistoryNavigationHeading>
-        <Input
+        <HistoryNavigationInput
           disabled={false}
           onChange={handleInputChange}
           pattern="^[0-9]+$"
@@ -87,13 +157,13 @@ export default function HistoryNavigation({ currentLotteryId, id, isLoading, set
         />
       </Flex>
       <Flex>
-        <HistoryNavigationButton disabled={isLoading || id === 0} onClick={handleLeftClick}>
+        <HistoryNavigationButton disabled={id === 0} onClick={handleLeftClick}>
           <SvgPrevious />
         </HistoryNavigationButton>
-        <HistoryNavigationButton disabled={isLoading || id === currentLotteryId - 1} onClick={handleRightClick}>
+        <HistoryNavigationButton disabled={id === lotteryId - 1} onClick={handleRightClick}>
           <SvgNext />
         </HistoryNavigationButton>
-        <HistoryNavigationButton disabled={isLoading || id === currentLotteryId - 1} onClick={handleRightEndClick}>
+        <HistoryNavigationButton disabled={id === lotteryId - 1} onClick={handleRightEndClick}>
           <SvgEnd />
         </HistoryNavigationButton>
       </Flex>

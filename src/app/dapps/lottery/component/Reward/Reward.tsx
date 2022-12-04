@@ -9,11 +9,11 @@ import { claimReward, getWinner, LotteryStatus } from 'lib/api/lottery'
 import { LotteryContext } from 'lib/context/Lottery'
 import { useConnector, useContractLottery } from 'lib/hook'
 
-const ClaimRewardButtonWrapper = styled(Box)`
+const RewardButtonWrapper = styled(Box)`
   margin: 24px 0 0 0;
 `
 
-const ClaimRewardButton = styled.a`
+const RewardButton = styled.a`
   background-color: rgb(78, 94, 228);
   border-radius: 6px;
   box-shadow: rgb(50 50 93 / 11%) 0px 4px 6px, rgb(0 0 0 / 8%) 0px 1px 3px;
@@ -32,14 +32,14 @@ const ClaimRewardButton = styled.a`
   }
 `
 
-const ClaimRewardContainer = styled(Flex)`
+const RewardContainer = styled(Flex)`
   align-items: center;
   flex-direction: column;
   height: 100%;
   justify-content: center;
 `
 
-const ClaimRewardHeading = styled.h2`
+const RewardHeading = styled.h2`
   color: #3c3c57;
   font-size: 20px;
   font-weight: 600;
@@ -47,13 +47,13 @@ const ClaimRewardHeading = styled.h2`
   text-align: center;
 `
 
-const ClaimRewardSection = styled.section`
+const RewardSection = styled.section`
   background-color: #f2f4f7;
   height: 300px;
   padding: 48px 0;
 `
 
-export default function ClaimReward() {
+export default function Reward() {
   const { address, isConnected, signer } = useConnector()
   const { status } = useContext(LotteryContext)
   const { contract } = useContractLottery({ signer })
@@ -91,65 +91,65 @@ export default function ClaimReward() {
   }
   if (!isConnected) {
     return (
-      <ClaimRewardSection>
-        <ClaimRewardContainer>
-          <ClaimRewardHeading>
+      <RewardSection>
+        <RewardContainer>
+          <RewardHeading>
             Connect your wallet <br /> {`to check if you've won!`}
-          </ClaimRewardHeading>
-          <ClaimRewardButtonWrapper>
+          </RewardHeading>
+          <RewardButtonWrapper>
             <ConnectKitButton />
-          </ClaimRewardButtonWrapper>
-        </ClaimRewardContainer>
-      </ClaimRewardSection>
+          </RewardButtonWrapper>
+        </RewardContainer>
+      </RewardSection>
     )
   }
   if (isLoading) {
     return (
-      <ClaimRewardSection>
-        <ClaimRewardContainer>
-          <ClaimRewardHeading>Loading...</ClaimRewardHeading>
-        </ClaimRewardContainer>
-      </ClaimRewardSection>
+      <RewardSection>
+        <RewardContainer>
+          <RewardHeading>Loading...</RewardHeading>
+        </RewardContainer>
+      </RewardSection>
     )
   }
   if (isCheck) {
     return (
-      <ClaimRewardSection>
-        <ClaimRewardContainer>
-          <ClaimRewardHeading>Are you a winner?</ClaimRewardHeading>
-          <ClaimRewardButton onClick={handleCheck}>Check</ClaimRewardButton>
-        </ClaimRewardContainer>
-      </ClaimRewardSection>
+      <RewardSection>
+        <RewardContainer>
+          <RewardHeading>Are you a winner?</RewardHeading>
+          <RewardButton onClick={handleCheck}>Check</RewardButton>
+        </RewardContainer>
+      </RewardSection>
     )
   }
   if (status !== LotteryStatus.Complete) {
     return (
-      <ClaimRewardSection>
-        <ClaimRewardContainer>
-          <ClaimRewardHeading>
+      <RewardSection>
+        <RewardContainer>
+          <RewardHeading>
             Please check again, <br /> when the lottery is completed!
-          </ClaimRewardHeading>
-        </ClaimRewardContainer>
-      </ClaimRewardSection>
+          </RewardHeading>
+        </RewardContainer>
+      </RewardSection>
     )
   }
   if (isWinner) {
     return (
-      <ClaimRewardSection>
-        <ClaimRewardContainer>
-          <ClaimRewardHeading>You have won!</ClaimRewardHeading>
-          <ClaimRewardButton onClick={handleClaim}>Claim</ClaimRewardButton>
-        </ClaimRewardContainer>
-      </ClaimRewardSection>
+      <RewardSection>
+        <RewardContainer>
+          <RewardHeading>You have won!</RewardHeading>
+          <RewardButton onClick={handleClaim}>Claim</RewardButton>
+        </RewardContainer>
+      </RewardSection>
     )
   }
   return (
-    <ClaimRewardSection>
-      <ClaimRewardContainer>
-        <ClaimRewardHeading>
+    <RewardSection>
+      <RewardContainer>
+        <RewardHeading>
           No prizes to collect, <br /> better luck next time!
-        </ClaimRewardHeading>
-      </ClaimRewardContainer>
-    </ClaimRewardSection>
+        </RewardHeading>
+      </RewardContainer>
+    </RewardSection>
   )
 }

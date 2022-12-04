@@ -1,5 +1,5 @@
 import useSWR from 'swr'
-import { getCostPerTicket, getPrizePool, getStatus } from 'lib/api/lottery'
+import { getCostPerTicket, getLotteryId, getPrizePool, getStatus } from 'lib/api/lottery'
 import { useContractLottery } from 'lib/hook'
 import config from 'config'
 import Context from './Context'
@@ -13,6 +13,11 @@ export default function Provider({ children }: ProviderProps) {
   const { data: costPerTicket, error: costPerTicketError } = useSWR(
     contract !== undefined ? ['cost-per-ticket', contract] : null,
     (_, contract) => getCostPerTicket(contract),
+    { refreshInterval: 0 },
+  )
+  const { data: lotteryId, error: lotteryIdError } = useSWR(
+    contract !== undefined ? ['id', contract] : null,
+    (_, contract) => getLotteryId(contract),
     { refreshInterval: 0 },
   )
   const { data: prizePool, error: prizePoolError } = useSWR(
@@ -30,6 +35,8 @@ export default function Provider({ children }: ProviderProps) {
       value={{
         costPerTicket,
         costPerTicketError,
+        lotteryId,
+        lotteryIdError,
         prizePool,
         prizePoolError,
         status,

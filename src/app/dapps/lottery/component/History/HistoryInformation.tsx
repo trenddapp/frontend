@@ -1,11 +1,16 @@
 'use client'
 
-import { useContext } from 'react'
 import { BigNumber, ethers } from 'ethers'
 import styled from 'styled-components'
 import { Box, Flex, Text } from 'lib/component/Toolkit'
-import { CurrencyContext } from 'lib/context/Currency'
 import { shortenAddress } from 'lib/util/address'
+import { Lottery } from 'lib/api/lottery'
+import { useCurrency } from 'lib/hook'
+
+interface HistoryInformationProps {
+  lottery?: Lottery
+  lotteryError?: any
+}
 
 const HistoryInformationContainer = styled(Box)`
   margin-top: 24px;
@@ -16,11 +21,9 @@ const HistoryInformationHeading = styled.h4`
   font-weight: 600;
 `
 
-export default function HistoryInformation({ isLoading, lottery }: any) {
-  const currency = useContext(CurrencyContext)
-  const rate = currency?.['eth-usd']?.rate
-  const error = currency?.['eth-usd']?.error
-  if (isLoading || (rate === undefined && error === undefined)) {
+export default function HistoryInformation({ lottery, lotteryError }: HistoryInformationProps) {
+  const { data: rate, error: rateError } = useCurrency('eth-usd')
+  if ((lottery === undefined && lotteryError === undefined) || (rate === undefined && rateError === undefined)) {
     return (
       <HistoryInformationContainer>
         <Flex justifyContent="space-between">
@@ -38,7 +41,8 @@ export default function HistoryInformation({ isLoading, lottery }: any) {
       </HistoryInformationContainer>
     )
   }
-  if (rate === undefined) {
+
+  if (lottery === undefined || lotteryError !== undefined || rate === undefined || rateError !== undefined) {
     return (
       <HistoryInformationContainer>
         <Flex justifyContent="space-between">
