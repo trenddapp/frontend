@@ -42,9 +42,9 @@ export default function Header() {
       <HeaderContainer>
         <HeaderLogo>
           <Box margin="0 18px 0 0">
-            <Image alt="wordle logo" height={40} src="/dapps/auction/logo.png" width={40} />
+            <Image alt="auction logo" height={40} src="/dapps/auction/logo.png" width={40} />
           </Box>
-          Wordle
+          Auction
         </HeaderLogo>
         <ConnectKitButton />
       </HeaderContainer>
