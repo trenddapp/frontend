@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { ethers } from 'ethers'
 import { useAccount, useNetwork, useProvider, useSigner } from 'wagmi'
-import constant from 'config'
+import config from 'config'
 
 interface Output {
   address?: string
@@ -16,7 +16,7 @@ export default function useConnector(): Output {
   const { address, isConnected, isConnecting } = useAccount()
   const { chain } = useNetwork()
   const { data: signer } = useSigner()
-  const isWrongNetwork = chain?.id !== constant.defaultChainId
+  const isWrongNetwork = chain?.id !== config.defaultChainId
   const provider = useProvider()
   return useMemo(() => {
     return {
@@ -24,7 +24,7 @@ export default function useConnector(): Output {
       isConnected,
       isConnecting,
       isWrongNetwork,
-      provider: provider || new ethers.providers.StaticJsonRpcProvider(constant.defaultRpcUrl),
+      provider: provider || new ethers.providers.StaticJsonRpcProvider(config.defaultRpcUrl),
       signer: signer === null ? undefined : signer,
     }
   }, [address, isConnected, isConnecting, isWrongNetwork, provider, signer])
