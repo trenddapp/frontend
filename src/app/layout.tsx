@@ -8,7 +8,7 @@ import { ToastContainer } from 'react-toastify'
 import { WagmiConfig } from 'wagmi'
 import { AuthProvider } from 'lib/context/Auth'
 import { Footer } from 'lib/component/Footer'
-import { GlobalCss, ResetCss } from 'lib/style'
+import { GlobalCss, ResetCss, StyledComponentsRegistry } from 'lib/style'
 import { Header } from 'lib/component/Header'
 import { lightTheme } from 'lib/theme'
 import config from 'config'
@@ -26,32 +26,34 @@ export default function Layout(props: LayoutProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />
       </head>
-      <ThemeProvider theme={lightTheme}>
-        <ResetCss />
-        <GlobalCss />
-        <WagmiConfig client={config.wagmi}>
-          <ConnectKitProvider theme="soft">
-            <AuthProvider>
-              <body>
-                <ToastContainer
-                  position="bottom-left"
-                  autoClose={5000}
-                  hideProgressBar={false}
-                  newestOnTop
-                  closeOnClick
-                  rtl={false}
-                  pauseOnFocusLoss
-                  draggable
-                  pauseOnHover
-                />
-                <Header isFixed={pathname === null ? true : !pathname.includes('/dapps')} />
-                <main>{props.children}</main>
-                <Footer />
-              </body>
-            </AuthProvider>
-          </ConnectKitProvider>
-        </WagmiConfig>
-      </ThemeProvider>
+      <StyledComponentsRegistry>
+        <ThemeProvider theme={lightTheme}>
+          <ResetCss />
+          <GlobalCss />
+          <WagmiConfig client={config.wagmi}>
+            <ConnectKitProvider theme="soft">
+              <AuthProvider>
+                <body>
+                  <ToastContainer
+                    position="bottom-left"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                  />
+                  <Header isFixed={pathname === null ? true : !pathname.includes('/dapps')} />
+                  <main>{props.children}</main>
+                  <Footer />
+                </body>
+              </AuthProvider>
+            </ConnectKitProvider>
+          </WagmiConfig>
+        </ThemeProvider>
+      </StyledComponentsRegistry>
     </html>
   )
 }
