@@ -117,16 +117,10 @@ export default function Footer() {
       body: [{ displayText: 'Contact', url: '/' }],
     },
     {
-      head: 'Resources',
-      body: [{ displayText: 'Docs', url: '/' }],
-    },
-    {
       head: 'Company',
       body: [
         { displayText: 'About', url: '/company/about' },
-        { displayText: 'Careers', url: '/company/careers' },
         { displayText: 'GitHub', url: 'https://github.com/trenddapp' },
-        { displayText: 'Logo Kit', url: '/company/assets' },
       ],
     },
   ]

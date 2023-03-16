@@ -48,10 +48,6 @@ const Header = ({ isFixed = true }) => {
       ],
     },
     {
-      head: 'Resources',
-      body: [{ displayText: 'Docs', url: '/' }],
-    },
-    {
       head: 'Company',
       body: [
         { displayText: 'About', url: '/company/about' },
