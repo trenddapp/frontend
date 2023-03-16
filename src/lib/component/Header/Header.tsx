@@ -55,9 +55,7 @@ const Header = ({ isFixed = true }) => {
       head: 'Company',
       body: [
         { displayText: 'About', url: '/company/about' },
-        { displayText: 'Careers', url: '/company/careers' },
         { displayText: 'GitHub', url: 'https://github.com/trenddapp' },
-        { displayText: 'Logo Kit', url: '/company/assets' },
       ],
     },
     {
