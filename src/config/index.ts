@@ -15,6 +15,7 @@ const address: {
 } = {
   lottery: {
     5: '0x5248bC37FB71130F429A6b0010dEC62d51035432',
+    80001: '0xbFe62968C240e9282Eee4e533609D937858213d3',
   },
 }
 
@@ -23,7 +24,7 @@ const wagmi = createClient(
     appName: 'Trenddapp',
     autoConnect: true,
     alchemyId: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY,
-    chains: [chain.goerli],
+    chains: [chain.polygonMumbai],
   }),
 )
 
@@ -31,8 +32,8 @@ const config = {
   abi,
   address,
   currencyRateRefreshIntervalMs: 3600000,
-  defaultChainId: 5,
-  defaultRpcUrl: 'https://eth-goerli.g.alchemy.com/v2/GjUP2SB2uZdWDqnEN3pq6Fe2k0jEAjWo',
+  defaultChainId: 0xbfe62968c240e9282eee4e533609d937858213d3,
+  defaultRpcUrl: 'https://polygon-mumbai.g.alchemy.com/v2/vLJ5L5Tao4fW5zPKU-yRnhRVPC6pGSob',
   lotteryPrizePoolRefreshIntervalMs: 20000,
   lotteryStatusRefreshIntervalMs: 30000,
   wagmi,
